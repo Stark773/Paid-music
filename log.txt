@@ -1,0 +1,811 @@
+[16-Apr-26 04:36:54 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 04:36:54 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 04:36:54 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 04:36:54 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 04:36:54 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 04:36:54 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 04:36:55 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 04:36:58 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 04:37:04 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 04:37:06 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 04:37:06 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 04:37:07 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 04:37:07 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 04:37:18 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 04:40:23 - WARNING] - BABYMUSIC.platforms.Youtube - Paid API key/endpoint not configured. Using worker fallback for audio.
+[16-Apr-26 04:47:13 - WARNING] - BABYMUSIC.platforms.Youtube - Paid API key/endpoint not configured. Using worker fallback for audio.
+[16-Apr-26 04:53:50 - WARNING] - BABYMUSIC.platforms.Youtube - Paid API key/endpoint not configured. Using worker fallback for audio.
+[16-Apr-26 04:54:23 - ERROR] - BABYMUSIC.platforms.Youtube - yt-dlp download failed: [0;31mERROR:[0m [generic] Unable to download webpage: HTTPSConnectionPool(host='dl60.ymcdn.org', port=443): Read timed out. (read timeout=20.0) (caused by TransportError("HTTPSConnectionPool(host='dl60.ymcdn.org', port=443): Read timed out. (read timeout=20.0)"))
+[16-Apr-26 04:55:22 - ERROR] - BABYMUSIC.platforms.Youtube - Requests download failed: 504 Server Error: Gateway Time-out for url: https://dl60.ymcdn.org/download?hash=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
+[16-Apr-26 04:55:22 - ERROR] - BABYMUSIC.platforms.Youtube - Audio download failed on both paid API and worker fallback.
+[16-Apr-26 05:04:50 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 05:04:50 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 05:05:00 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 05:05:00 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 05:05:00 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 05:05:00 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 05:05:00 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 05:05:00 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 05:05:01 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 05:05:03 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 05:05:09 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 05:05:10 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 05:05:10 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 05:05:11 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 05:05:11 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 05:05:22 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 05:05:22 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in MessageHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 56, in wrapper
+    return await mystic(_, message, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/start.py", line 149, in start_pm
+    await message.reply_video(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/sync.py", line 53, in async_to_sync_wrap
+    coroutine = function(*args, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Message.reply_video() got an unexpected keyword argument 'message_effect_id'
+[16-Apr-26 05:10:54 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 05:10:54 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 05:11:04 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 05:11:04 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 05:11:04 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 05:11:04 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 05:11:04 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 05:11:04 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 05:11:05 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 05:11:07 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 05:11:12 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 05:11:13 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 05:11:13 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 05:11:14 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 05:11:14 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 05:11:18 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in MessageHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/start.py", line 116, in start_pm
+    await app.send_photo(
+          ^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/sync.py", line 53, in async_to_sync_wrap
+    coroutine = function(*args, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SendPhoto.send_photo() got an unexpected keyword argument 'message_effect_id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 56, in wrapper
+    return await mystic(_, message, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/start.py", line 135, in start_pm
+    await m.edit_text(f"Error: {e}")
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/types/messages_and_media/message.py", line 8205, in edit_text
+    return await self._client.edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/methods/messages/edit_message_text.py", line 119, in edit_message_text
+    r = await self.invoke(
+        ^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/methods/advanced/invoke.py", line 107, in invoke
+    r = await session.invoke(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/session/session.py", line 551, in invoke
+    return await self.send(query, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/session/session.py", line 514, in send
+    RPCError.raise_it(result, type(data))
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.bad_request_400.MessageIdInvalid: Telegram says: [400 MESSAGE_ID_INVALID] - The provided message id is invalid. (caused by "messages.EditMessage")
+[16-Apr-26 05:11:23 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in MessageHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 56, in wrapper
+    return await mystic(_, message, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/start.py", line 149, in start_pm
+    await message.reply_photo(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/sync.py", line 53, in async_to_sync_wrap
+    coroutine = function(*args, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Message.reply_photo() got an unexpected keyword argument 'message_effect_id'
+[16-Apr-26 05:11:33 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 05:19:35 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 05:19:35 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 05:19:35 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 05:19:35 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 05:19:35 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 05:19:35 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 05:19:36 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 05:23:30 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 05:23:30 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 05:23:30 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 05:23:30 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 05:23:30 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 05:23:30 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 05:23:31 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 05:35:17 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 05:35:17 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 05:35:17 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 05:35:17 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 05:35:17 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 05:35:17 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 05:35:18 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 05:35:21 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 05:35:27 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 05:35:28 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 05:35:28 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 05:35:29 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 05:35:29 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 05:35:41 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 05:35:50 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in MessageHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 56, in wrapper
+    return await mystic(_, message, language)
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/start.py", line 149, in start_pm
+    await message.reply_photo(
+  File "/root/BABYMUSIC/venv/lib/python3.10/site-packages/pyrogram/sync.py", line 53, in async_to_sync_wrap
+    coroutine = function(*args, **kwargs)
+TypeError: Message.reply_photo() got an unexpected keyword argument 'message_effect_id'
+[16-Apr-26 05:38:55 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 05:38:55 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 05:45:18 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 05:45:18 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 05:45:18 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 05:45:18 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 05:45:18 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 05:45:18 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 05:45:19 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 05:48:38 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 05:48:38 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 05:48:38 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 05:48:38 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 05:48:38 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 05:48:38 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 05:48:39 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 16:33:53 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 16:33:53 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 16:33:53 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 16:33:53 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 16:33:53 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 16:33:53 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 16:33:54 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 16:33:57 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 16:34:09 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 16:34:09 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 16:34:09 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 16:34:09 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 16:34:09 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 16:34:09 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 16:34:10 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 16:34:12 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 16:34:18 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 16:34:19 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 16:34:19 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 16:34:20 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 16:34:20 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 16:34:35 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 16:39:33 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 16:39:33 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 16:39:43 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 16:39:43 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 16:39:43 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 16:39:43 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 16:39:43 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 16:39:43 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 16:39:44 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 16:39:47 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 16:39:52 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 16:39:53 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 16:39:53 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 16:39:54 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 16:39:54 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 16:40:05 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 16:41:00 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in MessageHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 56, in wrapper
+    return await mystic(_, message, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/start.py", line 205, in start_pm
+    "reply_markup": InlineKeyboardMarkup(out).to_dict(),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InlineKeyboardMarkup' object has no attribute 'to_dict'
+[16-Apr-26 16:49:56 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 16:49:56 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 16:50:07 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 16:50:07 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 16:50:07 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 16:50:07 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 16:50:07 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 16:50:07 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 16:50:08 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 16:50:10 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 16:50:17 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 16:50:18 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 16:50:18 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 16:50:19 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 16:50:19 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 16:50:32 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 16:53:25 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 16:53:25 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 16:59:46 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 16:59:46 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 16:59:46 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 16:59:46 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 16:59:46 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 16:59:46 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 16:59:47 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 16:59:49 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 16:59:56 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 16:59:57 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 16:59:57 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 16:59:58 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 16:59:58 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 17:00:14 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 17:03:08 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 17:03:08 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 17:03:18 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 17:03:18 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 17:03:18 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 17:03:18 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 17:03:18 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 17:03:18 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 17:03:19 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 17:03:21 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 17:03:27 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 17:03:28 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 17:03:28 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 17:03:29 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 17:03:29 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 17:03:39 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 17:10:29 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 17:10:29 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 17:10:39 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 17:10:39 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 17:10:39 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 17:10:39 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 17:10:39 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 17:10:39 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 17:10:40 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 17:10:42 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 17:10:47 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 17:10:48 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 17:10:48 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 17:10:49 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 17:10:49 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 17:11:01 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 17:22:18 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 17:22:18 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 17:22:27 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 17:22:27 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 17:22:27 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 17:22:27 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 17:22:27 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 17:22:27 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 17:22:28 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 17:22:30 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 17:22:36 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 17:22:37 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 17:22:37 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 17:22:38 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 17:22:38 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 17:22:49 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 17:28:02 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 17:28:02 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 17:28:13 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 17:28:13 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 17:28:13 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 17:28:13 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 17:28:13 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 17:28:13 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 17:28:15 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 17:28:17 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 17:28:23 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 17:28:24 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 17:28:24 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 17:28:25 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 17:28:25 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 17:28:36 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 17:31:03 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 17:31:03 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 17:31:14 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 17:31:14 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 17:31:14 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 17:31:14 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 17:31:14 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 17:31:14 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 17:31:15 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 17:31:18 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 17:31:23 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 17:31:24 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 17:31:24 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 17:31:25 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 17:31:25 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 17:31:48 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 17:35:37 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 17:35:37 - INFO] - BABYMUSIC - Stopping music bot...
+[16-Apr-26 17:35:46 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[16-Apr-26 17:35:46 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[16-Apr-26 17:35:46 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[16-Apr-26 17:35:46 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[16-Apr-26 17:35:46 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[16-Apr-26 17:35:46 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[16-Apr-26 17:35:48 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[16-Apr-26 17:35:50 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[16-Apr-26 17:35:56 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[16-Apr-26 17:35:57 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[16-Apr-26 17:35:57 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[16-Apr-26 17:35:58 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[16-Apr-26 17:35:58 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[16-Apr-26 17:36:12 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[16-Apr-26 17:38:34 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[16-Apr-26 17:38:34 - INFO] - BABYMUSIC - Stopping music bot...
+[17-Apr-26 02:12:05 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[17-Apr-26 02:12:05 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[17-Apr-26 02:12:05 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[17-Apr-26 02:12:05 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[17-Apr-26 02:12:05 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[17-Apr-26 02:12:05 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[17-Apr-26 02:12:07 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[17-Apr-26 02:12:09 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[17-Apr-26 02:12:14 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[17-Apr-26 02:13:54 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[17-Apr-26 02:13:54 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[17-Apr-26 02:13:54 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[17-Apr-26 02:13:54 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[17-Apr-26 02:13:54 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[17-Apr-26 02:13:54 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[17-Apr-26 02:13:55 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[17-Apr-26 02:13:58 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[17-Apr-26 02:14:03 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[17-Apr-26 02:14:04 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[17-Apr-26 02:14:04 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[17-Apr-26 02:14:05 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[17-Apr-26 02:14:05 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[17-Apr-26 02:14:16 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[17-Apr-26 02:14:18 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in MessageHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 56, in wrapper
+    return await mystic(_, message, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/start.py", line 185, in start_pm
+    config.START_IMG_URL,
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'config' has no attribute 'START_IMG_URL'. Did you mean: 'STREAM_IMG_URL'?
+[17-Apr-26 04:15:19 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[17-Apr-26 04:15:19 - INFO] - BABYMUSIC - Stopping music bot...
+[17-Apr-26 04:15:28 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[17-Apr-26 04:15:28 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[17-Apr-26 04:15:28 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[17-Apr-26 04:15:28 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[17-Apr-26 04:15:28 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[17-Apr-26 04:15:28 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[17-Apr-26 04:15:29 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[17-Apr-26 04:15:31 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[17-Apr-26 04:15:36 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[17-Apr-26 04:15:37 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[17-Apr-26 04:15:37 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[17-Apr-26 04:15:38 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[17-Apr-26 04:15:38 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[17-Apr-26 04:15:49 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[17-Apr-26 04:18:10 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[17-Apr-26 04:18:10 - INFO] - BABYMUSIC - Stopping music bot...
+[17-Apr-26 04:18:20 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[17-Apr-26 04:18:20 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[17-Apr-26 04:18:20 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[17-Apr-26 04:18:20 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[17-Apr-26 04:18:20 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[17-Apr-26 04:18:20 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[17-Apr-26 04:18:21 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[17-Apr-26 04:18:24 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[17-Apr-26 04:18:29 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[17-Apr-26 04:18:30 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[17-Apr-26 04:18:30 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[17-Apr-26 04:18:31 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[17-Apr-26 04:18:31 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[17-Apr-26 04:18:41 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[17-Apr-26 04:39:16 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[17-Apr-26 04:39:16 - INFO] - BABYMUSIC - Stopping music bot...
+[17-Apr-26 04:39:26 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[17-Apr-26 04:39:26 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[17-Apr-26 04:39:26 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[17-Apr-26 04:39:26 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[17-Apr-26 04:39:26 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[17-Apr-26 04:39:26 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[17-Apr-26 04:39:27 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[17-Apr-26 04:39:29 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[17-Apr-26 04:39:34 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[17-Apr-26 04:39:35 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[17-Apr-26 04:39:35 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[17-Apr-26 04:39:36 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[17-Apr-26 04:39:36 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[17-Apr-26 04:39:47 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[17-Apr-26 04:39:53 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in CallbackQueryHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 44, in wrapper
+    return await mystic(_, CallbackQuery, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/help.py", line 158, in back_to_main_cb
+    await callback_query.edit_message_caption(
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/types/bots_and_keyboards/callback_query.py", line 282, in edit_message_caption
+    return await self.edit_message_text(caption, parse_mode, reply_markup=reply_markup)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/types/bots_and_keyboards/callback_query.py", line 237, in edit_message_text
+    return await self._client.edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/methods/messages/edit_message_text.py", line 136, in edit_message_text
+    reply_markup=await reply_markup.write(self) if reply_markup else None,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/types/bots_and_keyboards/inline_keyboard_markup.py", line 63, in write
+    buttons.append(await b.write(client))
+                         ^^^^^^^
+AttributeError: 'dict' object has no attribute 'write'
+[17-Apr-26 04:40:33 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in CallbackQueryHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 44, in wrapper
+    return await mystic(_, CallbackQuery, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/help.py", line 158, in back_to_main_cb
+    await callback_query.edit_message_caption(
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/types/bots_and_keyboards/callback_query.py", line 282, in edit_message_caption
+    return await self.edit_message_text(caption, parse_mode, reply_markup=reply_markup)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/types/bots_and_keyboards/callback_query.py", line 237, in edit_message_text
+    return await self._client.edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/methods/messages/edit_message_text.py", line 136, in edit_message_text
+    reply_markup=await reply_markup.write(self) if reply_markup else None,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/types/bots_and_keyboards/inline_keyboard_markup.py", line 63, in write
+    buttons.append(await b.write(client))
+                         ^^^^^^^
+AttributeError: 'dict' object has no attribute 'write'
+[17-Apr-26 04:54:47 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[17-Apr-26 04:54:47 - INFO] - BABYMUSIC - Stopping music bot...
+[17-Apr-26 04:55:01 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[17-Apr-26 04:55:02 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[17-Apr-26 04:55:02 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[17-Apr-26 04:55:02 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[17-Apr-26 04:55:02 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[17-Apr-26 04:55:02 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[17-Apr-26 04:55:03 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[17-Apr-26 04:55:05 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[17-Apr-26 04:55:11 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[17-Apr-26 04:55:12 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[17-Apr-26 04:55:12 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[17-Apr-26 04:55:13 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[17-Apr-26 04:55:13 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[17-Apr-26 04:55:28 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[17-Apr-26 05:04:40 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[17-Apr-26 05:04:40 - INFO] - BABYMUSIC - Stopping music bot...
+[17-Apr-26 05:04:50 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[17-Apr-26 05:04:50 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[17-Apr-26 05:04:50 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[17-Apr-26 05:04:50 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[17-Apr-26 05:04:50 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[17-Apr-26 05:04:50 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[17-Apr-26 05:04:51 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[17-Apr-26 05:04:54 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[17-Apr-26 05:05:00 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[17-Apr-26 05:05:02 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[17-Apr-26 05:05:02 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[17-Apr-26 05:05:03 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[17-Apr-26 05:05:03 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[17-Apr-26 05:05:14 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[17-Apr-26 05:17:09 - WARNING] - BABYMUSIC.platforms.Youtube - Paid API key/endpoint not configured. Using worker fallback for audio.
+[17-Apr-26 05:34:06 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[17-Apr-26 05:34:06 - INFO] - BABYMUSIC - Stopping music bot...
+[17-Apr-26 05:34:15 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[17-Apr-26 05:34:15 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[17-Apr-26 05:34:15 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[17-Apr-26 05:34:15 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[17-Apr-26 05:34:15 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[17-Apr-26 05:34:15 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[17-Apr-26 05:34:17 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[17-Apr-26 05:34:19 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[17-Apr-26 05:34:24 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[17-Apr-26 05:34:25 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[17-Apr-26 05:34:25 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[17-Apr-26 05:34:26 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[17-Apr-26 05:34:26 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[17-Apr-26 05:34:41 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[17-Apr-26 05:39:56 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[17-Apr-26 05:39:56 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 04:29:38 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 04:29:38 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 04:29:38 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 04:29:38 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 04:29:38 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 04:29:38 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 04:29:39 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 04:29:42 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 04:29:47 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 04:29:48 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 04:29:48 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 04:29:49 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 04:29:49 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 04:30:00 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 04:39:36 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 04:39:36 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 04:39:44 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 04:39:44 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 04:39:44 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 04:39:44 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 04:39:44 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 04:39:44 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 04:39:46 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 04:39:48 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 04:39:53 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 04:39:54 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 04:39:54 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 04:39:55 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 04:39:55 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 04:40:06 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 04:43:03 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 04:43:03 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 04:43:12 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 04:43:12 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 04:43:12 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 04:43:12 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 04:43:12 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 04:43:12 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 04:43:13 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 04:43:16 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 04:43:21 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 04:43:22 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 04:43:22 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 04:43:23 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 04:43:23 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 04:43:33 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 05:02:40 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 05:02:40 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 05:02:46 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 05:02:46 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 05:02:46 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 05:02:46 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 05:02:46 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 05:02:46 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 05:02:48 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 05:02:50 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 05:02:57 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 05:02:59 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 05:02:59 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 05:03:00 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 05:03:00 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 05:03:13 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 05:05:16 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 05:05:16 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 07:24:12 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 07:24:12 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 07:24:12 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 07:24:12 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 07:24:12 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 07:24:12 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 07:24:14 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 07:24:17 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 07:24:22 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 07:24:24 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 07:24:24 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 07:24:25 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 07:24:25 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 07:24:35 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 08:01:45 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 08:01:45 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 08:01:58 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 08:01:58 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 08:01:58 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 08:01:58 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 08:01:58 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 08:01:58 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 08:02:00 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 08:02:03 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 08:02:08 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 08:02:09 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 08:02:09 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 08:02:10 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 08:02:10 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 08:02:29 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 08:04:07 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in CallbackQueryHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 44, in wrapper
+    return await mystic(_, CallbackQuery, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/help.py", line 98, in help_next_cb
+    reply_markup=second_page(_),
+                 ^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/utils/inline/help.py", line 45, in second_page
+    buttons = generate_help_buttons(_, 12, TOTAL_SECTIONS, current_page=2)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/utils/inline/help.py", line 21, in generate_help_buttons
+    text=BUTTON_LABEL_OVERRIDES.get(section, _[f"H_B_{section}"]),
+                                             ~^^^^^^^^^^^^^^^^^^
+KeyError: 'H_B_25'
+[18-Apr-26 08:04:57 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in CallbackQueryHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 44, in wrapper
+    return await mystic(_, CallbackQuery, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/help.py", line 98, in help_next_cb
+    reply_markup=second_page(_),
+                 ^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/utils/inline/help.py", line 45, in second_page
+    buttons = generate_help_buttons(_, 12, TOTAL_SECTIONS, current_page=2)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/utils/inline/help.py", line 21, in generate_help_buttons
+    text=BUTTON_LABEL_OVERRIDES.get(section, _[f"H_B_{section}"]),
+                                             ~^^^^^^^^^^^^^^^^^^
+KeyError: 'H_B_25'
+[18-Apr-26 08:06:24 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 08:06:24 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 08:06:34 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 08:06:34 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 08:06:34 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 08:06:34 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 08:06:34 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 08:06:34 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 08:06:36 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 08:06:38 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 08:06:43 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 08:06:44 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 08:06:44 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 08:06:45 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 08:06:45 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 08:06:54 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in CallbackQueryHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 44, in wrapper
+    return await mystic(_, CallbackQuery, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/help.py", line 98, in help_next_cb
+    reply_markup=second_page(_),
+                 ^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/utils/inline/help.py", line 45, in second_page
+    buttons = generate_help_buttons(_, 11, TOTAL_SECTIONS, current_page=2)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/utils/inline/help.py", line 21, in generate_help_buttons
+    text=BUTTON_LABEL_OVERRIDES.get(section, _[f"H_B_{section}"]),
+                                             ~^^^^^^^^^^^^^^^^^^
+KeyError: 'H_B_25'
+[18-Apr-26 08:06:56 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 08:12:48 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 08:12:48 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 08:12:58 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 08:12:58 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 08:12:58 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 08:12:58 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 08:12:58 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 08:12:58 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 08:13:00 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 08:13:02 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 08:13:08 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 08:13:10 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 08:13:10 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 08:13:11 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 08:13:11 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 08:13:34 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 08:25:12 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 08:25:12 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 08:25:22 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 08:25:22 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 08:25:22 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 08:25:22 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 08:25:22 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 08:25:22 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 08:25:23 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 08:25:26 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 08:25:31 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 08:25:32 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 08:25:32 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 08:25:33 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 08:25:33 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 08:25:44 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 08:49:27 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 08:49:27 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 08:49:36 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 08:49:36 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 08:49:36 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 08:49:36 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 08:49:36 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 08:49:36 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 08:52:38 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 08:52:38 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 08:52:38 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 08:52:38 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 08:52:38 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 08:52:38 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 08:52:39 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 08:52:41 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 08:52:48 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 08:52:49 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 08:52:49 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 08:52:49 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 08:52:49 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 08:53:07 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 09:08:00 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 09:08:00 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 09:08:08 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 09:08:08 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 09:08:08 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 09:08:08 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 09:08:08 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 09:08:08 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 09:08:09 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 09:08:12 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 09:08:17 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 09:08:18 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 09:08:18 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 09:08:19 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 09:08:19 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 09:08:32 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 09:10:04 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in CallbackQueryHandler:
+Traceback (most recent call last):
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 383, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/BABYMUSIC/BABYMUSIC/utils/decorators/language.py", line 44, in wrapper
+    return await mystic(_, CallbackQuery, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/BABYMUSIC/plugins/bot/help.py", line 72, in helper_cb
+    await callback_query.edit_message_text(
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/types/bots_and_keyboards/callback_query.py", line 237, in edit_message_text
+    return await self._client.edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/methods/messages/edit_message_text.py", line 119, in edit_message_text
+    r = await self.invoke(
+        ^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/methods/advanced/invoke.py", line 107, in invoke
+    r = await session.invoke(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/session/session.py", line 551, in invoke
+    return await self.send(query, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/session/session.py", line 514, in send
+    RPCError.raise_it(result, type(data))
+  File "/root/BABYMUSIC/venv/lib/python3.12/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.bad_request_400.MessageNotModified: Telegram says: [400 MESSAGE_NOT_MODIFIED] - The message was not modified because you tried to edit it using the same content. (caused by "messages.EditMessage")
+[18-Apr-26 09:15:23 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 09:15:23 - INFO] - BABYMUSIC - Stopping music bot...
+[18-Apr-26 16:26:19 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 16:26:19 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 16:26:19 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 16:26:19 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 16:26:19 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 16:26:19 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 16:26:20 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 16:26:37 - INFO] - BABYMUSIC.core.mongo - Connecting to your Mongo Database...
+[18-Apr-26 16:26:37 - INFO] - BABYMUSIC.core.mongo - Connected to your Mongo Database.
+[18-Apr-26 16:26:37 - INFO] - BABYMUSIC.core.dir - Directories Updated.
+[18-Apr-26 16:26:37 - INFO] - BABYMUSIC.core.git - Git Client Found [VPS DEPLOYER]
+[18-Apr-26 16:26:37 - INFO] - BABYMUSIC.misc - ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗
+[18-Apr-26 16:26:37 - INFO] - BABYMUSIC.core.bot - Bot client initialized.
+[18-Apr-26 16:26:39 - INFO] - BABYMUSIC - Security hardening active: stripped 4 sensitive env vars from process environment.
+[18-Apr-26 16:26:42 - INFO] - BABYMUSIC.misc - sᴜᴅᴏ ᴜsᴇʀs ᴅᴏɴᴇ..
+[18-Apr-26 16:26:48 - INFO] - BABYMUSIC.core.bot - ✅ Music Bot started as UserFindNumber 🗳 (@UserfindNumbot)
+[18-Apr-26 16:26:49 - INFO] - BABYMUSIC.plugins - Modules loaded.
+[18-Apr-26 16:26:49 - INFO] - BABYMUSIC.core.userbot - Starting Vivaan's Assistants...
+[18-Apr-26 16:26:50 - INFO] - BABYMUSIC.core.userbot - Assistant 1 Started as Ｓᴘᴏᴛɪғʏ Ｍᴜsɪᴄ ⿻
+[18-Apr-26 16:26:50 - INFO] - BABYMUSIC.core.call - Starting PyTgCalls Clients...
+[18-Apr-26 16:27:04 - INFO] - BABYMUSIC - Annie Music Robot Started Successfully...
+[18-Apr-26 16:27:18 - WARNING] - BABYMUSIC.platforms.Youtube - Paid API key/endpoint not configured. Using worker fallback for audio.
+[18-Apr-26 16:29:31 - INFO] - BABYMUSIC.core.userbot - Stopping Assistants...
+[18-Apr-26 16:29:31 - INFO] - BABYMUSIC - Stopping music bot...
