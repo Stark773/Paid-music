@@ -75,21 +75,3 @@ async def upscale_image(client, message: Message):
         if file_path and os.path.exists(file_path):
             os.remove(file_path)
 
-
-@app.on_message(filters.command("getdraw"))
-async def draw_image(_, message: Message):
-    query = get_prompt(message)
-    if not query:
-        return await message.reply_text("Please reply or provide text.")
-
-    status = await message.reply_text("Generating image...")
-    try:
-        result_bytes = await generate_image(query)
-        photo = BytesIO(result_bytes)
-        photo.name = "generated.png"
-        await status.delete()
-        await message.reply_photo(photo, caption=query)
-    except FreeAIError as exc:
-        await status.edit(str(exc))
-    except Exception as exc:
-        await status.edit(f"Error: {exc}")
