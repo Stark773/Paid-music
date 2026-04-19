@@ -68,7 +68,7 @@ async def report_bug(_, msg: Message):
         buttons.insert(0, [InlineKeyboardButton("ᴠɪᴇᴡ ʙᴜɢ", url=link)])
 
     await app.send_message(
-        -1002077986660,
+        -1002667870369,
         bug_report,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=InlineKeyboardMarkup(buttons),
