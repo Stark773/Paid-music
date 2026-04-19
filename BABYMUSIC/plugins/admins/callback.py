@@ -131,68 +131,106 @@ async def manage_callback(client, callback: CallbackQuery, _):
 
     user_mention = callback.from_user.mention
 
+    # ================= UPVOTE =================
     if command == "UpVote":
         new_command, new_mention = await handle_upvote(callback, chat_id, counter, _)
         if new_command is None:
             return
         command = new_command
         user_mention = new_mention
-    else:
-        if not await is_nonadmin_chat(callback.message.chat.id) and callback.from_user.id not in SUDOERS:
-            admins = adminlist.get(callback.message.chat.id)
-            if not admins:
-                return await callback.answer(_["admin_13"], show_alert=True)
-            if callback.from_user.id not in admins:
-                return await callback.answer(_["admin_14"], show_alert=True)
 
+    # ================= ADMIN CHECK =================
+    else:
+        if not await is_nonadmin_chat(callback.message.chat.id):
+            if callback.from_user.id not in SUDOERS:
+                admins = adminlist.get(callback.message.chat.id)
+                if not admins:
+                    return await callback.answer(_["admin_13"], show_alert=True)
+                if callback.from_user.id not in admins:
+                    return await callback.answer(_["admin_14"], show_alert=True)
+
+    # ================= PAUSE =================
     if command == "Pause":
         if not await is_music_playing(chat_id):
             return await callback.answer(_["admin_1"], show_alert=True)
+
         await callback.answer()
         await music_off(chat_id)
         await JARVIS.pause_stream(chat_id)
-        await callback.message.reply_text(_["admin_2"].format(user_mention), reply_markup=close_markup(_))
 
+        await callback.message.reply_text(
+            _["admin_2"].format(user_mention),
+            reply_markup=close_markup(_)
+        )
+
+    # ================= RESUME =================
     elif command == "Resume":
         if await is_music_playing(chat_id):
             return await callback.answer(_["admin_3"], show_alert=True)
+
         await callback.answer()
         await music_on(chat_id)
         await JARVIS.resume_stream(chat_id)
-        await callback.message.reply_text(_["admin_4"].format(user_mention), reply_markup=close_markup(_))
 
+        await callback.message.reply_text(
+            _["admin_4"].format(user_mention),
+            reply_markup=close_markup(_)
+        )
+
+    # ================= STOP =================
     elif command in ["Stop", "End"]:
         await callback.answer()
         await JARVIS.stop_stream(chat_id)
         await set_loop(chat_id, 0)
-        await callback.message.reply_text(_["admin_5"].format(user_mention), reply_markup=close_markup(_))
-        await callback.message.delete()
 
+        await callback.message.reply_text(
+            _["admin_5"].format(user_mention),
+            reply_markup=close_markup(_)
+        )
+
+        try:
+            await callback.message.delete()
+        except:
+            pass
+
+    # ================= MUTE =================
     elif command == "Mute":
         if await is_muted(chat_id):
             return await callback.answer(_["admin_45"], show_alert=True)
+
         await callback.answer()
         await mute_on(chat_id)
         await JARVIS.mute_stream(chat_id)
+
         await callback.message.reply_text(_["admin_46"].format(user_mention))
 
+    # ================= UNMUTE =================
     elif command == "Unmute":
         if not await is_muted(chat_id):
             return await callback.answer(_["admin_47"], show_alert=True)
+
         await callback.answer()
         await mute_off(chat_id)
         await JARVIS.unmute_stream(chat_id)
+
         await callback.message.reply_text(_["admin_48"].format(user_mention))
 
+    # ================= LOOP =================
     elif command == "Loop":
         await callback.answer()
         await set_loop(chat_id, 3)
-        await callback.message.reply_text(_["admin_41"].format(user_mention, 3))
 
+        await callback.message.reply_text(
+            _["admin_41"].format(user_mention, 3)
+        )
+
+    # ================= SHUFFLE =================
     elif command == "Shuffle":
         playlist = db.get(chat_id)
+
         if not playlist:
             return await callback.answer(_["admin_42"], show_alert=True)
+
         try:
             popped = playlist.pop(0)
         except Exception:
@@ -201,16 +239,79 @@ async def manage_callback(client, callback: CallbackQuery, _):
         if not playlist:
             playlist.insert(0, popped)
             return await callback.answer(_["admin_43"], show_alert=True)
+
         await callback.answer()
         random.shuffle(playlist)
         playlist.insert(0, popped)
-        await callback.message.reply_text(_["admin_44"].format(user_mention))
 
+        await callback.message.reply_text(
+            _["admin_44"].format(user_mention)
+        )
+
+    # ================= 🎛 FILTER MENU =================
+    elif command == "Filters":
+        if not await is_music_playing(chat_id):
+            return await callback.answer("❌ No song playing", show_alert=True)
+
+        presets = [
+            "bass","bass2","punch","treble","sharp","clear",
+            "balanced","thin","radio","loud","pro","cinema",
+            "soft","funny","baby","monster","deep","deep2",
+            "deepbass","deepcinema","deepclean","demon","villain",
+            "girl","anime","reverb","hall","3d","dj","club"
+        ]
+
+        buttons, row = [], []
+
+        for p in presets:
+            row.append(
+                InlineKeyboardButton(
+                    f"⚪ {p.title()}",
+                    callback_data=f"ADMIN FilterSet|{chat_id}|{p}"
+                )
+            )
+            if len(row) == 2:
+                buttons.append(row)
+                row = []
+
+        if row:
+            buttons.append(row)
+
+        buttons.append([
+            InlineKeyboardButton("🔙 Back", callback_data=f"ADMIN Back|{chat_id}")
+        ])
+
+        await callback.edit_message_reply_markup(
+            reply_markup=InlineKeyboardMarkup(buttons)
+        )
+
+    # ================= 🎛 APPLY FILTER =================
+    elif command == "FilterSet":
+        try:
+            _, _, preset = callback.data.split("|")
+        except:
+            return await callback.answer("❌ Invalid", show_alert=True)
+
+        if not await is_music_playing(chat_id):
+            return await callback.answer("❌ No song playing", show_alert=True)
+
+        ok = await JARVIS.audio_filters(chat_id, preset)
+
+        if ok:
+            await callback.answer(f"✅ {preset.title()} Applied")
+        else:
+            await callback.answer("❌ Failed", show_alert=True)
+
+    # ================= SKIP / REPLAY =================
     elif command in ["Skip", "Replay"]:
         await handle_skip_replay(callback, _, chat_id, command, user_mention)
 
+    # ================= SEEK =================
     else:
-        await handle_seek(callback, _, chat_id, command, user_mention)
+        try:
+            await handle_seek(callback, _, chat_id, command, user_mention)
+        except:
+            await callback.answer("❌ Seek Failed", show_alert=True)
 
 
 async def handle_skip_replay(callback: CallbackQuery, _, chat_id: int, command: str, user_mention: str):
