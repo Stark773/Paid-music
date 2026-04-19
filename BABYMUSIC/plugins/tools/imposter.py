@@ -13,80 +13,72 @@ async def chk_usr(_, message: Message):
     if message.sender_chat or not await check_pretender(message.chat.id):
         return
 
-    if not await usr_data(message.from_user.id):
+    user_id = message.from_user.id
+
+    # 👉 full user (bio ke liye)
+    full_user = await app.get_users(user_id)
+    bio = full_user.bio or "No Bio"
+
+    # 👉 first time save (bio ke sath)
+    if not await usr_data(user_id):
         return await add_userdata(
-            message.from_user.id,
+            user_id,
             message.from_user.username,
             message.from_user.first_name,
             message.from_user.last_name,
+            bio
         )
 
-    usernamebefore, first_name, lastname_before = await get_userdata(message.from_user.id)
+    usernamebefore, first_name, lastname_before, bio_before = await get_userdata(user_id)
 
-    msg = ""
+    changes = []
 
-    if (
-        usernamebefore != message.from_user.username
-        or first_name != message.from_user.first_name
-        or lastname_before != message.from_user.last_name
-    ):
-        msg += f"""
-╭───〔 ⚠️ Pretender Alert 〕───╮
-👤 User : {message.from_user.mention}
-🆔 ID   : `{message.from_user.id}`
-╰──────────────────────╯
-"""
-
+    # username
     if usernamebefore != message.from_user.username:
-        usernamebefore = f"@{usernamebefore}" if usernamebefore else "No Username"
-        usernameafter = f"@{message.from_user.username}" if message.from_user.username else "No Username"
+        before = f"@{usernamebefore}" if usernamebefore else "No Username"
+        after = f"@{message.from_user.username}" if message.from_user.username else "No Username"
 
-        msg += f"""
-🔁 Username Changed
-• From : {usernamebefore}
-• To   : {usernameafter}
-"""
+        changes.append(f"🔁 **Username**\n» {before} ➜ {after}")
 
-        await add_userdata(
-            message.from_user.id,
-            message.from_user.username,
-            message.from_user.first_name,
-            message.from_user.last_name,
-        )
-
+    # first name
     if first_name != message.from_user.first_name:
-        msg += f"""
-📝 First Name Updated
-• From : {first_name}
-• To   : {message.from_user.first_name}
-"""
+        changes.append(f"📝 **First Name**\n» {first_name} ➜ {message.from_user.first_name}")
 
-        await add_userdata(
-            message.from_user.id,
-            message.from_user.username,
-            message.from_user.first_name,
-            message.from_user.last_name,
-        )
-
+    # last name
     if lastname_before != message.from_user.last_name:
-        lastname_before = lastname_before or "No Last Name"
-        lastname_after = message.from_user.last_name or "No Last Name"
+        before = lastname_before or "No Last Name"
+        after = message.from_user.last_name or "No Last Name"
 
-        msg += f"""
-📛 Last Name Updated
-• From : {lastname_before}
-• To   : {lastname_after}
+        changes.append(f"📛 **Last Name**\n» {before} ➜ {after}")
+
+    # bio
+    if bio_before != bio:
+        before = bio_before or "No Bio"
+        after = bio or "No Bio"
+
+        changes.append(f"🧬 **Bio Changed**\n» {before}\n➜ {after}")
+
+    # 👉 agar koi bhi change hua
+    if changes:
+        msg = f"""
+╭━━━〔 🚨 𝗣𝗥𝗘𝗧𝗘𝗡𝗗𝗘𝗥 𝗔𝗟𝗘𝗥𝗧 〕━━━╮
+👤 {message.from_user.mention}
+🆔 `{user_id}`
+━━━━━━━━━━━━━━━━━━━
+{chr(10).join(changes)}
+╰━━━━━━━━━━━━━━━━━━━╯
 """
 
+        await message.reply_text(msg)
+
+        # 👉 ek hi baar update
         await add_userdata(
-            message.from_user.id,
+            user_id,
             message.from_user.username,
             message.from_user.first_name,
             message.from_user.last_name,
+            bio
         )
-
-    if msg:
-        await message.reply_text(msg)
 
 
 # ================== COMMAND ==================
@@ -101,25 +93,23 @@ async def set_mataa(_, message: Message):
 
     cmd = message.command[1].lower()
 
-    # ✅ ENABLE (default already ON)
     if cmd == "enable":
         status = await check_pretender(message.chat.id)
 
         if status:
-            return await message.reply("✅ Pretender detection is already enabled.")
+            return await message.reply("✅ Already enabled.")
 
         await impo_on(message.chat.id)
-        await message.reply(f"🟢 Pretender detection enabled in **{message.chat.title}**")
+        await message.reply(f"🟢 Enabled in **{message.chat.title}**")
 
-    # ❌ DISABLE
     elif cmd == "disable":
         status = await check_pretender(message.chat.id)
 
         if not status:
-            return await message.reply("❌ Pretender detection is already disabled.")
+            return await message.reply("❌ Already disabled.")
 
         await impo_off(message.chat.id)
-        await message.reply(f"🔴 Pretender detection disabled in **{message.chat.title}**")
+        await message.reply(f"🔴 Disabled in **{message.chat.title}**")
 
     else:
         await message.reply("⚠️ Use: `/imposter enable` or `/imposter disable`")
