@@ -19,10 +19,15 @@ async def add_userdata(user_id: int, username, first_name, last_name):
     )
 
 async def check_pretender(chat_id: int) -> bool:
-    return bool(await impdb.find_one({"chat_id_toggle": chat_id}))
+    data = await impdb.find_one({"chat_id_toggle": chat_id})
+    return False if data else True   # agar DB me hai → OFF, warna ON
 
 async def impo_on(chat_id: int):
-    await impdb.update_one({"chat_id_toggle": chat_id}, {"$set": {"chat_id_toggle": chat_id}}, upsert=True)
+    await impdb.delete_one({"chat_id_toggle": chat_id})  # ON ka matlab entry hata do
 
 async def impo_off(chat_id: int):
-    await impdb.delete_one({"chat_id_toggle": chat_id})
+    await impdb.update_one(
+        {"chat_id_toggle": chat_id},
+        {"$set": {"chat_id_toggle": chat_id}},
+        upsert=True
+    )  # OFF ka matlab DB me save karo
