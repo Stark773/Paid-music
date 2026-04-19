@@ -161,7 +161,6 @@ class YouTubeAPI:
             "link": result.get("link") or f"{self.base}{videoid}",
         }
 
-
     async def exists(self, link: str, videoid: Union[bool, str] = None):
         if videoid:
             link = self.base + link
@@ -205,7 +204,6 @@ class YouTubeAPI:
             link = link.split("?si=")[0]
         elif "&si=" in link:
             link = link.split("&si=")[0]
-
 
         results = VideosSearch(link, limit=1)
         for result in (await results.next())["result"]:
@@ -469,7 +467,6 @@ class YouTubeAPI:
             search = VideosSearch(link, limit=10)
             search_results = (await search.next()).get("result", [])
 
-            # Filter videos longer than 1 hour
             for result in search_results:
                 duration_str = result.get("duration", "0:00")
                 try:
@@ -523,7 +520,7 @@ class YouTubeAPI:
             session.mount('https://', HTTPAdapter(max_retries=retries))
             return session
 
-                async def download_with_ytdlp(url, filepath, headers=None, max_retries=3):
+        async def download_with_ytdlp(url, filepath, headers=None, max_retries=3):
             default_headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
@@ -534,7 +531,6 @@ class YouTubeAPI:
             if headers:
                 merged_headers.update(headers)
 
-            # yt-dlp handles direct media URLs, reuse the running loop to avoid blocking the event loop.
             def run_download():
                 ydl_opts = {
                     "quiet": True,
@@ -565,8 +561,6 @@ class YouTubeAPI:
             session = None
             try:
                 session = create_session()
-
-                # Use headers for authentication (including x-api-key)
                 response = session.get(url, headers=headers, stream=True, timeout=60)
                 response.raise_for_status()
 
@@ -634,8 +628,7 @@ class YouTubeAPI:
             )
 
         async def audio_dl(vid_id):
-            # Use BASE_URL + API_KEY instead of paid YT API / YTPROXY.
-            vid = vid_id  # already the ID at this point
+            vid = vid_id
             kind = "song"
             if config.STREAM_MODE:
                 url = f"{config.BASE_URL}/api/{kind}?query={vid}&api={config.API_KEY}"
@@ -657,10 +650,8 @@ class YouTubeAPI:
                     raise Exception("No stream URL returned from API.")
 
                 if stream_type == "live":
-                    # Case 1: live stream → return stream URL directly, no file save.
                     return stream_url
 
-                # Case 2: normal file → poll URL until ready.
                 max_tries = 60
                 delay = 2
                 ready = False
@@ -684,11 +675,9 @@ class YouTubeAPI:
                 if not ready:
                     raise Exception("Stream URL was never ready after retries.")
 
-                # Case 3: STREAM_MODE → return stream URL only.
                 if config.STREAM_MODE:
                     return stream_url
 
-                # Case 4: download file to disk.
                 filepath = os.path.join("downloads", f"{vid}.mp3")
                 if os.path.exists(filepath):
                     os.remove(filepath)
@@ -717,8 +706,7 @@ class YouTubeAPI:
                 return None
 
         async def video_dl(vid_id):
-            # Use BASE_URL + API_KEY instead of paid YT API / YTPROXY.
-            vid = vid_id  # already the ID at this point
+            vid = vid_id
             kind = "video"
             if config.STREAM_MODE:
                 url = f"{config.BASE_URL}/api/{kind}?query={vid}&api={config.API_KEY}"
@@ -740,10 +728,8 @@ class YouTubeAPI:
                     raise Exception("No stream URL returned from API.")
 
                 if stream_type == "live":
-                    # Case 1: live stream → return stream URL directly, no file save.
                     return stream_url
 
-                # Case 2: normal file → poll URL until ready.
                 max_tries = 90
                 delay = 2
                 ready = False
@@ -767,11 +753,9 @@ class YouTubeAPI:
                 if not ready:
                     raise Exception("Stream URL was never ready after retries.")
 
-                # Case 3: STREAM_MODE → return stream URL only.
                 if config.STREAM_MODE:
                     return stream_url
 
-                # Case 4: download file to disk.
                 filepath = os.path.join("downloads", f"{vid}.mp4")
                 if os.path.exists(filepath):
                     os.remove(filepath)
