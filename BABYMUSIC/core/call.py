@@ -416,6 +416,54 @@ class Call:
 
 
     @capture_internal_err
+    async def audio_filters(self, chat_id: int, eq_name: str) -> bool:
+        if chat_id not in db or not db[chat_id]:
+            return False
+
+        data = db[chat_id][0]
+        path = data.get("file")
+
+        if not path:
+            return False
+
+        # Clean old eq params
+        if "&eq=" in path:
+            path = path.split("&eq=")[0]
+        if "?eq=" in path:
+            path = path.split("?eq=")[0]
+
+        # Build new path
+        if "?" in path:
+            new_path = f"{path}&eq={eq_name}"
+        else:
+            new_path = f"{path}?eq={eq_name}"
+
+        LOGGER(__name__).info(f"Applying EQ [{eq_name}] → {new_path}")
+
+        assistant = await group_assistant(self, chat_id)
+
+        # Stream reload
+        stream = dynamic_media_stream(
+            path=new_path,
+            video=False
+        )
+
+        await self._play_stream(
+            assistant,
+            chat_id,
+            stream
+        )
+
+        # ✅ DB sync only (same like seek logic style)
+        now = time.time()
+        data["file"] = new_path
+        data["played"] = 0
+        data["start_time"] = now
+
+        return True
+
+    
+    @capture_internal_err
     async def skip_stream(self, chat_id: int, link: str, video: Union[bool, str] = None, image: Union[bool, str] = None) -> None:
         assistant = await group_assistant(self, chat_id)
         stream = dynamic_media_stream(path=link, video=bool(video))
