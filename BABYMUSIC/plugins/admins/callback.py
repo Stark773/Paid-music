@@ -119,13 +119,30 @@ async def unban_assistant(_, callback: CallbackQuery):
         )
 
 
-@app.on_callback_query(filters.regex("ADMIN") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("^ADMIN") & ~BANNED_USERS)
 @languageCB
 async def manage_callback(client, callback: CallbackQuery, _):
-    data = callback.data.strip().split(None, 1)[1]
-    command, chat_info = data.split("|", 1)
-    chat_id, counter = parse_chat_info(chat_info)
 
+    # ================= SAFE PARSE =================
+    try:
+        raw = callback.data.strip()
+
+        # remove "ADMIN "
+        if " " in raw:
+            raw = raw.split(" ", 1)[1]
+
+        parts = raw.split("|")
+
+        command = parts[0]
+        chat_id = int(parts[1])
+
+        counter = None
+        extra = parts[2:] if len(parts) > 2 else []
+
+    except Exception:
+        return await callback.answer("❌ Invalid Callback Data", show_alert=True)
+
+    # ================= ACTIVE CHECK =================
     if not await is_active_chat(chat_id):
         return await callback.answer(_["general_5"], show_alert=True)
 
@@ -250,6 +267,7 @@ async def manage_callback(client, callback: CallbackQuery, _):
 
     # ================= 🎛 FILTER MENU =================
     elif command == "Filters":
+
         if not await is_music_playing(chat_id):
             return await callback.answer("❌ No song playing", show_alert=True)
 
@@ -287,10 +305,11 @@ async def manage_callback(client, callback: CallbackQuery, _):
 
     # ================= 🎛 APPLY FILTER =================
     elif command == "FilterSet":
-        try:
-            _, _, preset = callback.data.split("|")
-        except:
-            return await callback.answer("❌ Invalid", show_alert=True)
+
+        if not extra:
+            return await callback.answer("❌ Invalid Filter", show_alert=True)
+
+        preset = extra[0]
 
         if not await is_music_playing(chat_id):
             return await callback.answer("❌ No song playing", show_alert=True)
@@ -298,7 +317,7 @@ async def manage_callback(client, callback: CallbackQuery, _):
         ok = await JARVIS.audio_filters(chat_id, preset)
 
         if ok:
-            await callback.answer(f"✅ {preset.title()} Applied")
+            await callback.answer(f"✅ Filter → {preset.title()}")
         else:
             await callback.answer("❌ Failed", show_alert=True)
 
@@ -312,8 +331,7 @@ async def manage_callback(client, callback: CallbackQuery, _):
             await handle_seek(callback, _, chat_id, command, user_mention)
         except:
             await callback.answer("❌ Seek Failed", show_alert=True)
-
-
+            
 async def handle_skip_replay(callback: CallbackQuery, _, chat_id: int, command: str, user_mention: str):
     playlist = db.get(chat_id)
     if not playlist:
