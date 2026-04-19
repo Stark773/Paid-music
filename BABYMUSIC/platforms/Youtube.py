@@ -19,7 +19,7 @@ except ImportError:
     Recommendations = None
 import base64
 from BABYMUSIC import LOGGER
-from config import config
+import config
 from BABYMUSIC.utils.database import is_on_off
 from BABYMUSIC.utils.formatters import time_to_seconds
 from BABYMUSIC.utils.url_guard import is_safe_media_url
