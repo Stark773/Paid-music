@@ -723,7 +723,7 @@ class YouTubeAPI:
             # Step 4: Validate file
                   if not os.path.exists(filepath):
                       raise Exception("File missing")
-                 if os.path.getsize(filepath) <= 50 * 1024:
+                  if os.path.getsize(filepath) <= 50 * 1024:
                       os.remove(filepath)
                       raise Exception("File too small")
 
