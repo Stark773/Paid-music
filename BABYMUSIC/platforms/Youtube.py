@@ -18,7 +18,7 @@ try:
 except ImportError:
     Recommendations = None
 import base64
-from BABYMUSIC import LOGGER
+from BABYMUSIC import LOGGER, config
 from BABYMUSIC.utils.database import is_on_off
 from BABYMUSIC.utils.formatters import time_to_seconds
 from BABYMUSIC.utils.url_guard import is_safe_media_url
@@ -64,14 +64,15 @@ async def check_file_size(link):
     info = await get_format_info(link)
     if info is None:
         return None
-    
+
     formats = info.get('formats', [])
     if not formats:
         print("No formats found.")
         return None
-    
+
     total_size = parse_size(formats)
     return total_size
+
 
 async def shell_cmd(cmd):
     if isinstance(cmd, (list, tuple)):
@@ -227,7 +228,7 @@ class YouTubeAPI:
             link = link.split("?si=")[0]
         elif "&si=" in link:
             link = link.split("&si=")[0]
-            
+
         results = VideosSearch(link, limit=1)
         for result in (await results.next())["result"]:
             title = result["title"]
@@ -522,7 +523,7 @@ class YouTubeAPI:
             session.mount('https://', HTTPAdapter(max_retries=retries))
             return session
 
-        async def download_with_ytdlp(url, filepath, headers=None, max_retries=3):
+                async def download_with_ytdlp(url, filepath, headers=None, max_retries=3):
             default_headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
@@ -564,23 +565,23 @@ class YouTubeAPI:
             session = None
             try:
                 session = create_session()
-                
+
                 # Use headers for authentication (including x-api-key)
                 response = session.get(url, headers=headers, stream=True, timeout=60)
                 response.raise_for_status()
-                
+
                 total_size = int(response.headers.get('content-length', 0))
                 downloaded = 0
-                chunk_size = 1024 * 1024 
-                
+                chunk_size = 1024 * 1024
+
                 with open(filepath, 'wb') as file:
                     for chunk in response.iter_content(chunk_size=chunk_size):
                         if chunk:
                             file.write(chunk)
                             downloaded += len(chunk)
-                
+
                 return filepath
-                
+
             except Exception as e:
                 logger.error(f"Requests download failed: {str(e)}")
                 if os.path.exists(filepath):
@@ -633,116 +634,171 @@ class YouTubeAPI:
             )
 
         async def audio_dl(vid_id):
-            filepath = os.path.join("downloads", f"{vid_id}.mp3")
-            if os.path.exists(filepath):
+            # Use BASE_URL + API_KEY instead of paid YT API / YTPROXY.
+            vid = vid_id  # already the ID at this point
+            kind = "song"
+            if config.STREAM_MODE:
+                url = f"{config.BASE_URL}/api/{kind}?query={vid}&api={config.API_KEY}"
+            else:
+                url = f"{config.BASE_URL}/api/{kind}?query={vid}&download=true&api={config.API_KEY}"
+            logger.info(f"Audio API request: {url}")
+
+            try:
+                async with requests.Session() as sess:
+                    resp = sess.get(url, timeout=60)
+                if resp.status_code != 200:
+                    raise Exception(f"API status {resp.status_code}: {resp.text}")
+
+                j = resp.json()
+                stream_url = j.get("stream")
+                stream_type = j.get("type")
+
+                if not stream_url:
+                    raise Exception("No stream URL returned from API.")
+
+                if stream_type == "live":
+                    # Case 1: live stream → return stream URL directly, no file save.
+                    return stream_url
+
+                # Case 2: normal file → poll URL until ready.
+                max_tries = 60
+                delay = 2
+                ready = False
+                for _ in range(max_tries):
+                    try:
+                        resp = sess.head(stream_url, timeout=10)
+                        code = resp.status_code
+                        if code in (200, 206):
+                            ready = True
+                            break
+                        elif code in (204, 423, 404, 410):
+                            await asyncio.sleep(delay)
+                            continue
+                        elif code in (401, 403, 429):
+                            raise Exception(f"Fatal status {code} from stream URL.")
+                        else:
+                            raise Exception(f"Unexpected status {code} from stream URL.")
+                    except:
+                        await asyncio.sleep(delay)
+
+                if not ready:
+                    raise Exception("Stream URL was never ready after retries.")
+
+                # Case 3: STREAM_MODE → return stream URL only.
+                if config.STREAM_MODE:
+                    return stream_url
+
+                # Case 4: download file to disk.
+                filepath = os.path.join("downloads", f"{vid}.mp3")
+                if os.path.exists(filepath):
+                    os.remove(filepath)
+
+                cmd = ["curl", "-L", stream_url, "-o", filepath, "-s", "--max-time", "120"]
+                proc = await asyncio.create_subprocess_exec(
+                    *cmd,
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE,
+                    env=build_subprocess_env(),
+                )
+                await proc.wait()
+                if proc.returncode != 0:
+                    raise Exception("curl download failed.")
+
+                if not os.path.exists(filepath):
+                    raise Exception("Downloaded file does not exist.")
+                if os.path.getsize(filepath) <= 50 * 1024:
+                    os.remove(filepath)
+                    raise Exception("Downloaded file too small (<= 50 KB).")
+
                 return filepath
 
-            headers = {
-                "x-api-key": f"{YT_API_KEY}",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-            }
+            except Exception as e:
+                logger.error(f"Audio API download failed: {e}")
+                return None
 
-            paid_audio_url = None
-
-            if YT_API_KEY and YTPROXY:
-                session = None
-                try:
-                    session = create_session()
-                    get_audio = session.get(f"{YTPROXY}/info/{vid_id}", headers=headers, timeout=60)
-                    song_data = get_audio.json()
-                    status = song_data.get('status')
-
-                    if status == 'success':
-                        paid_audio_url = song_data.get('audio_url')
-                    elif status == 'error':
-                        logger.error(
-                            f"Paid API Error: {song_data.get('message', 'Unknown error from API.')}"
-                        )
-                    else:
-                        logger.error("Paid API returned unexpected response while fetching audio.")
-                except requests.exceptions.RequestException as e:
-                    logger.error(f"Network error while fetching paid audio info: {str(e)}")
-                except json.JSONDecodeError as e:
-                    logger.error(f"Invalid paid API response for audio: {str(e)}")
-                except Exception as e:
-                    logger.error(f"Error in paid audio flow: {str(e)}")
-                finally:
-                    if session:
-                        session.close()
-            else:
-                logger.warning("Paid API key/endpoint not configured. Using worker fallback for audio.")
-
-            if paid_audio_url:
-                result = await download_from_source(paid_audio_url, filepath, headers)
-                if result:
-                    return result
-                logger.warning("Paid audio URL download failed, trying worker fallback.")
-
-            fallback_audio_url = await get_worker_fallback_link(vid_id, "mp3")
-            if fallback_audio_url:
-                result = await download_from_source(fallback_audio_url, filepath)
-                if result:
-                    return result
-
-            logger.error("Audio download failed on both paid API and worker fallback.")
-            return None
-        
-        
         async def video_dl(vid_id):
-            filepath = os.path.join("downloads", f"{vid_id}.mp4")
-            if os.path.exists(filepath):
+            # Use BASE_URL + API_KEY instead of paid YT API / YTPROXY.
+            vid = vid_id  # already the ID at this point
+            kind = "video"
+            if config.STREAM_MODE:
+                url = f"{config.BASE_URL}/api/{kind}?query={vid}&api={config.API_KEY}"
+            else:
+                url = f"{config.BASE_URL}/api/{kind}?query={vid}&download=true&api={config.API_KEY}"
+            logger.info(f"Video API request: {url}")
+
+            try:
+                async with requests.Session() as sess:
+                    resp = sess.get(url, timeout=60)
+                if resp.status_code != 200:
+                    raise Exception(f"API status {resp.status_code}: {resp.text}")
+
+                j = resp.json()
+                stream_url = j.get("stream")
+                stream_type = j.get("type")
+
+                if not stream_url:
+                    raise Exception("No stream URL returned from API.")
+
+                if stream_type == "live":
+                    # Case 1: live stream → return stream URL directly, no file save.
+                    return stream_url
+
+                # Case 2: normal file → poll URL until ready.
+                max_tries = 90
+                delay = 2
+                ready = False
+                for _ in range(max_tries):
+                    try:
+                        resp = sess.head(stream_url, timeout=10)
+                        code = resp.status_code
+                        if code in (200, 206):
+                            ready = True
+                            break
+                        elif code in (204, 423, 404, 410):
+                            await asyncio.sleep(delay)
+                            continue
+                        elif code in (401, 403, 429):
+                            raise Exception(f"Fatal status {code} from stream URL.")
+                        else:
+                            raise Exception(f"Unexpected status {code} from stream URL.")
+                    except:
+                        await asyncio.sleep(delay)
+
+                if not ready:
+                    raise Exception("Stream URL was never ready after retries.")
+
+                # Case 3: STREAM_MODE → return stream URL only.
+                if config.STREAM_MODE:
+                    return stream_url
+
+                # Case 4: download file to disk.
+                filepath = os.path.join("downloads", f"{vid}.mp4")
+                if os.path.exists(filepath):
+                    os.remove(filepath)
+
+                cmd = ["curl", "-L", stream_url, "-o", filepath, "-s", "--max-time", "120"]
+                proc = await asyncio.create_subprocess_exec(
+                    *cmd,
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE,
+                    env=build_subprocess_env(),
+                )
+                await proc.wait()
+                if proc.returncode != 0:
+                    raise Exception("curl download failed.")
+
+                if not os.path.exists(filepath):
+                    raise Exception("Downloaded file does not exist.")
+                if os.path.getsize(filepath) <= 50 * 1024:
+                    os.remove(filepath)
+                    raise Exception("Downloaded file too small (<= 50 KB).")
+
                 return filepath
 
-            headers = {
-                "x-api-key": f"{YT_API_KEY}",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-            }
+            except Exception as e:
+                logger.error(f"Video API download failed: {e}")
+                return None
 
-            paid_video_url = None
-
-            if YT_API_KEY and YTPROXY:
-                session = None
-                try:
-                    session = create_session()
-                    get_video = session.get(f"{YTPROXY}/info/{vid_id}", headers=headers, timeout=60)
-                    video_data = get_video.json()
-                    status = video_data.get('status')
-
-                    if status == 'success':
-                        paid_video_url = video_data.get('video_url')
-                    elif status == 'error':
-                        logger.error(
-                            f"Paid API Error: {video_data.get('message', 'Unknown error from API.')}"
-                        )
-                    else:
-                        logger.error("Paid API returned unexpected response while fetching video.")
-                except requests.exceptions.RequestException as e:
-                    logger.error(f"Network error while fetching paid video info: {str(e)}")
-                except json.JSONDecodeError as e:
-                    logger.error(f"Invalid paid API response for video: {str(e)}")
-                except Exception as e:
-                    logger.error(f"Error in paid video flow: {str(e)}")
-                finally:
-                    if session:
-                        session.close()
-            else:
-                logger.warning("Paid API key/endpoint not configured. Using worker fallback for video.")
-
-            if paid_video_url:
-                result = await download_from_source(paid_video_url, filepath, headers)
-                if result:
-                    return result
-                logger.warning("Paid video URL download failed, trying worker fallback.")
-
-            fallback_video_url = await get_worker_fallback_link(vid_id, "mp4")
-            if fallback_video_url:
-                result = await download_from_source(fallback_video_url, filepath)
-                if result:
-                    return result
-
-            logger.error("Video download failed on both paid API and worker fallback.")
-            return None
-        
         def song_video_dl():
             formats = f"{format_id}+140"
             fpath = f"downloads/{title}"
@@ -794,5 +850,5 @@ class YouTubeAPI:
         else:
             direct = True
             downloaded_file = await audio_dl(vid_id)
-        
+
         return downloaded_file, direct
