@@ -11,7 +11,9 @@ from yt_dlp import YoutubeDL
 
 from BABYMUSIC.core.dir import DOWNLOAD_DIR as _DOWNLOAD_DIR, CACHE_DIR
 from BABYMUSIC.utils.tuning import CHUNK_SIZE, SEM
-from config import API_KEY, API_URL
+from config import API_KEY
+
+API_URL = None
 
 USE_API: bool = bool(API_URL and API_KEY)
 
