@@ -50,7 +50,7 @@ YT_API_KEY = getenv("YT_API_KEY" , None ) ## Your API key like: xbit_10000000xx0
 # ── Hosting / deployment ───────────────────────────────────────────────────────
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
-STREAM_MODE = true
+STREAM_MODE = True
 
 # ── Git / updates ──────────────────────────────────────────────────────────────
 UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/SkyBotsDeveloper/VivaanXmusic3.0")
