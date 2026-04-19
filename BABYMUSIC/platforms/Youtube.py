@@ -734,109 +734,109 @@ class YouTubeAPI:
               return None
 
         async def video_dl(vid_id):
-        vid = vid_id
-        kind = "video"
+          vid = vid_id
+          kind = "video"
 
-        if config.STREAM_MODE:
-            url = f"{config.BASE_URL}/api/{kind}?query={vid}&api={config.API_KEY}"
-        else:
-            url = f"{config.BASE_URL}/api/{kind}?query={vid}&download=true&api={config.API_KEY}"
+          if config.STREAM_MODE:
+              url = f"{config.BASE_URL}/api/{kind}?query={vid}&api={config.API_KEY}"
+          else:
+              url = f"{config.BASE_URL}/api/{kind}?query={vid}&download=true&api={config.API_KEY}"
 
-        logger.info(f"Video API request: {url}")
+          logger.info(f"Video API request: {url}")
 
-        try:
-            timeout = aiohttp.ClientTimeout(total=60)
+          try:
+              timeout = aiohttp.ClientTimeout(total=60)
 
-            async with aiohttp.ClientSession(timeout=timeout) as sess:
+              async with aiohttp.ClientSession(timeout=timeout) as sess:
 
                 # Step 1: API call
-                async with sess.get(url) as resp:
-                    if resp.status != 200:
-                        raise Exception(f"API status {resp.status}")
+                  async with sess.get(url) as resp:
+                      if resp.status != 200:
+                          raise Exception(f"API status {resp.status}")
 
-                    j = await resp.json()
+                      j = await resp.json()
 
-                stream_url = j.get("stream")
-                stream_type = j.get("type")
+                  stream_url = j.get("stream")
+                  stream_type = j.get("type")
 
-                if not stream_url:
-                    raise Exception("No stream URL returned from API.")
+                  if not stream_url:
+                      raise Exception("No stream URL returned from API.")
 
-                if stream_type == "live":
-                    return stream_url
+                  if stream_type == "live":
+                      return stream_url
 
-                # Step 2: Polling (FIXED)
-                max_tries = 90
-                ready = False
+                  # Step 2: Polling (FIXED)
+                  max_tries = 90
+                  ready = False
 
-                headers = {
-                    "User-Agent": "Mozilla/5.0",
-                    "Range": "bytes=0-1"
-                }
+                  headers = {
+                      "User-Agent": "Mozilla/5.0",
+                      "Range": "bytes=0-1"
+                  }
 
-                for i in range(max_tries):
-                    try:
-                        async with sess.get(stream_url, headers=headers, timeout=10) as resp:
-                            code = resp.status
+                  for i in range(max_tries):
+                      try:
+                          async with sess.get(stream_url, headers=headers, timeout=10) as resp:
+                              code = resp.status
 
-                            if code in (200, 206):
-                                logger.info(f"Stream ready at attempt {i}")
-                                ready = True
-                                break
+                              if code in (200, 206):
+                                  logger.info(f"Stream ready at attempt {i}")
+                                  ready = True
+                                  break
 
-                            elif code in (204, 423, 404, 410):
-                                logger.info(f"Not ready ({code}) attempt {i}")
-                                await asyncio.sleep(2)
-                                continue
+                              elif code in (204, 423, 404, 410):
+                                  logger.info(f"Not ready ({code}) attempt {i}")
+                                  await asyncio.sleep(2)
+                                  continue
 
-                            elif code in (401, 403, 429):
-                                raise Exception(f"Fatal status {code}")
+                              elif code in (401, 403, 429):
+                                  raise Exception(f"Fatal status {code}")
 
-                            else:
-                                logger.warning(f"Unexpected status {code}")
-                                await asyncio.sleep(2)
+                              else:
+                                  logger.warning(f"Unexpected status {code}")
+                                  await asyncio.sleep(2)
 
-                    except Exception as e:
-                        logger.warning(f"Polling error: {e}")
-                        await asyncio.sleep(2)
+                      except Exception as e:
+                          logger.warning(f"Polling error: {e}")
+                          await asyncio.sleep(2)
 
-                if not ready:
-                    raise Exception("Stream URL was never ready")
+                  if not ready:
+                      raise Exception("Stream URL was never ready")
 
-                if config.STREAM_MODE:
-                    return stream_url
+                  if config.STREAM_MODE:
+                      return stream_url
 
                 # Step 3: Download (aiohttp based)
-                os.makedirs("downloads", exist_ok=True)
-                filepath = os.path.join("downloads", f"{vid}.mp4")
+                  os.makedirs("downloads", exist_ok=True)
+                  filepath = os.path.join("downloads", f"{vid}.mp4")
 
-                if os.path.exists(filepath):
-                    os.remove(filepath)
+                  if os.path.exists(filepath):
+                      os.remove(filepath)
 
-                logger.info(f"Downloading: {stream_url}")
+                  logger.info(f"Downloading: {stream_url}")
 
-                async with sess.get(stream_url) as resp:
-                    if resp.status not in (200, 206):
-                        raise Exception(f"Download failed {resp.status}")
+                  async with sess.get(stream_url) as resp:
+                      if resp.status not in (200, 206):
+                          raise Exception(f"Download failed {resp.status}")
 
-                    with open(filepath, "wb") as f:
-                        async for chunk in resp.content.iter_chunked(1024 * 64):
-                            if chunk:
-                                f.write(chunk)
+                      with open(filepath, "wb") as f:
+                          async for chunk in resp.content.iter_chunked(1024 * 64):
+                              if chunk:
+                                  f.write(chunk)
 
                 # Step 4: Validate file
-                if not os.path.exists(filepath):
-                    raise Exception("File missing")
+                  if not os.path.exists(filepath):
+                      raise Exception("File missing")
 
-                if os.path.getsize(filepath) <= 50 * 1024:
-                    os.remove(filepath)
-                    raise Exception("File too small")
+                  if os.path.getsize(filepath) <= 50 * 1024:
+                      os.remove(filepath)
+                      raise Exception("File too small")
 
-                return filepath
-
-        except Exception as e:
-            logger.error(f"Video API download failed: {e}")
-            return None
+                  return filepath
+  
+          except Exception as e:
+              logger.error(f"Video API download failed: {e}")
+              return None
         
 
         def song_video_dl():
