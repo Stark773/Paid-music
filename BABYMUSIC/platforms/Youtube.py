@@ -7,19 +7,19 @@ from concurrent.futures import ThreadPoolExecutor
 from typing import Union
 import string
 import requests
+import aiohttp
 import yt_dlp
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-from py_yt import VideosSearch
+from youtubesearchpython.future import VideosSearch
 try:
     from youtubesearchpython.future.extras import Recommendations
 except ImportError:
     Recommendations = None
 import base64
-from BABYMUSIC import LOGGER
-import config
+from BABYMUSIC import LOGGER, config
 from BABYMUSIC.utils.database import is_on_off
 from BABYMUSIC.utils.formatters import time_to_seconds
 from BABYMUSIC.utils.url_guard import is_safe_media_url
@@ -631,76 +631,86 @@ class YouTubeAPI:
         async def audio_dl(vid_id):
             vid = vid_id
             kind = "song"
+
             if config.STREAM_MODE:
                 url = f"{config.BASE_URL}/api/{kind}?query={vid}&api={config.API_KEY}"
             else:
                 url = f"{config.BASE_URL}/api/{kind}?query={vid}&download=true&api={config.API_KEY}"
+
             logger.info(f"Audio API request: {url}")
 
             try:
-                async with requests.Session() as sess:
-                    resp = sess.get(url, timeout=60)
-                if resp.status_code != 200:
-                    raise Exception(f"API status {resp.status_code}: {resp.text}")
+                async with aiohttp.ClientSession() as sess:
+                    async with sess.get(url, timeout=60) as resp:
+                        if resp.status != 200:
+                            raise Exception(f"API status {resp.status}")
 
-                j = resp.json()
-                stream_url = j.get("stream")
-                stream_type = j.get("type")
+                        j = await resp.json()
 
-                if not stream_url:
-                    raise Exception("No stream URL returned from API.")
+                    stream_url = j.get("stream")
+                    stream_type = j.get("type")
 
-                if stream_type == "live":
-                    return stream_url
+                    if not stream_url:
+                        raise Exception("No stream URL returned from API.")
 
-                max_tries = 60
-                delay = 2
-                ready = False
-                for _ in range(max_tries):
-                    try:
-                        resp = sess.head(stream_url, timeout=10)
-                        code = resp.status_code
-                        if code in (200, 206):
-                            ready = True
-                            break
-                        elif code in (204, 423, 404, 410):
+                    if stream_type == "live":
+                        return stream_url
+
+                    max_tries = 60
+                    delay = 2
+                    ready = False
+
+                    for _ in range(max_tries):
+                        try:
+                            async with sess.head(stream_url, timeout=10) as resp:
+                                code = resp.status
+
+                                if code in (200, 206):
+                                    ready = True
+                                    break
+                                elif code in (204, 423, 404, 410):
+                                    await asyncio.sleep(delay)
+                                    continue
+                                elif code in (401, 403, 429):
+                                    raise Exception(f"Fatal status {code}")
+                                else:
+                                    raise Exception(f"Unexpected status {code}")
+                        except:
                             await asyncio.sleep(delay)
-                            continue
-                        elif code in (401, 403, 429):
-                            raise Exception(f"Fatal status {code} from stream URL.")
-                        else:
-                            raise Exception(f"Unexpected status {code} from stream URL.")
-                    except:
-                        await asyncio.sleep(delay)
 
-                if not ready:
-                    raise Exception("Stream URL was never ready after retries.")
+                    if not ready:
+                        raise Exception("Stream URL was never ready")
 
-                if config.STREAM_MODE:
-                    return stream_url
+                    if config.STREAM_MODE:
+                        return stream_url
 
-                filepath = os.path.join("downloads", f"{vid}.mp3")
-                if os.path.exists(filepath):
-                    os.remove(filepath)
+                    filepath = os.path.join("downloads", f"{vid}.mp3")
 
-                cmd = ["curl", "-L", stream_url, "-o", filepath, "-s", "--max-time", "120"]
-                proc = await asyncio.create_subprocess_exec(
-                    *cmd,
-                    stdout=asyncio.subprocess.PIPE,
-                    stderr=asyncio.subprocess.PIPE,
-                    env=build_subprocess_env(),
-                )
-                await proc.wait()
-                if proc.returncode != 0:
-                    raise Exception("curl download failed.")
+                    if os.path.exists(filepath):
+                        os.remove(filepath)
 
-                if not os.path.exists(filepath):
-                    raise Exception("Downloaded file does not exist.")
-                if os.path.getsize(filepath) <= 50 * 1024:
-                    os.remove(filepath)
-                    raise Exception("Downloaded file too small (<= 50 KB).")
+                    cmd = ["curl", "-L", stream_url, "-o", filepath, "-s", "--max-time", "120"]
 
-                return filepath
+                    proc = await asyncio.create_subprocess_exec(
+                        *cmd,
+                        stdout=asyncio.subprocess.PIPE,
+                        stderr=asyncio.subprocess.PIPE,
+                        env=build_subprocess_env(),
+                    )
+
+                    await proc.wait()
+
+                    if proc.returncode != 0:
+                        raise Exception("curl failed")
+
+                    if not os.path.exists(filepath):
+                        raise Exception("File missing")
+
+                    if os.path.getsize(filepath) <= 50 * 1024:
+                        os.remove(filepath)
+                        raise Exception("File too small")
+
+                    return filepath
 
             except Exception as e:
                 logger.error(f"Audio API download failed: {e}")
@@ -709,76 +719,86 @@ class YouTubeAPI:
         async def video_dl(vid_id):
             vid = vid_id
             kind = "video"
+
             if config.STREAM_MODE:
                 url = f"{config.BASE_URL}/api/{kind}?query={vid}&api={config.API_KEY}"
             else:
                 url = f"{config.BASE_URL}/api/{kind}?query={vid}&download=true&api={config.API_KEY}"
+
             logger.info(f"Video API request: {url}")
 
             try:
-                async with requests.Session() as sess:
-                    resp = sess.get(url, timeout=60)
-                if resp.status_code != 200:
-                    raise Exception(f"API status {resp.status_code}: {resp.text}")
+                async with aiohttp.ClientSession() as sess:
+                    async with sess.get(url, timeout=60) as resp:
+                        if resp.status != 200:
+                            raise Exception(f"API status {resp.status}")
 
-                j = resp.json()
-                stream_url = j.get("stream")
-                stream_type = j.get("type")
+                        j = await resp.json()
 
-                if not stream_url:
-                    raise Exception("No stream URL returned from API.")
+                    stream_url = j.get("stream")
+                    stream_type = j.get("type")
 
-                if stream_type == "live":
-                    return stream_url
+                    if not stream_url:
+                        raise Exception("No stream URL returned from API.")
 
-                max_tries = 90
-                delay = 2
-                ready = False
-                for _ in range(max_tries):
-                    try:
-                        resp = sess.head(stream_url, timeout=10)
-                        code = resp.status_code
-                        if code in (200, 206):
-                            ready = True
-                            break
-                        elif code in (204, 423, 404, 410):
+                    if stream_type == "live":
+                        return stream_url
+
+                    max_tries = 90
+                    delay = 2
+                    ready = False
+
+                    for _ in range(max_tries):
+                        try:
+                            async with sess.head(stream_url, timeout=10) as resp:
+                                code = resp.status
+
+                                if code in (200, 206):
+                                    ready = True
+                                    break
+                                elif code in (204, 423, 404, 410):
+                                    await asyncio.sleep(delay)
+                                    continue
+                                elif code in (401, 403, 429):
+                                    raise Exception(f"Fatal status {code}")
+                                else:
+                                    raise Exception(f"Unexpected status {code}")
+                        except:
                             await asyncio.sleep(delay)
-                            continue
-                        elif code in (401, 403, 429):
-                            raise Exception(f"Fatal status {code} from stream URL.")
-                        else:
-                            raise Exception(f"Unexpected status {code} from stream URL.")
-                    except:
-                        await asyncio.sleep(delay)
 
-                if not ready:
-                    raise Exception("Stream URL was never ready after retries.")
+                    if not ready:
+                        raise Exception("Stream URL was never ready")
 
-                if config.STREAM_MODE:
-                    return stream_url
+                    if config.STREAM_MODE:
+                        return stream_url
 
-                filepath = os.path.join("downloads", f"{vid}.mp4")
-                if os.path.exists(filepath):
-                    os.remove(filepath)
+                    filepath = os.path.join("downloads", f"{vid}.mp4")
 
-                cmd = ["curl", "-L", stream_url, "-o", filepath, "-s", "--max-time", "120"]
-                proc = await asyncio.create_subprocess_exec(
-                    *cmd,
-                    stdout=asyncio.subprocess.PIPE,
-                    stderr=asyncio.subprocess.PIPE,
-                    env=build_subprocess_env(),
-                )
-                await proc.wait()
-                if proc.returncode != 0:
-                    raise Exception("curl download failed.")
+                    if os.path.exists(filepath):
+                        os.remove(filepath)
 
-                if not os.path.exists(filepath):
-                    raise Exception("Downloaded file does not exist.")
-                if os.path.getsize(filepath) <= 50 * 1024:
-                    os.remove(filepath)
-                    raise Exception("Downloaded file too small (<= 50 KB).")
+                    cmd = ["curl", "-L", stream_url, "-o", filepath, "-s", "--max-time", "120"]
 
-                return filepath
+                    proc = await asyncio.create_subprocess_exec(
+                        *cmd,
+                        stdout=asyncio.subprocess.PIPE,
+                        stderr=asyncio.subprocess.PIPE,
+                        env=build_subprocess_env(),
+                    )
+
+                    await proc.wait()
+
+                    if proc.returncode != 0:
+                        raise Exception("curl failed")
+
+                    if not os.path.exists(filepath):
+                        raise Exception("File missing")
+
+                    if os.path.getsize(filepath) <= 50 * 1024:
+                        os.remove(filepath)
+                        raise Exception("File too small")
+
+                    return filepath
 
             except Exception as e:
                 logger.error(f"Video API download failed: {e}")
