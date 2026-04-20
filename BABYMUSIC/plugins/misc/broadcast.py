@@ -15,12 +15,12 @@ from BABYMUSIC.utils.database import (
 )
 from BABYMUSIC.utils.decorators.language import language
 from BABYMUSIC.utils.formatters import alpha_to_int
-from config import adminlist
+from config import adminlist, OWNER_ID
 
 IS_BROADCASTING = False
 
 
-@app.on_message(filters.command("broadcast") & SUDOERS)
+@app.on_message(filters.command("broadcast") & filters.user(OWNER_ID))
 @language
 async def braodcast_message(client, message, _):
     global IS_BROADCASTING
