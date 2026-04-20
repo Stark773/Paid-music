@@ -159,7 +159,7 @@ async def start_pm(client, message: Message, _):
 
         keyboard = [
             [
-                {"text": _["S_B_8"], "url": link},
+                {"text": _["S_B_10"], "url": link},
                 {"text": _["S_B_9"], "url": config.SUPPORT_CHAT},
             ]
         ]
