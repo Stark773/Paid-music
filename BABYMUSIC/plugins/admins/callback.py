@@ -197,55 +197,95 @@ async def manage_callback(client, callback: CallbackQuery, _):
     # ================= SEEK =================
     elif command == "SEEK":
 
+        print("DEBUG: SEEK command triggered")
+
         if not extra:
+            print("DEBUG: extra missing")
             return await callback.answer("❌ Invalid Seek", show_alert=True)
 
         action = extra[0]
+        print(f"DEBUG: action = {action}")
 
         playing = db.get(chat_id)
+        print(f"DEBUG: db.get(chat_id) = {playing}")
+
         if not playing:
-            return await callback.answer(_["queue_2"], show_alert=True)
+            print("DEBUG: ❌ Nothing playing in DB")
+            return await callback.answer("❌ Nothing playing on VC", show_alert=True)
 
-        duration_seconds = int(playing[0]["seconds"])
+        try:
+            duration_seconds = int(playing[0]["seconds"])
+            print(f"DEBUG: duration_seconds = {duration_seconds}")
+        except Exception as e:
+            print(f"DEBUG ERROR: seconds not found -> {e}")
+            return await callback.answer("❌ seconds missing", show_alert=True)
+
         if duration_seconds == 0:
-            return await callback.answer(_["admin_22"], show_alert=True)
+            print("DEBUG: duration is 0")
+            return await callback.answer("❌ Live stream can't seek", show_alert=True)
 
-        file_path = playing[0]["file"]
-        duration_played = int(playing[0]["played"])
+        try:
+            file_path = playing[0]["file"]
+            duration_played = int(playing[0]["played"])
+            duration = playing[0]["dur"]
+
+            print(f"DEBUG: file_path = {file_path}")
+            print(f"DEBUG: duration_played = {duration_played}")
+            print(f"DEBUG: duration = {duration}")
+
+        except Exception as e:
+            print(f"DEBUG ERROR: playing data issue -> {e}")
+            return await callback.answer("❌ Data error", show_alert=True)
+
         duration_to_skip = abs(int(action))
-        duration = playing[0]["dur"]
+        print(f"DEBUG: duration_to_skip = {duration_to_skip}")
 
         if action.startswith("-"):
+            print("DEBUG: backward seek")
             if (duration_played - duration_to_skip) <= 10:
-                return await callback.answer(
-                    _["admin_23"].format(seconds_to_min(duration_played), duration),
-                    show_alert=True
-                )
+                print("DEBUG: seek too close to start")
+                return await callback.answer("❌ Too close to start", show_alert=True)
+
             to_seek = duration_played - duration_to_skip + 1
+
         else:
+            print("DEBUG: forward seek")
             if (duration_seconds - (duration_played + duration_to_skip)) <= 10:
-                return await callback.answer(
-                    _["admin_23"].format(seconds_to_min(duration_played), duration),
-                    show_alert=True
-                )
+                print("DEBUG: seek too close to end")
+                return await callback.answer("❌ Too close to end", show_alert=True)
+
             to_seek = duration_played + duration_to_skip + 1
 
-        mystic = await callback.message.reply_text(_["admin_24"])
+        print(f"DEBUG: to_seek = {to_seek}")
 
-        # ✅ EXACT SAME AS COMMAND
+        mystic = await callback.message.reply_text("⏳ Seeking...")
+
+        # ================= FILE CHECK =================
         if "vid_" in file_path:
+            print("DEBUG: YouTube video detected")
             n, file_path = await YouTube.video(playing[0]["vidid"], True)
+
+            print(f"DEBUG: YouTube return = {n}, path = {file_path}")
+
             if n == 0:
-                return await callback.answer(_["admin_22"], show_alert=True)
+                print("DEBUG: YouTube fetch failed")
+                return await callback.answer("❌ Video load failed", show_alert=True)
 
         check = (playing[0]).get("speed_path")
         if check:
+            print("DEBUG: speed_path found")
             file_path = check
 
         if "index_" in file_path:
+            print("DEBUG: index file detected -> using vidid")
             file_path = playing[0]["vidid"]
 
+        print(f"DEBUG: final file_path = {file_path}")
+
+        # ================= SEEK STREAM =================
         try:
+            print("DEBUG: calling seek_stream")
+
             await JARVIS.seek_stream(
                 chat_id,
                 file_path,
@@ -253,21 +293,27 @@ async def manage_callback(client, callback: CallbackQuery, _):
                 duration,
                 playing[0]["streamtype"],
             )
-        except:
+
+            print("DEBUG: seek_stream success")
+
+        except Exception as e:
+            print(f"DEBUG ERROR: seek_stream failed -> {e}")
+
             return await mystic.edit_text(
-                _["admin_26"], reply_markup=close_markup(_)
+                "❌ Seek failed",
+                reply_markup=close_markup(_)
             )
 
+        # ================= UPDATE DB =================
         if action.startswith("-"):
             db[chat_id][0]["played"] -= duration_to_skip
         else:
             db[chat_id][0]["played"] += duration_to_skip
 
+        print(f"DEBUG: updated played = {db[chat_id][0]['played']}")
+
         await mystic.edit_text(
-            _["admin_25"].format(
-                seconds_to_min(to_seek),
-                callback.from_user.mention
-            ),
+            f"✅ Seeked to {seconds_to_min(to_seek)}",
             reply_markup=close_markup(_),
         )
         
