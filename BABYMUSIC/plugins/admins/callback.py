@@ -212,9 +212,8 @@ async def manage_callback(client, callback: CallbackQuery, _):
 
         file_path = playing[0]["file"]
         duration_played = int(playing[0]["played"])
-        duration = playing[0]["dur"]
-
         duration_to_skip = abs(int(action))
+        duration = playing[0]["dur"]
 
         if action.startswith("-"):
             if (duration_played - duration_to_skip) <= 10:
@@ -231,7 +230,14 @@ async def manage_callback(client, callback: CallbackQuery, _):
                 )
             to_seek = duration_played + duration_to_skip + 1
 
-        # ✅ KEEP ONLY THIS
+        mystic = await callback.message.reply_text(_["admin_24"])
+
+        # ✅ EXACT SAME AS COMMAND
+        if "vid_" in file_path:
+            n, file_path = await YouTube.video(playing[0]["vidid"], True)
+            if n == 0:
+                return await callback.answer(_["admin_22"], show_alert=True)
+
         check = (playing[0]).get("speed_path")
         if check:
             file_path = check
@@ -248,15 +254,22 @@ async def manage_callback(client, callback: CallbackQuery, _):
                 playing[0]["streamtype"],
             )
         except:
-            return await callback.answer(_["admin_26"], show_alert=True)
+            return await mystic.edit_text(
+                _["admin_26"], reply_markup=close_markup(_)
+            )
 
-        # ✅ DB update
         if action.startswith("-"):
             db[chat_id][0]["played"] -= duration_to_skip
         else:
             db[chat_id][0]["played"] += duration_to_skip
 
-        await callback.answer(f"⏩ Seeked to {seconds_to_min(to_seek)}")
+        await mystic.edit_text(
+            _["admin_25"].format(
+                seconds_to_min(to_seek),
+                callback.from_user.mention
+            ),
+            reply_markup=close_markup(_),
+        )
         
     # ================= STOP =================
     elif command in ["Stop", "End"]:
