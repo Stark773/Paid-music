@@ -194,6 +194,80 @@ async def manage_callback(client, callback: CallbackQuery, _):
             reply_markup=close_markup(_)
         )
 
+    # ================= SEEK =================
+    elif command == "SEEK":
+
+        if not extra:
+            return await callback.answer("❌ Invalid Seek", show_alert=True)
+
+        action = extra[0]  # +30 / -30
+
+        playing = db.get(chat_id)
+        if not playing:
+            return await callback.answer(_["queue_2"], show_alert=True)
+
+        duration_seconds = int(playing[0]["seconds"])
+        if duration_seconds == 0:
+            return await callback.answer(_["admin_22"], show_alert=True)
+
+        file_path = playing[0]["file"]
+        duration_played = int(playing[0]["played"])
+        duration = playing[0]["dur"]
+
+        duration_to_skip = abs(int(action))
+
+        # 🔁 BACKWARD
+        if action.startswith("-"):
+            if (duration_played - duration_to_skip) <= 10:
+                return await callback.answer(
+                    _["admin_23"].format(seconds_to_min(duration_played), duration),
+                    show_alert=True
+                )
+            to_seek = duration_played - duration_to_skip + 1
+
+        # ⏩ FORWARD
+        else:
+            if (duration_seconds - (duration_played + duration_to_skip)) <= 10:
+                return await callback.answer(
+                    _["admin_23"].format(seconds_to_min(duration_played), duration),
+                    show_alert=True
+                )
+            to_seek = duration_played + duration_to_skip + 1
+
+        # 🔥 Resolve file_path
+        if "vid_" in file_path:
+            n, file_path = await YouTube.video(playing[0]["vidid"], True)
+            if n == 0:
+                return await callback.answer(_["admin_22"], show_alert=True)
+
+        check = (playing[0]).get("speed_path")
+        if check:
+            file_path = check
+
+        if "index_" in file_path:
+            file_path = playing[0]["vidid"]
+
+        try:
+            await JARVIS.seek_stream(
+                chat_id,
+                file_path,
+                seconds_to_min(to_seek),
+                duration,
+                playing[0]["streamtype"],
+            )
+        except:
+            return await callback.answer(_["admin_26"], show_alert=True)
+
+        # ✅ DB update
+        if action.startswith("-"):
+            db[chat_id][0]["played"] -= duration_to_skip
+        else:
+            db[chat_id][0]["played"] += duration_to_skip
+
+        await callback.answer(
+            f"⏩ Seeked to {seconds_to_min(to_seek)}"
+        )
+        
     # ================= STOP =================
     elif command in ["Stop", "End"]:
         await callback.answer()
