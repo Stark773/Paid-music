@@ -113,19 +113,36 @@ HELP_5 = """
 HELP_6 = """
 <blockquote><b>╭━❰ ᴘʟᴀʏ ❱━╮</b></blockquote>
 <blockquote>
-❖ /play, /vplay ➥ <i>play audio/video</i>
-❖ /playforce, /vplayforce ➥ <i>force play</i>
-❖ /autoplay, /cautoplay ➥ <i>auto next songs</i>
-❖ /settings, /setting ➥ <i>open settings</i>
-❖ /playmode, /mode ➥ <i>switch mode</i>
+❖ /play, /vplay ➥ <i>Play audio or video</i>
+❖ /playforce, /vplayforce ➥ <i>Force play (skip current track)</i>
+❖ /autoplay on / enable ➥ <i>Turn ON autoplay (auto next songs)</i>
+❖ /autoplay off / disable ➥ <i>Turn OFF autoplay (stop after queue)</i>
+❖ /settings, /setting ➥ <i>Open player settings</i>
+❖ /playmode, /mode ➥ <i>Switch audio/video mode</i>
 </blockquote>
 
 <blockquote><b>╭━❰ ᴄʜᴀɴɴᴇʟ ᴘʟᴀʏ ❱━╮</b></blockquote>
 <blockquote>
-❖ /channelplay ➥ <i>link/unlink channel</i>
-❖ /cplay, /cvplay ➥ <i>play in channel</i>
-❖ /cplayforce, /cvplayforce ➥ <i>force play</i>
-❖ /cqueue, /cplayer, /cplaying ➥ <i>inspect player</i>
+❖ /channelplay ➥ <i>Link or unlink channel</i>
+❖ /cplay, /cvplay ➥ <i>Play music in channel</i>
+❖ /cplayforce, /cvplayforce ➥ <i>Force play in channel</i>
+❖ /cqueue, /cplayer, /cplaying ➥ <i>Check channel player status</i>
+</blockquote>
+
+<blockquote><b>╭━❰ 💡 ᴀᴜᴛᴏᴘʟᴀʏ ɢᴜɪᴅᴇ ❱━╮</b></blockquote>
+<blockquote>
+➤ <b>Autoplay ON / Enable</b>  
+<i>Bot will automatically play next songs from YouTube suggestions 🎶</i>
+
+➤ <b>Autoplay OFF / Disable</b>  
+<i>Music will stop after the last song in queue ❌</i>
+
+➤ <b>Use:</b>  
+<i>/autoplay on</i> or <i>/autoplay enable</i> → Enable  
+<i>/autoplay off</i> or <i>/autoplay disable</i> → Disable  
+
+➤ <b>Benefit:</b>  
+<i>Enjoy non-stop music without adding songs manually 🔁</i>
 </blockquote>
 
 <blockquote><b>╰━❰ <a href="https://t.me/BabiesIQ">ʙᴀʙʏＩＱ™</a> ❱━╯</b></blockquote>
