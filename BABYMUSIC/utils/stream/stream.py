@@ -177,7 +177,7 @@ async def stream(
             await app.send_message(
                 chat_id=original_chat_id,
                 text=_["queue_4"].format(position, title[:27], duration_min, user_name),
-                reply_markup=InlineKeyboardMarkup(button)
+                reply_markup=InlineKeyboardMarkup(button),
                 disable_web_page_preview=True,
             )
         else:
@@ -242,7 +242,7 @@ async def stream(
             await app.send_message(
                 chat_id=original_chat_id,
                 text=_["queue_4"].format(position, title[:27], duration_min, user_name),
-                reply_markup=InlineKeyboardMarkup(button)
+                reply_markup=InlineKeyboardMarkup(button),
                 disable_web_page_preview=True,
             )
         else:
@@ -298,7 +298,7 @@ async def stream(
             await app.send_message(
                 chat_id=original_chat_id,
                 text=_["queue_4"].format(position, title[:27], duration_min, user_name),
-                reply_markup=InlineKeyboardMarkup(button)
+                reply_markup=InlineKeyboardMarkup(button),
                 disable_web_page_preview=True,
             )
         else:
@@ -353,7 +353,7 @@ async def stream(
             await app.send_message(
                 chat_id=original_chat_id,
                 text=_["queue_4"].format(position, title[:27], duration_min, user_name),
-                reply_markup=InlineKeyboardMarkup(button)
+                reply_markup=InlineKeyboardMarkup(button),
                 disable_web_page_preview=True,
             )
         else:
@@ -420,7 +420,7 @@ async def stream(
             button = aq_markup(_, chat_id)
             await mystic.edit_text(
                 text=_["queue_4"].format(position, title[:27], duration_min, user_name),
-                reply_markup=InlineKeyboardMarkup(button)
+                reply_markup=InlineKeyboardMarkup(button),
                 disable_web_page_preview=True,
             )
         else:
