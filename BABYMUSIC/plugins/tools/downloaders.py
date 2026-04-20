@@ -6,7 +6,7 @@ from py_yt import VideosSearch
 from BBYMUSIC import app
 import config
 from config import BANNED_USERS
-from BABYMUSIC.utils.thumbnails import get_thumb
+from BABYMUSIC.utils.thumbnails import thumb_json as get_thumb
 
 D="downloads";os.makedirs(D,exist_ok=True)
 
