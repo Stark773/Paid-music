@@ -19,7 +19,7 @@ def escape_md(text: str) -> str:
     return text.replace('[', '\\[').replace(']', '\\]').replace('`', '\\`')
 
 
-@app.on_message(filters.command("bug"))
+@app.on_message(filters.command("report"))
 async def report_bug(_, msg: Message):
     if msg.chat.type == "private":
         return await msg.reply_text("**ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪs ᴏɴʟʏ ғᴏʀ ɢʀᴏᴜᴘs.**")
