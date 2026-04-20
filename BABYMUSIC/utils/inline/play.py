@@ -50,9 +50,9 @@ def generate_progress_bar(played_sec, duration_sec):
 def control_buttons(_, chat_id):
     return [
         [
-            success_button(text="⪻ -30s", callback_data=f"SEEK|-30|{chat_id}"),
+            success_button(text="⪻ -30s", callback_data=f"ADMIN SEEK|-30|{chat_id}"),
             primary_button(text="🎛", callback_data=f"ADMIN Filters|{chat_id}"),
-            success_button(text="+30s ⪼", callback_data=f"SEEK|+30|{chat_id}"),
+            success_button(text="+30s ⪼", callback_data=f"ADMIN SEEK|+30|{chat_id}"),
         ],
         [
             success_button(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
