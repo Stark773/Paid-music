@@ -162,17 +162,13 @@ HELP_7 = """
 HELP_8 = """
 <blockquote><b>╭━❰ ᴅᴏᴡɴʟᴏᴀᴅ ❱━╮</b></blockquote>
 <blockquote>
-❖ /song ➥ <i>download song</i>
-❖ /spotify ➥ <i>spotify song</i>
-❖ /apple ➥ <i>apple music</i>
-❖ /lyrics ➥ <i>lyrics</i>
+❖ /song ➥ <i>download song form Youtube</i>
+❖ /video ➥ <i>download video from YouTube</i>
 ❖ /insta, /ig ➥ <i>instagram</i>
-❖ /youtube, /yt ➥ <i>youtube</i>
 ❖ /facebook, /fb ➥ <i>facebook</i>
 ❖ /x, /twitter ➥ <i>twitter</i>
 ❖ /snap ➥ <i>snapchat</i>
 ❖ /tiktok, /tt ➥ <i>tiktok</i>
-❖ /remove ➥ <i>remove audio/video</i>
 </blockquote>
 <blockquote><b>╰━❰ <a href="https://t.me/BabiesIQ">ʙᴀʙʏＩＱ™</a> ❱━╯</b></blockquote>
 """
@@ -184,7 +180,6 @@ HELP_9 = """
 ❖ /info, /userinfo, /whois ➥ <i>user details</i>
 ❖ /sg ➥ <i>user history</i>
 ❖ /groupdata ➥ <i>group info</i>
-❖ /phone ➥ <i>phone lookup</i>
 </blockquote>
 <blockquote><b>╰━❰ <a href="https://t.me/BabiesIQ">ʙᴀʙʏＩＱ™</a> ❱━╯</b></blockquote>
 """
@@ -264,10 +259,8 @@ HELP_13 = """
 <blockquote>
 ❖ /tgm, /tgt, /telegraph ➥ <i>upload media</i>
 ❖ /tr ➥ <i>translate</i>
-❖ /short, /unshort ➥ <i>short link</i>
 ❖ /speedtest ➥ <i>network test</i>
-❖ /webdl ➥ <i>website download</i>
-❖ /bug ➥ <i>report bug</i>
+❖ /report ➥ <i>report bot & service related issues</i>
 ❖ /encrypt, /enc ➥ <i>encrypt</i>
 ❖ /decrypt, /dec ➥ <i>decrypt</i>
 </blockquote>
@@ -287,14 +280,10 @@ HELP_14 = """
 HELP_15 = """
 <blockquote><b>╭━❰ sᴇᴀʀᴄʜ ❱━╮</b></blockquote>
 <blockquote>
-❖ /anime ➥ <i>anime search</i>
-❖ /movie ➥ <i>movie info</i>
-❖ /news ➥ <i>latest news</i>
 ❖ /domain ➥ <i>domain info</i>
 ❖ /ip ➥ <i>ip info</i>
 ❖ /mongochk ➥ <i>mongo check</i>
 ❖ /weather ➥ <i>weather info</i>
-❖ /population ➥ <i>population</i>
 </blockquote>
 <blockquote><b>╰━❰ <a href="https://t.me/BabiesIQ">ʙᴀʙʏＩＱ™</a> ❱━╯</b></blockquote>
 """
@@ -352,12 +341,8 @@ HELP_20 = """
 <blockquote><b>╭━❰ ᴛᴇxᴛ ❱━╮</b></blockquote>
 <blockquote>
 ❖ /font ➥ <i>fonts</i>
-❖ /figlet ➥ <i>style text</i>
 ❖ /encode ➥ <i>encode</i>
 ❖ /decode ➥ <i>decode</i>
-❖ /genpassword ➥ <i>generate password</i>
-❖ /write ➥ <i>notebook text</i>
-❖ /day ➥ <i>weekday</i>
 ❖ /qr ➥ <i>qr code</i>
 ❖ /q ➥ <i>quote sticker</i>
 </blockquote>
