@@ -21,7 +21,7 @@ async def download_repo(client: Client, message: Message):
     if len(message.command) != 2:
         return await message.reply_text(
             "Please provide a GitHub repository URL.\n\n"
-            "Example: `/downloadrepo https://github.com/VivaanNetworkDev/VivaanXmusic3.0`",
+            "Example: `/downloadrepo https://github.com/BabiesIQ/SPOTIFY_MUSIC`",
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -59,7 +59,7 @@ async def download_repo(client: Client, message: Message):
 async def clone_and_zip_repo(repo_url: str) -> tuple[str, str]:
     safe_repo_url = validate_github_repo_url(repo_url)
 
-    temp_root = tempfile.mkdtemp(prefix="vivaan_repo_")
+    temp_root = tempfile.mkdtemp(prefix="IQ_repo_")
     repo_name = safe_repo_url.rstrip("/").split("/")[-1].removesuffix(".git")
     repo_path = os.path.join(temp_root, repo_name)
     archive_base = os.path.join(temp_root, repo_name)
