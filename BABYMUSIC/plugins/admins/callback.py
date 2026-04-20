@@ -134,13 +134,26 @@ async def manage_callback(client, callback: CallbackQuery, _):
         parts = raw.split("|")
 
         command = parts[0]
-        chat_id = int(parts[1])
-
         counter = None
-        extra = parts[2:] if len(parts) > 2 else []
+
+        # 🔥 FIX: SEEK ka format alag hai
+        if command == "SEEK":
+            if len(parts) < 3:
+                return await callback.answer(_["admin_21"], show_alert=True)
+
+            action = parts[1]
+            chat_id = int(parts[2])
+            extra = [action]
+
+        else:
+            if len(parts) < 2:
+                return await callback.answer(_["admin_21"], show_alert=True)
+
+            chat_id = int(parts[1])
+            extra = parts[2:] if len(parts) > 2 else []
 
     except Exception:
-        return await callback.answer("❌ Invalid Callback Data", show_alert=True)
+        return await callback.answer(_["admin_21"], show_alert=True)
 
     # ================= ACTIVE CHECK =================
     if not await is_active_chat(chat_id):
@@ -197,25 +210,19 @@ async def manage_callback(client, callback: CallbackQuery, _):
     # ================= SEEK =================
     elif command == "SEEK":
 
-        data = callback.data.split("|")
-
-        if len(data) < 3:
-            return await callback.answer(_["admin_21"], show_alert=True)
-
-        action = data[1]
-        chat_id = int(data[2])
+        action = extra[0]
 
         playing = db.get(chat_id)
-        if not playing or not isinstance(playing, list):
+        if not playing:
             return await callback.answer(_["queue_2"], show_alert=True)
 
-        duration_seconds = int(playing[0].get("seconds", 0))
+        duration_seconds = int(playing[0]["seconds"])
         if duration_seconds == 0:
             return await callback.answer(_["admin_22"], show_alert=True)
 
-        file_path = playing[0].get("file")
-        duration_played = int(playing[0].get("played", 0))
-        duration = playing[0].get("dur")
+        file_path = playing[0]["file"]
+        duration_played = int(playing[0]["played"])
+        duration = playing[0]["dur"]
 
         duration_to_skip = abs(int(action))
 
