@@ -44,7 +44,7 @@ def generate_progress_bar(played_sec, duration_sec):
 
     bar_length = 8
     filled = int(round(bar_length * percentage / 70))
-    return "▰" * filled + "▱" * (bar_length - filled)
+    return "█" * filled + "▒" * (bar_length - filled)
 
 
 def control_buttons(_, chat_id):
@@ -57,9 +57,9 @@ def control_buttons(_, chat_id):
         [
             success_button(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
             primary_button(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
+            success_button(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
             primary_button(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
-            danger_button(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
+            success_button(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ]
     ]
 
