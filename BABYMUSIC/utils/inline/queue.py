@@ -65,13 +65,20 @@ def queue_back_markup(_, CPLAY):
 
 
 def aq_markup(_, chat_id):
+    queue_text = "No song in queue"
+
+    if chat_id in db and len(db[chat_id]) > 1:
+        last_index = len(db[chat_id]) - 1
+        track = db[chat_id][last_index]
+        title = track["title"]
+        queue_text = f"Next ➜ {last_index}. {title[:15]}"
+
     buttons = [
         [
-            success_button(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
-            primary_button(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
-            primary_button(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
-            danger_button(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
-        ],
-        [danger_button(text=_["CLOSE_BUTTON"], callback_data="close")],
+            success_button(
+                text=title_text,
+                callback_data=f"ADMIN Skip|{chat_id}"
+            )
+        ]
     ]
     return buttons
