@@ -7,7 +7,7 @@ from BABYMUSIC.button_styles import danger_button, success_button
 def botplaylist_markup(_):
     buttons = [
         [
-            success_button(text=_["S_B_4"], url=SUPPORT_CHAT),
+            success_button(text=_["S_B_2"], url=SUPPORT_CHAT),
             danger_button(text=_["CLOSE_BUTTON"], callback_data="close"),
         ],
     ]
