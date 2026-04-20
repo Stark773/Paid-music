@@ -733,6 +733,10 @@ class Call:
                         _["call_6"], disable_web_page_preview=True
                     )
 
+                # ✅ FIX: autoplay ke liye http stream DB me set karo
+                if file_path:
+                    db[chat_id][0]["file"] = file_path
+
                 stream = dynamic_media_stream(path=file_path, video=video)
                 try:
                     await self._play_stream(client, chat_id, stream)
