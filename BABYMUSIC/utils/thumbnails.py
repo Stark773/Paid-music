@@ -685,3 +685,7 @@ async def get_thumb(videoid: str, user_id: int = None) -> str:
     buffer.seek(0)
 
     return buffer
+
+
+def thumb_json(videoid):
+    return f"https://i.ytimg.com/vi/{videoid}/mqdefault.jpg"
