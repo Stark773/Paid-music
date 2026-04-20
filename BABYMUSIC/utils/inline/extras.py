@@ -33,7 +33,7 @@ def supp_markup(_):
         [
             [
                 success_button(
-                    text=_["S_B_4"],
+                    text=_["S_B_2"],
                     url=SUPPORT_CHAT,
                 ),
             ]
