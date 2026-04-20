@@ -76,7 +76,7 @@ def aq_markup(_, chat_id):
     buttons = [
         [
             success_button(
-                text=title_text,
+                text=queue_text,
                 callback_data=f"ADMIN Skip|{chat_id}"
             )
         ]
