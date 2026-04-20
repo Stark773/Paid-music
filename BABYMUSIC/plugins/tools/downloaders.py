@@ -3,7 +3,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton,CallbackQuery,Message
 from pyrogram.enums import ChatAction
 from py_yt import VideosSearch
-from BBYMUSIC import app
+from BABYMUSIC import app
 import config
 from config import BANNED_USERS
 from BABYMUSIC.utils.thumbnails import thumb_json as get_thumb
