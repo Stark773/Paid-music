@@ -94,7 +94,7 @@ START_IMG_URL = getenv(
 )
 HELP_IMG_URL = "https://files.catbox.moe/h0kwk4.jpg"
 PING_VID_URL = "https://litter.catbox.moe/v8io0o.jpg"
-PLAYLIST_IMG_URL = "https://files.catbox.moe/u79q4y.jpg"
+PLAYLIST_IMG_URL = "https://litter.catbox.moe/aoeemi.jpg"
 STATS_VID_URL = "https://files.catbox.moe/uo4lc8.mp4"
 TELEGRAM_AUDIO_URL = "https://files.catbox.moe/eis7ei.jpg"
 TELEGRAM_VIDEO_URL = "https://files.catbox.moe/eis7ei.jpg"
