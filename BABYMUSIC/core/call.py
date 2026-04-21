@@ -51,8 +51,16 @@ vc_join_targets = {}
 vc_join_call_map = {}
 vc_join_event_cache = {}
 vc_join_notice_cache = {}
-vc_left_event_cache = {}   # NEW
-vc_left_notice_cache = {}  # NEW
+vc_left_event_cache = {}
+vc_left_notice_cache = {}
+
+
+async def _auto_delete(msg, delay: int = 10) -> None:
+    await asyncio.sleep(delay)
+    try:
+        await msg.delete()
+    except Exception:
+        pass
 
 
 def dynamic_media_stream(path: str, video: bool = False, ffmpeg_params: str = None) -> MediaStream:
@@ -237,31 +245,19 @@ class Call:
 
         try:
             user = await app.get_users(user_id)
-            name = " ".join(
-                part for part in [user.first_name, user.last_name] if part
-            ).strip() or user.username or "Unknown User"
-            username = f" (@{user.username})" if user.username else ""
+            mention = user.mention
         except Exception:
-            name = "Unknown User"
-            username = ""
+            mention = f"<a href='tg://user?id={user_id}'>User</a>"
 
         text = (
-    "╔══════════════════╗\n"
-    "║   🎧  VC JOINED    ║\n"
-    "╠══════════════════╣\n"
-    f"║ 👤 Name : {name}{username}\n"
-    f"║ 🆔 ID   : <code>{user_id}</code>\n"
-    "╚══════════════════╝"
+            "<b>🎙️ 𝗩𝗖 𝗝𝗢𝗜𝗡𝗘𝗗</b>\n"
+            "┄┄┄┄┄┄┄┄┄┄┄┄\n"
+            f"• Usᴇʀ : {mention}\n"
+            f"• Iᴅ   : <code>{user_id}</code>"
         )
 
         msg = await app.send_message(notify_chat_id, text)
-
-        await asyncio.sleep(10)
-        try:
-            await msg.delete()
-        except:
-            pass
-
+        asyncio.create_task(_auto_delete(msg, 10))
 
     async def _send_vc_left_notice(
         self,
@@ -275,31 +271,20 @@ class Call:
 
         try:
             user = await app.get_users(user_id)
-            name = " ".join(
-                part for part in [user.first_name, user.last_name] if part
-            ).strip() or user.username or "Unknown User"
-            username = f" (@{user.username})" if user.username else ""
+            mention = user.mention
         except Exception:
-            name = "Unknown User"
-            username = ""
+            mention = f"<a href='tg://user?id={user_id}'>User</a>"
 
         text = (
-    "╔══════════════════╗\n"
-    "║   🚪  VC LEFT      ║\n"
-    "╠══════════════════╣\n"
-    f"║ 👤 Name : {name}{username}\n"
-    f"║ 🆔 ID   : <code>{user_id}</code>\n"
-    "╚══════════════════╝"
+            "<b>🎙️ 𝗩𝗖 𝗟𝗘𝗙𝗧</b>\n"
+            "┄┄┄┄┄┄┄┄┄┄┄┄\n"
+            f"• Usᴇʀ : {mention}\n"
+            f"• Iᴅ   : <code>{user_id}</code>"
         )
 
         msg = await app.send_message(notify_chat_id, text)
+        asyncio.create_task(_auto_delete(msg, 10))
 
-        await asyncio.sleep(10)
-        try:
-            await msg.delete()
-        except:
-            pass
-            
     async def _handle_group_call_participants_update(
         self,
         update: UpdateGroupCallParticipants,
