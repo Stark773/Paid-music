@@ -92,7 +92,7 @@ async def play_logs(message, streamtype, query: str = None):
     ├ QUERY: {query}
     └ TYPE : {streamtype}
 
-╚═══════════════════╝
+╚══════════════════╝
 </blockquote>
 """
 
