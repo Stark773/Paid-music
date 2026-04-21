@@ -246,12 +246,12 @@ class Call:
             username = ""
 
         text = (
-    "╔════════════════════╗\n"
+    "╔══════════════════╗\n"
     "║   🎧  VC JOINED    ║\n"
-    "╠════════════════════╣\n"
+    "╠══════════════════╣\n"
     f"║ 👤 Name : {name}{username}\n"
     f"║ 🆔 ID   : <code>{user_id}</code>\n"
-    "╚════════════════════╝"
+    "╚══════════════════╝"
         )
 
         msg = await app.send_message(notify_chat_id, text)
@@ -284,12 +284,12 @@ class Call:
             username = ""
 
         text = (
-    "╔════════════════════╗\n"
+    "╔══════════════════╗\n"
     "║   🚪  VC LEFT      ║\n"
-    "╠════════════════════╣\n"
+    "╠══════════════════╣\n"
     f"║ 👤 Name : {name}{username}\n"
     f"║ 🆔 ID   : <code>{user_id}</code>\n"
-    "╚════════════════════╝"
+    "╚══════════════════╝"
         )
 
         msg = await app.send_message(notify_chat_id, text)
