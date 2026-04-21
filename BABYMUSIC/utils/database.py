@@ -227,9 +227,13 @@ async def get_vcnotify(chat_id: int) -> bool:
     if mode is None:
         data = await vcnotifydb.find_one({"chat_id": chat_id})
         if not data:
-            vcnotify[chat_id] = False
-            return False
-        mode = bool(data.get("mode"))
+            vcnotify[chat_id] = True
+            await vcnotifydb.insert_one({
+                "chat_id": chat_id,
+                "mode": True
+            })
+            return True
+        mode = bool(data.get("mode", True))
         vcnotify[chat_id] = mode
         return mode
     return bool(mode)
@@ -239,9 +243,10 @@ async def set_vcnotify(chat_id: int, mode: bool):
     enabled = bool(mode)
     vcnotify[chat_id] = enabled
     await vcnotifydb.update_one(
-        {"chat_id": chat_id}, {"$set": {"mode": enabled}}, upsert=True
+        {"chat_id": chat_id},
+        {"$set": {"mode": enabled}},
+        upsert=True
     )
-
 
 async def get_vault_message(code: str) -> dict:
     return await messagevaultdb.find_one({"code": code})
