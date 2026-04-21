@@ -11,15 +11,15 @@ from BABYMUSIC.utils.inline import close_markup
 
 # ---------------- AUTO HANDLER ---------------- #
 
-@app.on_message(filters.group & filters.incoming, group=20)
+@app.on_message(filters.group & ~filters.bot & ~filters.via_bot, group=68)
 async def auto_vc_notify(_, message: Message):
     try:
         chat_id = message.chat.id
 
-        # 🔹 Agar cache me nahi hai to DB se laao (auto ON bhi ho jayega)
+        # 🔹 DB check (auto ON bhi yahi karega)
         status = await get_vcnotify(chat_id)
 
-        # ❌ Manual OFF respect karo
+        # ❌ Manual OFF respect
         if not status:
             return
 
@@ -30,15 +30,14 @@ async def auto_vc_notify(_, message: Message):
         # 🔹 Start notifier
         await JARVIS.maybe_start_vc_join_notifier(chat_id, chat_id)
 
-        # 🔹 Linked chat
+        # 🔹 Linked chat support
         linked_chat = await get_cmode(chat_id)
         if linked_chat:
             if linked_chat not in JARVIS.vc_notifier:
                 await JARVIS.maybe_start_vc_join_notifier(linked_chat, chat_id)
 
     except Exception:
-        pass
-
+        pass  # 🔇 silent
 
 # ---------------- COMMAND ---------------- #
 
