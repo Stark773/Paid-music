@@ -364,7 +364,8 @@ class YouTubeAPI:
 
         if videoid and Recommendations is not None:
             try:
-                candidates = await Recommendations.getRelated(videoid, timeout=5) or []
+                data = await Recommendations.getRelated(videoid, timeout=5) or {}
+                candidates = data.get("result", []) if isinstance(data, dict) else []
             except Exception as err:
                 logger.warning("Autoplay recommendations failed for %s: %s", videoid, err)
 
