@@ -15,7 +15,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from py_yt import VideosSearch
 try:
-    from youtubesearchpython.extras import Recommendations
+    from py_yt.extras import Recommendations
 except ImportError:
     Recommendations = None
 import base64
@@ -364,7 +364,7 @@ class YouTubeAPI:
 
         if videoid and Recommendations is not None:
             try:
-                candidates = await Recommendations.get(videoid, timeout=5) or []
+                candidates = await Recommendations.getRelated(videoid, timeout=5) or []
             except Exception as err:
                 logger.warning("Autoplay recommendations failed for %s: %s", videoid, err)
 
