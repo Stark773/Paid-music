@@ -245,10 +245,23 @@ class Call:
             name = "Unknown User"
             username = ""
 
-        await app.send_message(
-            notify_chat_id,
-            f"Joined VC\nName: {name}{username}\nUser ID: <code>{user_id}</code>",
+        text = (
+    "╔════════════════════╗\n"
+    "║   🎧  VC JOINED    ║\n"
+    "╠════════════════════╣\n"
+    f"║ 👤 Name : {name}{username}\n"
+    f"║ 🆔 ID   : <code>{user_id}</code>\n"
+    "╚════════════════════╝"
         )
+
+        msg = await app.send_message(notify_chat_id, text)
+
+        await asyncio.sleep(10)
+        try:
+            await msg.delete()
+        except:
+            pass
+
 
     async def _send_vc_left_notice(
         self,
@@ -270,11 +283,23 @@ class Call:
             name = "Unknown User"
             username = ""
 
-        await app.send_message(
-            notify_chat_id,
-            f"Left VC\nName: {name}{username}\nUser ID: <code>{user_id}</code>",
+        text = (
+    "╔════════════════════╗\n"
+    "║   🚪  VC LEFT      ║\n"
+    "╠════════════════════╣\n"
+    f"║ 👤 Name : {name}{username}\n"
+    f"║ 🆔 ID   : <code>{user_id}</code>\n"
+    "╚════════════════════╝"
         )
 
+        msg = await app.send_message(notify_chat_id, text)
+
+        await asyncio.sleep(10)
+        try:
+            await msg.delete()
+        except:
+            pass
+            
     async def _handle_group_call_participants_update(
         self,
         update: UpdateGroupCallParticipants,
