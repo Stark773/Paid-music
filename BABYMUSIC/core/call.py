@@ -213,6 +213,26 @@ class Call:
             f"Joined VC\nName: {name}{username}\nUser ID: <code>{user_id}</code>",
         )
 
+    async def _send_vc_leave_notice(
+        self,
+        notify_chat_id: int,
+        user_id: int,
+    ) -> None:
+        try:
+            user = await app.get_users(user_id)
+            name = " ".join(
+                part for part in [user.first_name, user.last_name] if part
+            ).strip() or user.username or "Unknown User"
+            username = f" (@{user.username})" if user.username else ""
+        except Exception:
+            name = "Unknown User"
+            username = ""
+
+        await app.send_message(
+            notify_chat_id,
+            f"Left VC\nName: {name}{username}\nUser ID: <code>{user_id}</code>",
+        )
+
     async def _handle_group_call_participants_update(
         self,
         update: UpdateGroupCallParticipants,
@@ -234,7 +254,12 @@ class Call:
                 continue
 
             if getattr(participant, "left", False):
-                member_snapshot.discard(user_id)
+                if user_id in member_snapshot:
+                    member_snapshot.discard(user_id)
+                    await self._send_vc_leave_notice(
+                        notify_chat_id,
+                        user_id
+                    )
                 continue
 
             if not getattr(participant, "just_joined", False):
@@ -284,6 +309,9 @@ class Call:
                     continue
 
                 joined_ids = current_ids - previous_ids
+                left_ids = previous_ids - current_ids
+
+                # 🔼 JOIN
                 for user_id in joined_ids:
                     try:
                         await self._send_vc_join_notice(
@@ -293,10 +321,22 @@ class Call:
                     except Exception:
                         continue
 
+                # 🔽 LEAVE
+                for user_id in left_ids:
+                    try:
+                        await self._send_vc_leave_notice(
+                            notify_chat_id,
+                            user_id,
+                        )
+                    except Exception:
+                        continue
+
                 vc_join_snapshots[chat_id] = current_ids
                 await asyncio.sleep(1)
+
         except asyncio.CancelledError:
             raise
+
         finally:
             task = vc_join_monitors.get(chat_id)
             if task is asyncio.current_task():
