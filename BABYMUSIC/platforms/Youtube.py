@@ -15,7 +15,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from py_yt import VideosSearch
 try:
-    from py_yt.extras import Recommendations
+    from youtubesearchpython.extras import Recommendations
 except ImportError:
     Recommendations = None
 import base64
