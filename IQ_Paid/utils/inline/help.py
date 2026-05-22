@@ -3,13 +3,13 @@ from typing import Union
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from IQ_Paid import app
-from IQ_Paid.button_styles import danger_button, primary_button
+from IQ_Paid.button_styles import danger_button, primary_button, success_button
 
 
 def help_pannel(_, START: Union[bool, int] = None):
     first = [danger_button(text=_["CLOSE_BUTTON"], callback_data="close")]
     second = [
-        primary_button(
+        success_button(
             text=_["BACK_BUTTON"],
             callback_data="settingsback_helper",
         ),
@@ -19,7 +19,7 @@ def help_pannel(_, START: Union[bool, int] = None):
     upl = InlineKeyboardMarkup(
         [
             [
-                primary_button(
+                danger_button(
                     text=_["H_B_25"],
                     callback_data="help_callback hb1",
                 ),
@@ -37,7 +37,7 @@ def help_pannel(_, START: Union[bool, int] = None):
                     text=_["H_B_27"],
                     callback_data="help_callback hb4",
                 ),
-                primary_button(
+                danger_button(
                     text=_["H_B_31"],
                     callback_data="help_callback hb5",
                 ),
@@ -55,7 +55,7 @@ def help_pannel(_, START: Union[bool, int] = None):
                     text=_["H_B_30"],
                     callback_data="help_callback hb8",
                 ),
-                primary_button(
+                danger_button(
                     text=_["H_B_32"],
                     callback_data="help_callback hb9",
                 ),
@@ -66,7 +66,7 @@ def help_pannel(_, START: Union[bool, int] = None):
                     text="• ᴀᴄᴛɪᴏɴ •",
                     callback_data="ban_cb",
                 ),
-                primary_button(
+                danger_button(
                     text="• ᴍᴏᴅᴇʀᴀᴛɪᴏɴ •",
                     callback_data="mod_cb",
                 ),
@@ -76,7 +76,7 @@ def help_pannel(_, START: Union[bool, int] = None):
                 ),
             ],
             [
-                primary_button(
+                danger_button(
                     text="• ᴡᴇʟᴄᴏᴍᴇ •",
                     callback_data="wel_cb",
                 ),
