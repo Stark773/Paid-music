@@ -1,0 +1,87 @@
+[21-May-26 17:44:57 - INFO] - IQ_Paid.core.mongo - » ᴄᴏɴɴᴇᴄᴛɪɴɢ ᴛᴏ ʏᴏᴜʀ ᴍᴏɴɢᴏ ᴅᴀᴛᴀʙᴀsᴇ...
+[21-May-26 17:44:57 - INFO] - IQ_Paid.core.mongo - » ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴛᴏ ʏᴏᴜʀ ᴍᴏɴɢᴏ ᴅᴀᴛᴀʙᴀsᴇ.
+[21-May-26 17:44:57 - INFO] - IQ_Paid.core.dir - » ᴅɪʀᴇᴄᴛᴏʀɪᴇs ᴜᴘᴅᴀᴛᴇᴅ.
+[21-May-26 17:45:04 - INFO] - IQ_Paid.core.mongo - » ᴄᴏɴɴᴇᴄᴛɪɴɢ ᴛᴏ ʏᴏᴜʀ ᴍᴏɴɢᴏ ᴅᴀᴛᴀʙᴀsᴇ...
+[21-May-26 17:45:04 - INFO] - IQ_Paid.core.mongo - » ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴛᴏ ʏᴏᴜʀ ᴍᴏɴɢᴏ ᴅᴀᴛᴀʙᴀsᴇ.
+[21-May-26 17:45:04 - INFO] - IQ_Paid.core.dir - » ᴅɪʀᴇᴄᴛᴏʀɪᴇs ᴜᴘᴅᴀᴛᴇᴅ.
+[21-May-26 17:45:04 - INFO] - IQ_Paid.core.git - » ɢɪᴛ ᴄʟɪᴇɴᴛ ғᴏᴜɴᴅ [ᴠᴘs ᴅᴇᴘʟᴏʏᴇʀ]
+[21-May-26 17:45:04 - INFO] - IQ_Paid.misc - 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘 𝗟𝗢𝗔𝗗𝗘𝗗 𝗕𝗔𝗕𝗬 🎀
+[21-May-26 17:45:04 - INFO] - IQ_Paid.core.bot - » sᴛᴀʀᴛɪɴɢ ʙᴏᴛ...
+[21-May-26 17:45:07 - INFO] - IQ_Paid.misc - 𝗦𝗨𝗗𝗢 𝗨𝗦𝗘𝗥 𝗗𝗢𝗡𝗘 𝗕𝗔𝗕𝗬 🎸
+[21-May-26 17:45:12 - INFO] - IQ_Paid.core.bot - ✦ ᴍᴜsɪᴄ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ᴀs ㅤ 
+[21-May-26 17:46:55 - INFO] - IQ_Paid.core.mongo - » ᴄᴏɴɴᴇᴄᴛɪɴɢ ᴛᴏ ʏᴏᴜʀ ᴍᴏɴɢᴏ ᴅᴀᴛᴀʙᴀsᴇ...
+[21-May-26 17:46:55 - INFO] - IQ_Paid.core.mongo - » ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴛᴏ ʏᴏᴜʀ ᴍᴏɴɢᴏ ᴅᴀᴛᴀʙᴀsᴇ.
+[21-May-26 17:46:55 - INFO] - IQ_Paid.core.dir - » ᴅɪʀᴇᴄᴛᴏʀɪᴇs ᴜᴘᴅᴀᴛᴇᴅ.
+[21-May-26 17:46:55 - INFO] - IQ_Paid.core.git - » ɢɪᴛ ᴄʟɪᴇɴᴛ ғᴏᴜɴᴅ [ᴠᴘs ᴅᴇᴘʟᴏʏᴇʀ]
+[21-May-26 17:46:55 - INFO] - IQ_Paid.misc - 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘 𝗟𝗢𝗔𝗗𝗘𝗗 𝗕𝗔𝗕𝗬 🎀
+[21-May-26 17:46:55 - INFO] - IQ_Paid.core.bot - » sᴛᴀʀᴛɪɴɢ ʙᴏᴛ...
+[21-May-26 17:46:59 - INFO] - IQ_Paid.misc - 𝗦𝗨𝗗𝗢 𝗨𝗦𝗘𝗥 𝗗𝗢𝗡𝗘 𝗕𝗔𝗕𝗬 🎸
+[21-May-26 17:47:05 - INFO] - IQ_Paid.core.bot - ✦ ᴍᴜsɪᴄ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ᴀs ㅤ 
+[21-May-26 17:47:05 - INFO] - IQ_Paid.plugins - 𝗔𝗟𝗟 𝗣𝗟𝗨𝗚𝗜𝗡𝗦 𝗟𝗢𝗔𝗗𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬....🥳..
+[21-May-26 17:47:05 - INFO] - IQ_Paid.core.userbot - » sᴛᴀʀᴛɪɴɢ ᴀssɪsᴛᴀɴᴛs...
+[21-May-26 17:47:08 - INFO] - IQ_Paid.core.userbot - ✦ ᴀssɪsᴛᴀɴᴛ ᴏɴᴇ sᴛᴀʀᴛᴇᴅ ᴀs <a href=tg://user?id=7600338600>⏤꯭𓆰𝅃꯭᳚ᥫ꯭꯭͓᭡꯭͓፝ ꯭▒⃞⃪꯭♥️⃪꯭᪵֩༎꯭𝗦꯭𝘂𝗴꯭꯭፝֠֩𝝰𝝶꯭ ༎꯭꯭ 𝗠꯭𝘂꯭፝֠֩𝘀𝗶꯭𝗰꯭♥꯭꯭⃟⃪͓͛</a>
+[21-May-26 17:47:08 - INFO] - IQ_Paid.core.call - » sᴛᴀʀᴛɪɴɢ ᴘʏᴛɢᴄᴀʟʟs ᴄʟɪᴇɴᴛ...
+[21-May-26 17:48:30 - INFO] - IQ_Paid.core.mongo - » ᴄᴏɴɴᴇᴄᴛɪɴɢ ᴛᴏ ʏᴏᴜʀ ᴍᴏɴɢᴏ ᴅᴀᴛᴀʙᴀsᴇ...
+[21-May-26 17:48:30 - INFO] - IQ_Paid.core.mongo - » ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴛᴏ ʏᴏᴜʀ ᴍᴏɴɢᴏ ᴅᴀᴛᴀʙᴀsᴇ.
+[21-May-26 17:48:30 - INFO] - IQ_Paid.core.dir - » ᴅɪʀᴇᴄᴛᴏʀɪᴇs ᴜᴘᴅᴀᴛᴇᴅ.
+[21-May-26 17:48:30 - INFO] - IQ_Paid.core.git - » ɢɪᴛ ᴄʟɪᴇɴᴛ ғᴏᴜɴᴅ [ᴠᴘs ᴅᴇᴘʟᴏʏᴇʀ]
+[21-May-26 17:48:30 - INFO] - IQ_Paid.misc - 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘 𝗟𝗢𝗔𝗗𝗘𝗗 𝗕𝗔𝗕𝗬 🎀
+[21-May-26 17:48:30 - INFO] - IQ_Paid.core.bot - » sᴛᴀʀᴛɪɴɢ ʙᴏᴛ...
+[21-May-26 17:48:33 - INFO] - IQ_Paid.misc - 𝗦𝗨𝗗𝗢 𝗨𝗦𝗘𝗥 𝗗𝗢𝗡𝗘 𝗕𝗔𝗕𝗬 🎸
+[21-May-26 17:48:38 - INFO] - IQ_Paid.core.bot - ✦ ᴍᴜsɪᴄ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ᴀs ㅤ 
+[21-May-26 17:48:38 - INFO] - IQ_Paid.plugins - 𝗔𝗟𝗟 𝗣𝗟𝗨𝗚𝗜𝗡𝗦 𝗟𝗢𝗔𝗗𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬....🥳..
+[21-May-26 17:48:38 - INFO] - IQ_Paid.core.userbot - » sᴛᴀʀᴛɪɴɢ ᴀssɪsᴛᴀɴᴛs...
+[21-May-26 17:48:41 - INFO] - IQ_Paid.core.userbot - ✦ ᴀssɪsᴛᴀɴᴛ ᴏɴᴇ sᴛᴀʀᴛᴇᴅ ᴀs <a href=tg://user?id=7600338600>⏤꯭𓆰𝅃꯭᳚ᥫ꯭꯭͓᭡꯭͓፝ ꯭▒⃞⃪꯭♥️⃪꯭᪵֩༎꯭𝗦꯭𝘂𝗴꯭꯭፝֠֩𝝰𝝶꯭ ༎꯭꯭ 𝗠꯭𝘂꯭፝֠֩𝘀𝗶꯭𝗰꯭♥꯭꯭⃟⃪͓͛</a>
+[21-May-26 17:48:41 - INFO] - IQ_Paid.core.call -  sᴛᴀʀᴛɪɴɢ ᴘʏᴛɢᴄᴀʟʟs ᴄʟɪᴇɴᴛ...
+[21-May-26 17:48:51 - INFO] - IQ_Paid - ╔═════ஜ۩۞۩ஜ════╗
+  ☠︎︎ 𝗠𝗔𝗗𝗘 𝗕𝗬 𝗩𝗔𝗠𝗣𝗜𝗥𝗘 ☠︎︎
+╚═════ஜ۩۞۩ஜ════╝
+[21-May-26 17:49:27 - INFO] - IQ_Paid.utils.tgcache - xBit audio downloaded: DS-raAyMxl4
+[21-May-26 17:49:27 - INFO] - IQ_Paid.platforms.Youtube - TG cache audio: DS-raAyMxl4
+[21-May-26 17:49:30 - ERROR] - IQ_Paid.utils.tgcache - Audio upload error: Telegram says: [400 CHANNEL_INVALID] - The provided channel is invalid. (caused by "channels.GetChannels")
+[21-May-26 17:59:38 - INFO] - IQ_Paid.core.userbot - » sᴛᴏᴘᴘɪɴɢ ᴀssɪsᴛᴀɴᴛs...
+[21-May-26 17:59:38 - INFO] - IQ_Paid - 𝗦𝗧𝗢𝗣 𝗠𝗨𝗦𝗜𝗖 𝗕𝗢𝗧...🥹
+[21-May-26 18:00:45 - INFO] - IQ_Paid.core.mongo - » ᴄᴏɴɴᴇᴄᴛɪɴɢ ᴛᴏ ʏᴏᴜʀ ᴍᴏɴɢᴏ ᴅᴀᴛᴀʙᴀsᴇ...
+[21-May-26 18:00:45 - INFO] - IQ_Paid.core.mongo - » ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴛᴏ ʏᴏᴜʀ ᴍᴏɴɢᴏ ᴅᴀᴛᴀʙᴀsᴇ.
+[21-May-26 18:00:45 - INFO] - IQ_Paid.core.dir - » ᴅɪʀᴇᴄᴛᴏʀɪᴇs ᴜᴘᴅᴀᴛᴇᴅ.
+[21-May-26 18:00:45 - INFO] - IQ_Paid.core.git - » ɢɪᴛ ᴄʟɪᴇɴᴛ ғᴏᴜɴᴅ [ᴠᴘs ᴅᴇᴘʟᴏʏᴇʀ]
+[21-May-26 18:00:45 - INFO] - IQ_Paid.misc - 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘 𝗟𝗢𝗔𝗗𝗘𝗗 𝗕𝗔𝗕𝗬 🎀
+[21-May-26 18:00:45 - INFO] - IQ_Paid.core.bot - » sᴛᴀʀᴛɪɴɢ ʙᴏᴛ...
+[21-May-26 18:00:48 - INFO] - IQ_Paid.misc - 𝗦𝗨𝗗𝗢 𝗨𝗦𝗘𝗥 𝗗𝗢𝗡𝗘 𝗕𝗔𝗕𝗬 🎸
+[21-May-26 18:00:54 - INFO] - IQ_Paid.core.bot - ✦ ᴍᴜsɪᴄ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ᴀs ㅤ 
+[21-May-26 18:00:54 - INFO] - IQ_Paid.plugins - 𝗔𝗟𝗟 𝗣𝗟𝗨𝗚𝗜𝗡𝗦 𝗟𝗢𝗔𝗗𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬....🥳..
+[21-May-26 18:00:54 - INFO] - IQ_Paid.core.userbot - » sᴛᴀʀᴛɪɴɢ ᴀssɪsᴛᴀɴᴛs...
+[21-May-26 18:00:57 - INFO] - IQ_Paid.core.userbot - ✦ ᴀssɪsᴛᴀɴᴛ ᴏɴᴇ sᴛᴀʀᴛᴇᴅ ᴀs <a href=tg://user?id=7600338600>⏤꯭𓆰𝅃꯭᳚ᥫ꯭꯭͓᭡꯭͓፝ ꯭▒⃞⃪꯭♥️⃪꯭᪵֩༎꯭𝗦꯭𝘂𝗴꯭꯭፝֠֩𝝰𝝶꯭ ༎꯭꯭ 𝗠꯭𝘂꯭፝֠֩𝘀𝗶꯭𝗰꯭♥꯭꯭⃟⃪͓͛</a>
+[21-May-26 18:00:57 - INFO] - IQ_Paid.core.call -  sᴛᴀʀᴛɪɴɢ ᴘʏᴛɢᴄᴀʟʟs ᴄʟɪᴇɴᴛ...
+[21-May-26 18:01:06 - INFO] - IQ_Paid - ╔═════ஜ۩۞۩ஜ════╗
+  ☠︎︎ 𝗠𝗔𝗗𝗘 𝗕𝗬 𝗩𝗔𝗠𝗣𝗜𝗥𝗘 ☠︎︎
+╚═════ஜ۩۞۩ஜ════╝
+[22-May-26 00:19:35 - INFO] - IQ_Paid.utils.tgcache - VPS cache hit audio: DS-raAyMxl4
+[22-May-26 00:19:35 - INFO] - IQ_Paid.platforms.Youtube - TG cache audio: DS-raAyMxl4
+[22-May-26 00:39:39 - INFO] - IQ_Paid.utils.tgcache - xBit audio downloaded: vie8zbHHt-s
+[22-May-26 00:39:39 - INFO] - IQ_Paid.platforms.Youtube - TG cache audio: vie8zbHHt-s
+[22-May-26 00:39:42 - ERROR] - IQ_Paid.utils.tgcache - Audio upload error: Telegram says: [400 CHANNEL_INVALID] - The provided channel is invalid. (caused by "channels.GetChannels")
+[22-May-26 00:40:23 - INFO] - IQ_Paid.utils.tgcache - xBit audio downloaded: zWEOx7TSM6I
+[22-May-26 00:40:23 - INFO] - IQ_Paid.platforms.Youtube - TG cache audio: zWEOx7TSM6I
+[22-May-26 00:40:25 - ERROR] - IQ_Paid.utils.tgcache - Audio upload error: Telegram says: [400 CHANNEL_INVALID] - The provided channel is invalid. (caused by "channels.GetChannels")
+[22-May-26 00:45:40 - ERROR] - IQ_Paid.utils.tgcache - yt-dlp video failed: [0;31mERROR:[0m [youtube] krJsyb_yf7A: The page needs to be reloaded.
+[22-May-26 00:45:40 - INFO] - IQ_Paid.utils.tgcache - xBit video fallback: krJsyb_yf7A
+[22-May-26 00:45:40 - INFO] - IQ_Paid.platforms.Youtube - TG cache video: krJsyb_yf7A
+[22-May-26 00:51:36 - INFO] - IQ_Paid.utils.tgcache - xBit audio downloaded: z3UHfi9vpbc
+[22-May-26 00:51:36 - INFO] - IQ_Paid.platforms.Youtube - TG cache audio: z3UHfi9vpbc
+[22-May-26 00:51:39 - ERROR] - IQ_Paid.utils.tgcache - Audio upload error: Telegram says: [400 CHANNEL_INVALID] - The provided channel is invalid. (caused by "channels.GetChannels")
+[22-May-26 00:55:21 - ERROR] - IQ_Paid.utils.tgcache - yt-dlp video failed: [0;31mERROR:[0m [youtube] CSLFrm4h_oo: The page needs to be reloaded.
+[22-May-26 00:55:22 - INFO] - IQ_Paid.utils.tgcache - xBit video fallback: CSLFrm4h_oo
+[22-May-26 00:55:22 - INFO] - IQ_Paid.platforms.Youtube - TG cache video: CSLFrm4h_oo
+[22-May-26 00:58:26 - INFO] - IQ_Paid.utils.tgcache - xBit audio downloaded: 3fpP2dM02tM
+[22-May-26 00:58:26 - INFO] - IQ_Paid.platforms.Youtube - TG cache audio: 3fpP2dM02tM
+[22-May-26 00:58:28 - ERROR] - IQ_Paid.utils.tgcache - Audio upload error: Telegram says: [400 CHANNEL_INVALID] - The provided channel is invalid. (caused by "channels.GetChannels")
+[22-May-26 00:58:40 - INFO] - IQ_Paid.utils.tgcache - Memory cache hit audio: DS-raAyMxl4
+[22-May-26 00:58:40 - INFO] - IQ_Paid.platforms.Youtube - TG cache audio: DS-raAyMxl4
+[22-May-26 01:01:39 - INFO] - IQ_Paid.utils.tgcache - Memory cache hit audio: zWEOx7TSM6I
+[22-May-26 01:01:39 - INFO] - IQ_Paid.platforms.Youtube - TG cache audio: zWEOx7TSM6I
+[22-May-26 01:06:42 - ERROR] - IQ_Paid.utils.tgcache - yt-dlp video failed: [0;31mERROR:[0m [youtube] zC3UbTf4qrM: The page needs to be reloaded.
+[22-May-26 01:06:43 - INFO] - IQ_Paid.utils.tgcache - xBit video fallback: zC3UbTf4qrM
+[22-May-26 01:06:43 - INFO] - IQ_Paid.platforms.Youtube - TG cache video: zC3UbTf4qrM
+[22-May-26 01:16:48 - INFO] - IQ_Paid.utils.tgcache - Memory cache hit audio: z3UHfi9vpbc
+[22-May-26 01:16:48 - INFO] - IQ_Paid.platforms.Youtube - TG cache audio: z3UHfi9vpbc
