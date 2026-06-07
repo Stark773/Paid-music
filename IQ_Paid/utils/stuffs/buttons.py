@@ -1,42 +1,36 @@
-from pyrogram.types import InlineKeyboardButton
-from IQ_Paid.button_styles import primary_button, success_button
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from pyrogram import Client, filters, enums 
+from IQ_Paid.button_styles import primary_button
 import config
 
-
 class BUTTONS(object):
-
     ABUTTON = [
-        [
-            success_button(text="📣", url="https://t.me/+8WjqAqBihwkyNzk9"),
-            InlineKeyboardButton(text="ᴏᴡɴᴇʀ", user_id=config.OWNER_ID),
-            success_button(text="📞", url="https://t.me/+8WjqAqBihwkyNzk9")
-        ],
-        [
-            primary_button(
-                text="• ʙᴧᴄᴋ •",
-                callback_data="settingsback_helper"
-            )
-        ]
+    [
+        InlineKeyboardButton("sυᴘᴘᴏʀᴛ", url="https://t.me/+8WjqAqBihwkyNzk9"),
+        InlineKeyboardButton("υᴘᴅᴧᴛᴇs", url="https://t.me/+8WjqAqBihwkyNzk9")
+    ],
+    [
+        InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=config.OWNER_ID),
+        primary_button(text="• ʙᴧᴄᴋ •", callback_data="settingsback_helper")
     ]
+]
 
     INFO_BUTTON = [
-        [
-            InlineKeyboardButton(
-                text="ᴘʀɪᴠᴧᴄʏ",
-                url="https://docs.google.com/document/d/11Q_ZuvSzkhkgbvVrPxQdqktP2_ioiaqAa7QdsHezfnM/mobilebasic"
-            ),
-            primary_button(
-                text="• ʙᴧᴄᴋ •",
-                callback_data="settingsback_helper"
-            ),
-        ]
+    [
+        primary_button(text="ʀєᴘσ", callback_data="gib_source"),
+        primary_button(text="ʏᴛ-ᴀᴘɪ", callback_data="bot_info_data"),
+        primary_button(text="ʟᴀɴɢᴜᴀɢᴇ", callback_data="LG"),
+    ],
+    [
+        
+        InlineKeyboardButton("ᴘʀɪᴠᴧᴄʏ", url="https://docs.google.com/document/d/11Q_ZuvSzkhkgbvVrPxQdqktP2_ioiaqAa7QdsHezfnM/mobilebasic"),
+        primary_button(text="• ʙᴧᴄᴋ •", callback_data="settingsback_helper"),
     ]
+    ]
+    
+
 
     INFO_NEW = [
-        [
-            primary_button(
-                text="• ʙᴧᴄᴋ •",
-                callback_data="settings_back_helper"
-            )
-        ]
+    [
+        primary_button(text="• ʙᴧᴄᴋ •", callback_data="settings_back_helper")],
     ]

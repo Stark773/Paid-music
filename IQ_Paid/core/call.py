@@ -6,6 +6,7 @@ from typing import Union
 from ntgcalls import TelegramServerError
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from IQ_Paid.button_styles import danger_button
 from pytgcalls import PyTgCalls
 from pytgcalls.exceptions import NoActiveGroupCall
 from pytgcalls.types import AudioQuality, ChatUpdate, MediaStream, StreamEnded, Update, VideoQuality
@@ -31,7 +32,6 @@ from IQ_Paid.utils.exceptions import AssistantErr
 from IQ_Paid.utils.formatters import check_duration, seconds_to_min, speed_converter
 from IQ_Paid.utils.inline.play import stream_markup
 from IQ_Paid.utils.thumbnails import get_thumb
-from IQ_Paid.button_styles import danger_button
 from strings import get_string
 
 autoend = {}
@@ -101,15 +101,6 @@ class Call:
             session_string=str(config.STRING5),
         ) if config.STRING5 else None
         self.five = PyTgCalls(self.userbot5) if self.userbot5 else None
-
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    #  Helper: list of all active (non-None) pytgcalls clients
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    def _active_clients(self):
-        return [
-            c for c in [self.one, self.two, self.three, self.four, self.five]
-            if c is not None
-        ]
 
     async def pause_stream(self, chat_id: int):
         assistant = await group_assistant(self, chat_id)
@@ -280,10 +271,7 @@ class Call:
 
     async def stream_call(self, link):
         assistant = await group_assistant(self, config.LOGGER_ID)
-        await assistant.play(
-            config.LOGGER_ID,
-            MediaStream(link, audio_parameters=AudioQuality.HIGH),
-        )
+        await assistant.play(config.LOGGER_ID, MediaStream(link, audio_parameters=AudioQuality.HIGH))
         await asyncio.sleep(0.2)
         await assistant.leave_call(config.LOGGER_ID)
 
@@ -335,22 +323,6 @@ class Call:
 
         await asyncio.sleep(0.05)
 
-        _finished_buttons = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "✙ ᴀᴅᴅ ɪQ ᴘᴀɪᴅ ✙",
-                        url=f"https://t.me/{app.username}?startgroup=true",
-                    ),
-                    danger_button(text="⌯ ᴄʟᴏsᴇ ⌯", callback_data="close"),
-                ]
-            ]
-        )
-        _finished_text = (
-            "**ᴀʟʟ sᴏɴɢ ғɪɴɪsʜᴇᴅ ʙᴏᴛ ʟᴇғᴛ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ⚡️~!**\n\n"
-            "**ᴘʟᴀʏ ᴀɢᴀɪɴ ᴀɴᴅ ᴇɴᴊᴏʏ sᴏɴɢs.⚡️~!**"
-        )
-
         try:
             if loop == 0:
                 popped = check.pop(0)
@@ -362,19 +334,41 @@ class Call:
                 autoclean.remove(rem)
             if not check:
                 await _clear_(chat_id)
+                buttons = InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "✙ ᴀᴅᴅ ɪQ ᴘᴀɪᴅ ✙",
+                                url=f"https://t.me/{app.username}?startgroup=true",
+                            ),
+                            danger_button(text="⌯ ᴄʟᴏsᴇ ⌯", callback_data="close"),
+                        ]
+                    ]
+                )
                 await app.send_message(
                     chat_id,
-                    _finished_text,
-                    reply_markup=_finished_buttons,
+                    "**ᴀʟʟ sᴏɴɢ ғɪɴɪsʜᴇᴅ ʙᴏᴛ ʟᴇғᴛ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ⚡️~!**\n\n**ᴘʟᴀʏ ᴀɢᴀɪɴ ᴀɴᴅ ᴇɴᴊᴏʏ sᴏɴɢs.⚡️~!**",
+                    reply_markup=buttons,
                 )
                 return await client.leave_call(chat_id)
         except Exception:
             try:
                 await _clear_(chat_id)
+                buttons = InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "✙ ᴀᴅᴅ ɪQ ᴘᴀɪᴅ ✙",
+                                url=f"https://t.me/{app.username}?startgroup=true",
+                            ),
+                            danger_button(text="⌯ ᴄʟᴏsᴇ ⌯", callback_data="close"),
+                        ]
+                    ]
+                )
                 await app.send_message(
                     chat_id,
-                    _finished_text,
-                    reply_markup=_finished_buttons,
+                    "**ᴀʟʟ sᴏɴɢ ғɪɴɪsʜᴇᴅ ʙᴏᴛ ʟᴇғᴛ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ⚡️~!**\n\n**ᴘʟᴀʏ ᴀɢᴀɪɴ ᴀɴᴅ ᴇɴᴊᴏʏ sᴏɴɢs.⚡️~!**",
+                    reply_markup=buttons,
                 )
                 return await client.leave_call(chat_id)
             except Exception:
@@ -482,16 +476,9 @@ class Call:
                 button = stream_markup(_, chat_id)
                 run = await app.send_photo(
                     chat_id=original_chat_id,
-                    photo=(
-                        config.TELEGRAM_AUDIO_URL
-                        if str(streamtype) == "audio"
-                        else config.TELEGRAM_VIDEO_URL
-                    ),
+                    photo=config.TELEGRAM_AUDIO_URL if str(streamtype) == "audio" else config.TELEGRAM_VIDEO_URL,
                     caption=_["stream_1"].format(
-                        config.SUPPORT_CHAT,
-                        title[:23],
-                        check[0]["dur"],
-                        user,
+                        config.SUPPORT_CHAT, title[:23], check[0]["dur"], user,
                         "🎥 Vɪᴅᴇᴏ" if video else "🎵 Aᴜᴅɪᴏ",
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
@@ -504,10 +491,7 @@ class Call:
                     chat_id=original_chat_id,
                     photo=config.SOUNCLOUD_IMG_URL,
                     caption=_["stream_1"].format(
-                        config.SUPPORT_CHAT,
-                        title[:23],
-                        check[0]["dur"],
-                        user,
+                        config.SUPPORT_CHAT, title[:23], check[0]["dur"], user,
                         "🎥 Vɪᴅᴇᴏ" if video else "🎵 Aᴜᴅɪᴏ",
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
@@ -547,7 +531,7 @@ class Call:
         return str(round(sum(pings) / len(pings), 3)) if pings else "0"
 
     async def start(self):
-        LOGGER(__name__).info(" sᴛᴀʀᴛɪɴɢ ᴘʏᴛɢᴄᴀʟʟs ᴄʟɪᴇɴᴛ...")
+        LOGGER(__name__).info("» sᴛᴀʀᴛɪɴɢ ᴘʏᴛɢᴄᴀʟʟs ᴄʟɪᴇɴᴛ...")
         if config.STRING1 and self.one:
             await self.one.start()
         if config.STRING2 and self.two:
@@ -560,28 +544,21 @@ class Call:
             await self.five.start()
 
     async def decorators(self):
-        # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        #  Register on ALL non-None clients programmatically.
-        #  Fixes: AttributeError: 'NoneType' has no 'on_update'
-        #  (caused by chained decorators on unset STRING slots)
-        # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        _clients = self._active_clients()
-
+        @self.one.on_update(fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT))
+        @self.two.on_update(fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT))
+        @self.three.on_update(fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT))
+        @self.four.on_update(fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT))
+        @self.five.on_update(fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT))
         async def stream_services_handler(client, update: Update):
             await self.stop_stream(update.chat_id)
 
-        async def stream_end_handler(client: PyTgCalls, update: StreamEnded):
+        @self.one.on_update(fl.stream_end())
+        @self.two.on_update(fl.stream_end())
+        @self.three.on_update(fl.stream_end())
+        @self.four.on_update(fl.stream_end())
+        @self.five.on_update(fl.stream_end())
+        async def stream_end_handler1(client: PyTgCalls, update: StreamEnded):
             await self.change_stream(client, update.chat_id)
-
-        _chat_filter = fl.chat_update(
-            ChatUpdate.Status.KICKED
-            | ChatUpdate.Status.LEFT_GROUP
-            | ChatUpdate.Status.CLOSED_VOICE_CHAT
-        )
-
-        for _c in _clients:
-            _c.on_update(_chat_filter)(stream_services_handler)
-            _c.on_update(fl.stream_end())(stream_end_handler)
 
 
 Istu = Call()
