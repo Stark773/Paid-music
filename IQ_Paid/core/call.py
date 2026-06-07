@@ -544,21 +544,19 @@ class Call:
             await self.five.start()
 
     async def decorators(self):
-        @self.one.on_update(fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT))
-        @self.two.on_update(fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT))
-        @self.three.on_update(fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT))
-        @self.four.on_update(fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT))
-        @self.five.on_update(fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT))
+        _chat_filter = fl.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP | ChatUpdate.Status.CLOSED_VOICE_CHAT)
+        _stream_end_filter = fl.stream_end()
+
         async def stream_services_handler(client, update: Update):
             await self.stop_stream(update.chat_id)
 
-        @self.one.on_update(fl.stream_end())
-        @self.two.on_update(fl.stream_end())
-        @self.three.on_update(fl.stream_end())
-        @self.four.on_update(fl.stream_end())
-        @self.five.on_update(fl.stream_end())
         async def stream_end_handler1(client: PyTgCalls, update: StreamEnded):
             await self.change_stream(client, update.chat_id)
+
+        for _istu in [self.one, self.two, self.three, self.four, self.five]:
+            if _istu is not None:
+                _istu.on_update(_chat_filter)(stream_services_handler)
+                _istu.on_update(_stream_end_filter)(stream_end_handler1)
 
 
 Istu = Call()
