@@ -39,7 +39,7 @@ AUTO_LEAVE_ASSISTANT_TIME = int("300")
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 # ======================================================
-UPSTREAM_REPO = "https://github.com/jhharvin/ieisihhhsk"
+UPSTREAM_REPO = "https://github.com/BabiesIQ/PAID"
 UPSTREAM_BRANCH = "main"
 GIT_TOKEN = None
 # ======================================================
