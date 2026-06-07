@@ -100,11 +100,6 @@ async def is_admin(chat_id: int, user_id: int) -> bool:
         return False
 
 
-@Istu.one.on_update(fl.call_participant(GroupCallParticipant.Action.JOINED))
-@Istu.two.on_update(fl.call_participant(GroupCallParticipant.Action.JOINED))
-@Istu.three.on_update(fl.call_participant(GroupCallParticipant.Action.JOINED))
-@Istu.four.on_update(fl.call_participant(GroupCallParticipant.Action.JOINED))
-@Istu.five.on_update(fl.call_participant(GroupCallParticipant.Action.JOINED))
 async def participant_join(_, update: UpdatedGroupCallParticipant):
     chat_id = update.chat_id
     user_id = update.participant.user_id
@@ -115,11 +110,6 @@ async def participant_join(_, update: UpdatedGroupCallParticipant):
     await send_join_notification(chat_id, user_id)
 
 
-@Istu.one.on_update(fl.call_participant(GroupCallParticipant.Action.LEFT))
-@Istu.two.on_update(fl.call_participant(GroupCallParticipant.Action.LEFT))
-@Istu.three.on_update(fl.call_participant(GroupCallParticipant.Action.LEFT))
-@Istu.four.on_update(fl.call_participant(GroupCallParticipant.Action.LEFT))
-@Istu.five.on_update(fl.call_participant(GroupCallParticipant.Action.LEFT))
 async def participant_left(_, update: UpdatedGroupCallParticipant):
     chat_id = update.chat_id
     user_id = update.participant.user_id
@@ -128,6 +118,15 @@ async def participant_left(_, update: UpdatedGroupCallParticipant):
         return
 
     await send_leave_notification(chat_id, user_id)
+
+
+_join_filter = fl.call_participant(GroupCallParticipant.Action.JOINED)
+_left_filter = fl.call_participant(GroupCallParticipant.Action.LEFT)
+
+for _istu in [Istu.one, Istu.two, Istu.three, Istu.four, Istu.five]:
+    if _istu is not None:
+        _istu.on_update(_join_filter)(participant_join)
+        _istu.on_update(_left_filter)(participant_left)
 
 
 async def setup_vc_logger():
@@ -183,5 +182,3 @@ try:
     asyncio.create_task(setup_vc_logger())
 except Exception as e:
     logger.error(f"Failed to schedule setup: {e}")
-
-
