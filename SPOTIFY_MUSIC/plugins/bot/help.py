@@ -42,7 +42,6 @@ from SPOTIFY_MUSIC.utils.decorators.language import LanguageStart, languageCB
 from SPOTIFY_MUSIC.utils.inline.help import help_back_markup, private_help_panel  
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT  
 from strings import get_string, helpers  
-from SPOTIFY_MUSIC.utils.stuffs.helper import Helper  
   
 HELP_MAP = {  
     "1": helpers.HELP_1,  
@@ -135,23 +134,3 @@ async def on_back_button(client, query):
             _["help_1"].format(SUPPORT_CHAT), reply_markup=keyboard  
         )  
   
-@app.on_callback_query(filters.regex('mplus'))  
-async def mb_plugin_button(client, query):  
-    parts = query.data.split(None, 1)  
-    if len(parts) < 2:  
-        return  
-  
-    cb = parts[1]  
-  
-    keyboard = InlineKeyboardMarkup(  
-        [[InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="mbot_cb")]]  
-    )  
-  
-    if cb == "Okieeeeee":  
-        await query.edit_message_text(  
-            "`something errors`",  
-            reply_markup=keyboard,  
-            parse_mode=enums.ParseMode.MARKDOWN,  
-        )  
-    else:  
-        await query.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
