@@ -25,6 +25,7 @@ beautifulsoup4==4.15.0
 
 # ── Audio Processing ──────────────────────────────────────────────────
 pydub==0.25.1
+audioop-lts==0.2.2   # Python 3.13 compat: replaces removed audioop stdlib module
 hachoir==3.3.0
 ffmpeg-python==0.2.0
 
