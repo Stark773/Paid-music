@@ -1,2 +1,1 @@
-worker: python app.py
-
+worker: python -m SPOTIFY_MUSIC

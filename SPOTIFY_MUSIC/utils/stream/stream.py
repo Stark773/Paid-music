@@ -37,7 +37,7 @@ from typing import Union
 from pyrogram.types import InlineKeyboardMarkup
 
 import config
-from SPOTIFY_MUSIC import Carbon, YouTube, app
+from SPOTIFY_MUSIC import YouTube, app
 from SPOTIFY_MUSIC.core.call import BABY
 from SPOTIFY_MUSIC.misc import db
 from SPOTIFY_MUSIC.utils.database import add_active_video_chat, is_active_chat
@@ -155,11 +155,9 @@ async def stream(
                 car = os.linesep.join(msg.split(os.linesep)[:17])
             else:
                 car = msg
-            carbon = await Carbon.generate(car, randint(100, 10000000))
             upl = close_markup(_)
             return await app.send_photo(
                 original_chat_id,
-                photo=carbon,
                 caption=_["play_21"].format(position, link),
                 reply_markup=upl,
             )

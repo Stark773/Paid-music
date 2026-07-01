@@ -1,5 +1,5 @@
-# ---- Base image ----
-FROM python:3.10-slim
+# ---- Base image (Python 3.13 slim - latest stable) ----
+FROM python:3.13-slim
 
 # ---- Set working directory ----
 WORKDIR /app
@@ -8,17 +8,14 @@ WORKDIR /app
 COPY . /app
 
 # ---- Install system dependencies ----
-# git = for GitHub packages
-# curl = to install Node.js
-# ffmpeg = required for pytgcalls audio streaming
 RUN apt-get update && apt-get install -y \
-    git curl ffmpeg \
-    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    git curl ffmpeg build-essential \
+    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get install -y nodejs \
-    && node -v && npm -v \
-    && pip install --upgrade pip \
+    && echo "Node: $(node -v) | npm: $(npm -v)" \
+    && pip install --upgrade pip setuptools wheel \
     && pip install --no-cache-dir -r requirements.txt \
     && rm -rf /var/lib/apt/lists/*
 
 # ---- Default command ----
-CMD ["bash", "start"]
+CMD ["python", "-m", "SPOTIFY_MUSIC"]
