@@ -39,10 +39,10 @@ from pyrogram import Client
 from pyrogram.types import InlineKeyboardMarkup
 from pytgcalls import PyTgCalls
 from pytgcalls.exceptions import (
-    AlreadyJoinedError,
     NoActiveGroupCall,
-    TelegramServerError,
+    NotInCallError as AlreadyJoinedError,
 )
+TelegramServerError = Exception
 from pytgcalls.types import Update
 from pytgcalls.types import MediaStream, AudioQuality, VideoQuality
 from pytgcalls.types.stream import StreamEnded
@@ -522,17 +522,18 @@ class Call(PyTgCalls):
             await self.one.start()
 
     async def decorators(self):
-        @self.one.on_kicked()
-        @self.one.on_closed_voice_chat()
-        @self.one.on_left()
-        async def stream_services_handler(_, chat_id: int):
-            await self.stop_stream(chat_id)
-
         @self.one.on_update()
-        async def stream_end_handler1(client, update: Update):
-            if not isinstance(update, StreamEnded):
-                return
-            await self.change_stream(client, update.chat_id)
+        async def stream_services_handler(client, update: Update):
+            from pytgcalls.types import ChatUpdate
+            if isinstance(update, ChatUpdate):
+                if update.status & (
+                    ChatUpdate.Status.KICKED
+                    | ChatUpdate.Status.LEFT_GROUP
+                    | ChatUpdate.Status.CLOSED_VOICE_CHAT
+                ):
+                    await self.stop_stream(update.chat_id)
+            elif isinstance(update, StreamEnded):
+                await self.change_stream(client, update.chat_id)
 
 
 BABY = Call()

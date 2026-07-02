@@ -31,9 +31,8 @@
 
 
 import asyncio
-from telegram import CallbackQuery
 from pyrogram import filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 from SPOTIFY_MUSIC import YouTube, app
 from SPOTIFY_MUSIC.core.call import BABY
