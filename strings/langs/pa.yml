@@ -1,5 +1,8 @@
 name : 🇮🇳 ਪੰਜਾਬੀ
 
+
+
+
 general_1 : "» ਉਪਭੋਗਤਾ ਦੇ ਸੁਨੇਹੇ ਦਾ ਜਵਾਬ ਦਿਓ ਜਾਂ ਉਪਭੋਗਤਾ ਨਾਮ/ਉਪਭੋਗਤਾ ਆਈਡੀ ਦਿਓ।"
 general_2 : "» ਤੁਹਾਡੀ ਪੁੱਛਗਿੱਛ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰਦੇ ਸਮੇਂ ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ।\n\nਅਪਵਾਦ : <code>{0}</code>"
 general_3 : "ਤੁਸੀਂ ਇੱਥੇ ਏਕ ਗੁਮਾਨ ਕੰਪਨੀ ਦੇ ਗੁਮਾਨਸ਼ੀਨ ਪ੍ਰਸ਼ਾਸਕ ਹੋ, ਆਪਣੇ ਉਪਭੋਗਤਾ ਖਾਤੇ ਦੇ ਉਪਯੋਗ ਲਈ ਮੁੜ ਵਾਪਸ ਯਤਨ ਕਰੋ."
@@ -176,9 +179,14 @@ queue_8 : "<b>{0} ਪਲੇਅਰ</b>\n\n🎄 <b>ਸਟ੍ਰੀਮਿੰਗ :</
 stream_1 : "➲ <b>ਸਟਰਟੇਡ ਸਟਰੀਮਿੰਗ |</b>\n\n<b>‣ ਟਾਈਟਲ :</b> <a href={0}>{1}</a>\n<b>‣ ਮੁੱਦਤ :</b> {2} ਮਿੰਟ\n<b>‣ ਬੇਨਕਾਰਨ ਕੇਵਲ :</b> {3}"
 stream_2 : "➲ <b>ਸਟਰਟੇਡ ਸਟਰੀਮਿੰਗ |</b>\n\n<b>‣ ਸਟਰੀਮ ਕਿਸਮ :</b> ਲਾਈਵ ਸਟਰੀਮ [ਯੂਆਰਐਲ]\n<b>‣ ਬੇਨਕਾਰਨ ਕੇਵਲ :</b> {0}"
 
+
 CLOSE_BUTTON : "ਬੰਦ ਕਰੋ"
 BACK_BUTTON : "ਵਾਪਸ"
+NEXT_PAGE: ">"
+BACK_PAGE: "<"
 
+
+SO_B_1 : "Add"
 S_B_1 : "ਮੈਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
 S_B_2 : "ਸਹਿਯੋਗ"
 S_B_3 : "ਮੇਰੇ ਗਰੁੱਪ ਵਿੱਚ ਮੈਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
@@ -204,6 +212,15 @@ H_B_12 : "ਸ਼ਫਲ"
 H_B_13 : "ਸੀਕ"
 H_B_14 : "ਗੀਤ"
 H_B_15 : "ਸਪੀਡ"
+H_B_16 : "Gpt 𓍼"
+H_B_17 : "Sticker 𓍼"
+H_B_18 : "Tagall 𓍼"
+H_B_19 : "Info 𓍼"
+H_B_20 : "Group 𓍼"
+H_B_21 : "Extra 𓍼"
+H_B_21 : "Image 𓍼"
+H_B_23 : "Action 𓍼"
+H_B_24 : "Search 𓍼"
 
 P_B_1 : "ਆਡੀਓ"
 P_B_2 : "ਵੀਡੀਓ"
@@ -306,3 +323,21 @@ gban_9 : "» {0} 'ਤੋਂ ਗਲੋਬਲ ਬੈਨ ਨੂੰ ਹਟਾ ਦਿ
 gban_10 : "» ਕੋਈ ਵੀ ਬੋਟ ਤੋਂ ਗਲੋਬਲ ਤੌਰ 'ਤੇ ਬੈਨ ਨਹੀਂ ਹੈ।"
 gban_11 : "» ਗਲੋਬਲ ਬੈਨ ਕਿਏ ਗਏ ਯੂਜ਼ਰਾਂ ਦੀ ਸੂਚੀ ਲਵੋ ਰਹੀ ਹੈ..."
 gban_12 : "🙂 <b>ਗਲੋਬਲ ਬੈਨ ਕੀਤੇ ਗਏ ਯੂਜ਼ਰ:</b>\n\n"
+
+#Song
+SG_B_1 : "• Click here •"
+SG_B_2 : "• Audio •"
+SG_B_3 : "• Video •"
+
+# Song
+song_1 : "You can download music or video from youtube only in private chat. please start me in private chat."
+song_2 : "**Usage:**\n\n/song [music name] or [youtube link]"
+song_3 : "Live link detected. i am not able to download live youtube videos. "
+song_4 : "❍**Title**:- {0}\n\nselect the type in which you want to download."
+song_5 : "Not a valid youtube link."
+song_6 : "Getting formats...\n\nplease wait..."
+song_7 : "Failed to get available formats for the video. please try any other track."
+song_8 : "Download started\n\nplease hold on for few seconds..."
+song_9 : "Failed to download song from yt-dl\n\n**reason:** {0}"
+song_10 : "Failed to upload on telegram servers."
+song_11 : "Uploading started baby\n\nplease hold on..."
