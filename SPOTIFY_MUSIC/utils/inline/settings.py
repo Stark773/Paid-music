@@ -1,54 +1,24 @@
-
-# ======================================================================
-# ||                                                               ||
-# ||   ██████╗  █████╗ ██████╗ ██╗   ██╗███████╗███████╗██╗ ██████╗  ||
-# ||   ██╔══██╗██╔══██╗██╔══██╗██║   ██║██╔════╝██╔════╝██║██╔═══██╗ ||
-# ||   ██████╔╝███████║██████╔╝██║   ██║█████╗  ███████╗██║██║   ██║ ||
-# ||   ██╔══██╗██╔══██║██╔══██╗██║   ██║██╔══╝  ╚════██║██║██║▄▄ ██║ ||
-# ||   ██████╔╝██║  ██║██████╔╝╚██████╔╝███████╗███████║██║╚██████╔╝ ||
-# ||   ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚═╝ ╚══▀▀═╝  ||
-# ║    ▓▒░ ʙ ᴀ ʙ ɪ ᴇ sＩＱ ░▒▓  s ᴇ ᴄ ᴜ ʀ ᴇ  ▓▒░ ɴ ᴇ ᴛ ᴡ ᴏ ʀ ᴋ ░▒▓    ║
-# ||                                                               ||
-# ======================================================================
-# || PROJECT  : SPOTIFY_MUSIC Public Music Repository                  ||
-# || AUTHOR   : BabiesIQ Team                                      ||
-# || REPO     : github.com/BABY-MUSIC/SPOTIFY_MUSIC                ||
-# || API      : www.babyapi.pro                                    ||
-# || TELEGRAM : t.me/BabiesIQ                                      ||
-# ----------------------------------------------------------------------
-# || LEGAL NOTICE                                                  ||
-# || Use / upload / modify at your own risk.                       ||
-# || Only config /.env edit allowed.                               ||
-# || Do not modify core files.                                     ||
-# || Keep this header if forked.                                   ||
-# || Dev not responsible for ban / damage / api block.             ||
-# ----------------------------------------------------------------------
-# || SECURITY                                                      ||
-# || Internal protection may exist.                                ||
-# || Unauthorized change may stop system.                          ||
-# || Use official API only -> www.babyapi.pro                      ||
-# ======================================================================
-
-
 from typing import Union
 
 from pyrogram.types import InlineKeyboardButton
+
+from SPOTIFY_MUSIC.button_styles import danger_button, primary_button, success_button
 
 
 def setting_markup(_):
     buttons = [
         [
-            InlineKeyboardButton(text=_["ST_B_1"], callback_data="AU"),
-            InlineKeyboardButton(text=_["ST_B_3"], callback_data="LG"),
+            primary_button(text=_["ST_B_1"], callback_data="AU"),
+            primary_button(text=_["ST_B_3"], callback_data="LG"),
         ],
         [
-            InlineKeyboardButton(text=_["ST_B_2"], callback_data="PM"),
+            primary_button(text=_["ST_B_2"], callback_data="PM"),
         ],
         [
-            InlineKeyboardButton(text=_["ST_B_4"], callback_data="VM"),
+            primary_button(text=_["ST_B_4"], callback_data="VM"),
         ],
         [
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+            danger_button(text=_["CLOSE_BUTTON"], callback_data="close"),
         ],
     ]
     return buttons
@@ -57,26 +27,29 @@ def setting_markup(_):
 def vote_mode_markup(_, current, mode: Union[bool, str] = None):
     buttons = [
         [
-            InlineKeyboardButton(text="Vᴏᴛɪɴɢ ᴍᴏᴅᴇ ➜", callback_data="VOTEANSWER"),
-            InlineKeyboardButton(
+            primary_button(text="Vᴏᴛɪɴɢ ᴍᴏᴅᴇ ➜", callback_data="VOTEANSWER"),
+            success_button(
+                text=_["ST_B_5"] if mode == True else _["ST_B_6"],
+                callback_data="VOMODECHANGE",
+            ) if mode == True else danger_button(
                 text=_["ST_B_5"] if mode == True else _["ST_B_6"],
                 callback_data="VOMODECHANGE",
             ),
         ],
         [
-            InlineKeyboardButton(text="-2", callback_data="FERRARIUDTI M"),
+            danger_button(text="-2", callback_data="FERRARIUDTI M"),
             InlineKeyboardButton(
                 text=f"ᴄᴜʀʀᴇɴᴛ : {current}",
                 callback_data="ANSWERVOMODE",
             ),
-            InlineKeyboardButton(text="+2", callback_data="FERRARIUDTI A"),
+            success_button(text="+2", callback_data="FERRARIUDTI A"),
         ],
         [
-            InlineKeyboardButton(
+            primary_button(
                 text=_["BACK_BUTTON"],
                 callback_data="settings_helper",
             ),
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+            danger_button(text=_["CLOSE_BUTTON"], callback_data="close"),
         ],
     ]
     return buttons
@@ -85,21 +58,24 @@ def vote_mode_markup(_, current, mode: Union[bool, str] = None):
 def auth_users_markup(_, status: Union[bool, str] = None):
     buttons = [
         [
-            InlineKeyboardButton(text=_["ST_B_7"], callback_data="AUTHANSWER"),
-            InlineKeyboardButton(
+            primary_button(text=_["ST_B_7"], callback_data="AUTHANSWER"),
+            success_button(
+                text=_["ST_B_8"] if status == True else _["ST_B_9"],
+                callback_data="AUTH",
+            ) if status == True else danger_button(
                 text=_["ST_B_8"] if status == True else _["ST_B_9"],
                 callback_data="AUTH",
             ),
         ],
         [
-            InlineKeyboardButton(text=_["ST_B_1"], callback_data="AUTHLIST"),
+            primary_button(text=_["ST_B_1"], callback_data="AUTHLIST"),
         ],
         [
-            InlineKeyboardButton(
+            primary_button(
                 text=_["BACK_BUTTON"],
                 callback_data="settings_helper",
             ),
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+            danger_button(text=_["CLOSE_BUTTON"], callback_data="close"),
         ],
     ]
     return buttons
@@ -113,32 +89,41 @@ def playmode_users_markup(
 ):
     buttons = [
         [
-            InlineKeyboardButton(text=_["ST_B_10"], callback_data="SEARCHANSWER"),
-            InlineKeyboardButton(
+            primary_button(text=_["ST_B_10"], callback_data="SEARCHANSWER"),
+            success_button(
+                text=_["ST_B_11"] if Direct == True else _["ST_B_12"],
+                callback_data="MODECHANGE",
+            ) if Direct == True else danger_button(
                 text=_["ST_B_11"] if Direct == True else _["ST_B_12"],
                 callback_data="MODECHANGE",
             ),
         ],
         [
-            InlineKeyboardButton(text=_["ST_B_13"], callback_data="AUTHANSWER"),
-            InlineKeyboardButton(
+            primary_button(text=_["ST_B_13"], callback_data="AUTHANSWER"),
+            success_button(
+                text=_["ST_B_8"] if Group == True else _["ST_B_9"],
+                callback_data="CHANNELMODECHANGE",
+            ) if Group == True else danger_button(
                 text=_["ST_B_8"] if Group == True else _["ST_B_9"],
                 callback_data="CHANNELMODECHANGE",
             ),
         ],
         [
-            InlineKeyboardButton(text=_["ST_B_14"], callback_data="PLAYTYPEANSWER"),
-            InlineKeyboardButton(
+            primary_button(text=_["ST_B_14"], callback_data="PLAYTYPEANSWER"),
+            success_button(
+                text=_["ST_B_8"] if Playtype == True else _["ST_B_9"],
+                callback_data="PLAYTYPECHANGE",
+            ) if Playtype == True else danger_button(
                 text=_["ST_B_8"] if Playtype == True else _["ST_B_9"],
                 callback_data="PLAYTYPECHANGE",
             ),
         ],
         [
-            InlineKeyboardButton(
+            primary_button(
                 text=_["BACK_BUTTON"],
                 callback_data="settings_helper",
             ),
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+            danger_button(text=_["CLOSE_BUTTON"], callback_data="close"),
         ],
     ]
     return buttons
