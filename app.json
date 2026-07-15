@@ -11,16 +11,18 @@
       "STRING_SESSION": {"description": "Pyrogram string session for assistant", "value": "", "required": true},
       "OWNER_ID": {"description": "Your Telegram user ID", "value": "", "required": true},
       "LOGGER_ID": {"description": "Log group/channel ID (with active voice chat)", "value": "", "required": true},
-      "BASE_URL": {"description": "BabyAPI base URL", "value": "https://BabyAPI.Pro", "required": false},
+      "BASE_URL": {"description": "BabyAPI base URL", "value": "https://api.babiesiq.tech", "required": false},
       "API_KEY": {"description": "Your BabyAPI key from babyapi.pro", "value": "", "required": true},
       "SUPPORT_CHANNEL": {"description": "Your channel link", "value": "https://t.me/muskan_music_official", "required": false},
       "SUPPORT_CHAT": {"description": "Your support group link", "value": "https://t.me/muskan_music_support", "required": false},
-      "HEROKU_APP_NAME": {"description": "Heroku app name for auto-restart", "value": "", "required": false},
+      "HEROKU_APP_NAME": {"description": "Heroku app name (muskan32)", "value": "", "required": false},
       "HEROKU_API_KEY": {"description": "Heroku API key for auto-restart", "value": "", "required": false},
       "SPOTIFY_CLIENT_ID": {"description": "Spotify client ID (optional)", "value": "", "required": false},
-      "SPOTIFY_CLIENT_SECRET": {"description": "Spotify client secret (optional)", "value": "", "required": false}
+      "SPOTIFY_CLIENT_SECRET": {"description": "Spotify client secret (optional)", "value": "", "required": false},
+      "GIT_PYTHON_REFRESH": {"description": "Silence gitpython warning on Heroku", "value": "quiet", "required": false}
     },
     "buildpacks": [
+      {"url": "https://github.com/heroku/heroku-buildpack-apt"},
       {"url": "heroku/python"}
     ]
 }
