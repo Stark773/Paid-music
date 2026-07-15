@@ -1,72 +1,17 @@
 {
-    "name": "Istu MUSIC",
-    "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
-    "logo": "https://graph.org/file/bbae2c50b58056ecc4df7.jpg",
-    "keywords": [
-    "python3",
-    "telegram",
-    "bot",
-    "MusicBot",
-    "telegram-bot",
-    "pyrogram"
-    ],
+    "name": "Muskan Music",
+    "description": "A powerful Telegram Music Bot with multi-platform support.",
+    "logo": "https://telegra.ph/file/d30d11c4365c025c25e3e.jpg",
+    "keywords": ["python3","telegram","bot","MusicBot","pyrogram","pytgcalls"],
     "env": {
-      "API_ID": {
-        "description": "Get this value from https://my.telegram.org",
-        "value": "",
-        "required": true
-      },
-      "API_HASH": {
-        "description": "Get this value from https://my.telegram.org",
-        "value": "",
-        "required": true
-      },
-      "BOT_TOKEN": {
-        "description": "A Bot's token from Botfather",
-        "value": "",
-        "required": true
-      },
-      "MONGO_DB_URI": {
-        "description": "Get a mongodb url from https://cloud.mongodb.com.",
-        "value": "",
-        "required": true
-      },
-      "OWNER_ID": {
-        "description": "The user id of user whom you would like to add as OWNER.",
-        "value": "",
-        "required": true
-      },
-      "STRING_SESSION": {
-        "description": "A Pyrogram v2 String Session from @StringFatherRobot  on Telegram.",
-        "value": "",
-        "required": true
-      },
-      "HEROKU_API_KEY": {
-        "description": "Your Heroku account's API key",
-        "value": "",
-        "required": false
-      },
-      "HEROKU_APP_NAME": {
-        "description": "Your heroku app name",
-        "value": "",
-        "required": false
-      },
-      "LOGGER_ID": {
-        "description": "Your Log Group ID, add your bot or assistant and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
-        "value": "",
-        "required": true
-      }
-    },
-    "buildpacks": [
-          {
-              "url": "heroku/python"
-          },
-          {
-              "url": "heroku/nodejs"
-          },
-          {
-              "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-          }
-      ],
-      "stack": "container"
-  }
+      "API_ID": {"description": "Get from https://my.telegram.org", "value": "", "required": true},
+      "API_HASH": {"description": "Get from https://my.telegram.org", "value": "", "required": true},
+      "BOT_TOKEN": {"description": "Get from @BotFather", "value": "", "required": true},
+      "MONGO_DB_URI": {"description": "MongoDB connection URI", "value": "", "required": true},
+      "STRING_SESSION": {"description": "Pyrogram string session for assistant", "value": "", "required": true},
+      "OWNER_ID": {"description": "Your Telegram user ID", "value": "", "required": true},
+      "LOGGER_ID": {"description": "Log group/channel ID (with active voice chat)", "value": "", "required": true},
+      "SUPPORT_CHANNEL": {"description": "Your channel link", "value": "https://t.me/muskan_music_official", "required": false},
+      "SUPPORT_CHAT": {"description": "Your support group link", "value": "https://t.me/muskan_music_support", "required": false}
+    }
+}
