@@ -18,10 +18,8 @@ ASSUSERNAME = getenv("ASSUSERNAME")
 MONGO_DB_URI = getenv("MONGO_DB_URI", "")
 LOGGER_ID = int(getenv("LOGGER_ID", "-100"))
 # ======================================================
-YTPROXY_URL = getenv("YTPROXY_URL", "https://tgapi.xbitcode.com")
-YT_API_KEY = getenv("YT_API_KEY", "")
-YTPROXY_URL2 = getenv("YTPROXY_URL2", "https://BabyAPI.Pro")
-YT_API_KEY2 = getenv("YT_API_KEY2", "")
+BASE_URL = getenv("BASE_URL", "https://BabyAPI.Pro")
+API_KEY = getenv("API_KEY", None)
 # ======================================================
 TG_SONGS_STORAGE = getenv("TG_SONGS_STORAGE", "")
 TG_INDEX_CHANNEL = getenv("TG_INDEX_CHANNEL", "")

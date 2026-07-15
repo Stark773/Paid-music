@@ -9,41 +9,36 @@
 </p>
 
 <p align="center">
-  <a href="https://t.me/muskan_music_official">Channel</a> •
-  <a href="https://t.me/muskan_music_support">Support</a>
+  <a href="https://t.me/muskan_music_official">
+    <img src="https://img.shields.io/badge/Channel-Muskan%20Music-blue?logo=telegram" alt="Channel"/>
+  </a>
+  <a href="https://t.me/muskan_music_support">
+    <img src="https://img.shields.io/badge/Support-Group-green?logo=telegram" alt="Support"/>
+  </a>
+  <a href="https://github.com/Stark773/Paid-music">
+    <img src="https://img.shields.io/badge/Repo-GitHub-black?logo=github" alt="Repo"/>
+  </a>
 </p>
+
+---
+
+## 🚀 Deploy to Heroku
+
+> **Note:** Heroku one-click deploy works with public repos. If your repo is private, use the Heroku CLI (`heroku git:remote`) instead.
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Stark773/Paid-music)
 
 ---
 
 ## ✨ Features
 
-- 🎵 High-quality audio & video streaming
-- 📋 Queue system with shuffle, loop, seek
+- 🎵 High-quality audio & video streaming via **BabyAPI.Pro**
+- 📋 Queue system with shuffle, loop, seek, speed control
 - 🌍 Multi-language support (EN, HI, AR, PA, BN, TA, TE, ID, TR, RU, FR, DE)
-- 🎨 Beautiful thumbnails with auto color
-- 🎧 Spotify, YouTube, Apple Music, Resso, SoundCloud support
-- 📁 Telegram file support (audio/video)
-- ⚡ Fast & reliable with pytgcalls
-
----
-
-## 🚀 Quick Setup
-
-### 1. Clone & Install
-```bash
-git clone https://github.com/Stark773/Paid-music
-cd Paid-music
-pip3 install -U pip
-pip3 install -r requirements.txt
-```
-
-### 2. Configure `.env`
-Copy `sample.env` to `.env` and fill in your values.
-
-### 3. Run
-```bash
-python3 -m Muskan
-```
+- 🎨 Beautiful auto-color thumbnails
+- 🎧 YouTube • Spotify • Apple Music • Resso • SoundCloud
+- 📁 Telegram audio/video file support
+- ⚡ Fast streaming with pytgcalls
 
 ---
 
@@ -51,18 +46,44 @@ python3 -m Muskan
 
 | Variable | Description |
 |---|---|
-| `API_ID` | Telegram API ID from my.telegram.org |
-| `API_HASH` | Telegram API Hash from my.telegram.org |
-| `BOT_TOKEN` | Bot token from @BotFather |
+| `API_ID` | Telegram API ID from [my.telegram.org](https://my.telegram.org) |
+| `API_HASH` | Telegram API Hash |
+| `BOT_TOKEN` | Bot token from [@BotFather](https://t.me/BotFather) |
 | `MONGO_DB_URI` | MongoDB connection URI |
-| `STRING_SESSION` | Pyrogram string session for assistant |
+| `STRING_SESSION` | Pyrogram string session (assistant account) |
 | `OWNER_ID` | Your Telegram user ID |
 | `LOGGER_ID` | Log group/channel ID (must have active voice chat) |
-| `SUPPORT_CHANNEL` | Your channel link (https://t.me/...) |
-| `SUPPORT_CHAT` | Your support group link (https://t.me/...) |
+| `BASE_URL` | BabyAPI base URL (default: `https://BabyAPI.Pro`) |
+| `API_KEY` | Your BabyAPI key from [babyapi.pro](https://babyapi.pro) |
+| `SUPPORT_CHANNEL` | Channel link e.g. `https://t.me/muskan_music_official` |
+| `SUPPORT_CHAT` | Support group link e.g. `https://t.me/muskan_music_support` |
+
+### Optional
+
+| Variable | Description |
+|---|---|
+| `SPOTIFY_CLIENT_ID` | Spotify app client ID |
+| `SPOTIFY_CLIENT_SECRET` | Spotify app client secret |
+| `STRING_SESSION2–5` | Extra assistant sessions |
+| `HEROKU_APP_NAME` | Heroku app name (for auto-restart) |
+| `HEROKU_API_KEY` | Heroku API key (for auto-restart) |
+
+---
+
+## 🛠 Manual Setup
+
+```bash
+git clone https://github.com/Stark773/Paid-music
+cd Paid-music
+pip3 install -U pip
+pip3 install -r requirements.txt
+cp sample.env .env
+# Fill in .env with your values
+python3 -m Muskan
+```
 
 ---
 
 ## 📜 License
 
-© 2025-26 Muskan Music Bot. All rights reserved.
+© 2025–26 Muskan Music Bot. All rights reserved.
