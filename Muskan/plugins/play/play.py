@@ -371,8 +371,13 @@ async def play_commnd(
             )
         except Exception as e:
             ex_type = type(e).__name__
-            err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
-            return await mystic.edit_text(err)
+            err = str(e) if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
+            if not err or not err.strip():
+                err = "❌ **ᴘʟᴀʏʙᴀᴄᴋ ᴇʀʀᴏʀ** — ᴜɴᴀʙʟᴇ ᴛᴏ sᴛʀᴇᴀᴍ. ᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɢᴀɪɴ."
+            try:
+                return await mystic.edit_text(err)
+            except Exception:
+                return
         await mystic.delete()
         return await play_logs(message, streamtype=streamtype)
     else:

@@ -37,7 +37,7 @@ from Muskan.utils.inline.settings import (
     setting_markup,
     vote_mode_markup,
 )
-from Muskan.utils.inline.start import private_panel
+from Muskan.utils.inline.start import private_panel, start_panel
 from config import BANNED_USERS, OWNER_ID
 
 
@@ -98,17 +98,20 @@ async def settings_back_markup(client, CallbackQuery: CallbackQuery, _):
         pass
 
     if CallbackQuery.message.chat.type == ChatType.PRIVATE:
-        await app.resolve_peer(OWNER_ID)
-        OWNER = OWNER_ID
-        buttons = private_panel(_)
-
+        buttons = start_panel(_)
+        caption = (
+            f"**✦ ʜᴇʟʟᴏ {CallbackQuery.from_user.mention} 🥀**\n\n"
+            f"**╔══「 🎵 {app.mention} 」══╗**\n\n"
+            "➻ ᴀ ᴘʀᴇᴍɪᴜᴍ ᴍᴜsɪᴄ ᴘʟᴀʏᴇʀ ʙᴏᴛ\n"
+            "    ʙᴜɪʟᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs & ᴄʜᴀɴɴᴇʟs\n\n"
+            "✦ ʜɪɢʜ ǫᴜᴀʟɪᴛʏ  •  ɴᴏ ʟᴀɢ  •  24/7\n\n"
+            "📖 ᴛᴀᴘ **ʜᴇʟᴘ** ᴛᴏ sᴇᴇ ᴀʟʟ ᴄᴀᴛᴇɢᴏʀɪᴇs\n\n"
+            f"**╚══「 [˹Mᴜsᴋᴀɴ˼](https://t.me/muskan_music_support) 」══╝**"
+        )
         return await CallbackQuery.edit_message_media(
             InputMediaPhoto(
                 media=random.choice(NEXI_VID),
-                caption=_["start_2"].format(
-                    CallbackQuery.from_user.mention,
-                    app.mention
-                ),
+                caption=caption,
             ),
             reply_markup=InlineKeyboardMarkup(buttons),
         )
