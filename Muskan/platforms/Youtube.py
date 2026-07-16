@@ -85,11 +85,32 @@ async def _download_media(link: str, kind: str, exts: list, wait: int = 60):
                 return u
             p = f"downloads/{vid}.{'mp3' if kind == 'song' else 'mp4'}"
             proc = await asyncio.create_subprocess_shell(
-                f'curl -L "{u}" -o "{p}" -s --max-time 120'
+                f'curl -L "{u}" -o "{p}" -s --max-time 120 -w "%{{http_code}}" -o "{p}"'
             )
-            await proc.communicate()
-            if not os.path.exists(p) or os.path.getsize(p) < 50000:
-                raise Exception("dl fail")
+            stdout, _ = await proc.communicate()
+            http_code = stdout.decode().strip() if stdout else "?"
+            size = os.path.getsize(p) if os.path.exists(p) else 0
+            # Read first 16 bytes to check if it's actually audio
+            magic = b""
+            if os.path.exists(p):
+                with open(p, "rb") as f:
+                    magic = f.read(16)
+            is_audio = (
+                magic[:3] == b"ID3"                        # MP3 with ID3 tag
+                or magic[:2] in (b"\xff\xfb", b"\xff\xfa", b"\xff\xf3", b"\xff\xf2")  # raw MP3
+                or magic[4:8] == b"ftyp"                   # M4A/MP4
+                or magic[:4] in (b"OggS", b"fLaC", b"RIFF")  # OGG/FLAC/WAV
+            )
+            await app.send_message(
+                LOGGER_ID,
+                f"📥 {kind.upper()} DL\n🔗 `{link}`\n"
+                f"📊 HTTP={http_code} size={size} audio={is_audio}\n"
+                f"🔮 magic=`{magic[:8].hex()}`",
+            )
+            if not os.path.exists(p) or size < 50000:
+                raise Exception(f"dl fail size={size}")
+            if not is_audio:
+                raise Exception(f"not audio magic={magic[:8].hex()}")
             return p
     except Exception as e:
         await app.send_message(
