@@ -66,21 +66,21 @@ async def _download_media(link: str, kind: str, exts: list, wait: int = 60):
                 j = await r.json()
             u = j.get("stream")
             if not u:
-                raise Exception("no stream url in response")
+                raise Exception("no stream")
             if j.get("type") == "live":
                 return u
             for _ in range(wait):
-                async with s.get(u) as r:
-                    if r.status in (200, 206):
+                async with s.get(u, allow_redirects=False) as r:
+                    if r.status in (200, 206, 301, 302):
                         break
                     if r.status in (204, 423, 404, 410):
                         await asyncio.sleep(2)
                         continue
                     if r.status in (401, 403, 429):
-                        raise Exception(f"blocked {r.status}")
-                    raise Exception(f"unexpected status {r.status}")
+                        raise Exception(f"block {r.status}")
+                    raise Exception(f"fail {r.status}")
             else:
-                raise Exception("stream ready timeout")
+                raise Exception("timeout")
             if STREAM_MODE:
                 return u
             p = f"downloads/{vid}.{'mp3' if kind == 'song' else 'mp4'}"
@@ -89,16 +89,13 @@ async def _download_media(link: str, kind: str, exts: list, wait: int = 60):
             )
             await proc.communicate()
             if not os.path.exists(p) or os.path.getsize(p) < 50000:
-                raise Exception("download too small or failed")
+                raise Exception("dl fail")
             return p
     except Exception as e:
-        try:
-            await app.send_message(
-                LOGGER_ID,
-                f"❌ {kind.upper()} ERR\n🔗 `{link}`\n⚠️ `{str(e)[:100]}`",
-            )
-        except Exception:
-            pass
+        await app.send_message(
+            LOGGER_ID,
+            f"❌ {kind.upper()} ERR\n🔗 `{link}`\n⚠️ `{str(e)[:100]}`",
+        )
         raise
 
 
