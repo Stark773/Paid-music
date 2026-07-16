@@ -1,104 +1,218 @@
-HELP_1 = """<b><u>🎵 Admin Commands :</u></b>
+HELP_1 = """
+╔══「 🎛️ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs 」══╗
 
-Add <b>c</b> at the start of commands to use them for channels.
+<b>⏸</b> /pause — ᴘᴀᴜsᴇ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ sᴛʀᴇᴀᴍ
+<b>▶️</b> /resume — ʀᴇsᴜᴍᴇ ᴘᴀᴜsᴇᴅ sᴛʀᴇᴀᴍ
+<b>⏭</b> /skip — sᴋɪᴘ ᴛᴏ ɴᴇxᴛ ᴛʀᴀᴄᴋ
+<b>🛑</b> /end | /stop — ᴄʟᴇᴀʀ ǫᴜᴇᴜᴇ & sᴛᴏᴘ
+<b>📋</b> /queue — sʜᴏᴡ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs
+<b>🔁</b> /loop [disable/enable/1-10] — ʟᴏᴏᴘ ᴛʀᴀᴄᴋ
+<b>🔀</b> /shuffle — sʜᴜғғʟᴇ ǫᴜᴇᴜᴇ
+<b>⏩</b> /seek — sᴇᴇᴋ ᴛᴏ ᴅᴜʀᴀᴛɪᴏɴ
+<b>⏪</b> /seekback — sᴇᴇᴋ ʙᴀᴄᴋᴡᴀʀᴅ
+<b>⚡</b> /speed | /playback — ᴀᴅᴊᴜsᴛ sᴘᴇᴇᴅ
 
-/pause — Pause the current stream.
-/resume — Resume the paused stream.
-/skip — Skip current track and play next in queue.
-/end or /stop — Clear queue and stop stream.
-/queue — Show queued tracks list.
-/loop [disable/enable] or [1-10] — Loop current track.
-/shuffle — Shuffle the queue.
-/seek — Seek stream to given duration.
-/seekback — Seek stream backward.
-/speed or /playback — Adjust audio playback speed.
+<b>💡 Tɪᴘ :</b> ᴀᴅᴅ <code>c</code> ᴀᴛ sᴛᴀʀᴛ ғᴏʀ ᴄʜᴀɴɴᴇʟ ᴄᴏᴍᴍᴀɴᴅs.
 
-<b>Powered by :</b> <a href="{0}">Muskan Music</a>
-""".format("https://t.me/muskan_music_support")
-
-HELP_2 = """<b><u>🔐 Auth Users :</u></b>
-
-Auth users can use admin rights in bot without group admin rights.
-
-/auth [username/user_id] — Add user to auth list.
-/unauth [username/user_id] — Remove user from auth list.
-/authusers — Show list of auth users.
-
-<b>Powered by :</b> <a href="https://t.me/muskan_music_support">Muskan Music</a>
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
 """
 
-HELP_3 = """<b><u>📢 Broadcast Feature</u></b> [Sudoers only] :
+HELP_2 = """
+╔══「 🔐 ᴀᴜᴛʜ ᴜsᴇʀs 」══╗
 
-/broadcast [message or reply] — Broadcast to served chats.
+ᴀᴜᴛʜ ᴜsᴇʀs ᴄᴀɴ ᴜsᴇ ᴀᴅᴍɪɴ ʀɪɢʜᴛs
+ᴡɪᴛʜᴏᴜᴛ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴs.
 
-<b>Broadcasting Modes :</b>
+<b>➕</b> /auth [user/id] — ᴀᴅᴅ ᴛᴏ ᴀᴜᴛʜ ʟɪsᴛ
+<b>➖</b> /unauth [user/id] — ʀᴇᴍᴏᴠᴇ ғʀᴏᴍ ʟɪsᴛ
+<b>📜</b> /authusers — sʜᴏᴡ ᴀᴜᴛʜ ʟɪsᴛ
 
-<b>-pin</b> — Pin broadcasted message in served chats.
-<b>-pinloud</b> — Pin with notification.
-<b>-user</b> — Broadcast to users who started the bot.
-<b>-assistant</b> — Broadcast from assistant account.
-<b>-nobot</b> — Force bot not to broadcast.
-
-<b>Example :</b>
-<code>/broadcast -user -assistant -pin Hello from Muskan!</code>
-
-<b>Powered by :</b> <a href="https://t.me/muskan_music_support">Muskan Music</a>
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
 """
 
-HELP_4 = """<b><u>🚫 Blacklist Feature :</u></b> [Sudoers only]
+HELP_3 = """
+╔══「 📢 ʙʀᴏᴀᴅᴄᴀsᴛ 」══╗
 
-/blacklistchat [chat id] — Blacklist a chat.
-/whitelistchat [chat id] — Whitelist a blacklisted chat.
-/blacklistedchat — Show blacklisted chats list.
+<b>[sᴜᴅᴏ ᴏɴʟʏ]</b>
 
-<b><u>Block Users :</u></b> [Sudoers only]
+<b>📡</b> /broadcast [msg/reply]
 
-/block [username or reply] — Block user from bot.
-/unblock [username or reply] — Unblock a blocked user.
-/blockedusers — Show blocked users list.
+<b>🎚️ Mᴏᴅᴇs :</b>
 
-<b>Powered by :</b> <a href="https://t.me/muskan_music_support">Muskan Music</a>
+<code>-pin</code> — ᴘɪɴ ᴍsɢ ɪɴ ᴄʜᴀᴛs
+<code>-pinloud</code> — ᴘɪɴ ᴡɪᴛʜ ɴᴏᴛɪғ
+<code>-user</code> — ᴛᴏ ᴀʟʟ ᴜsᴇʀs
+<code>-assistant</code> — ᴠɪᴀ ᴀssɪsᴛᴀɴᴛ
+<code>-nobot</code> — ɴᴏ ʙᴏᴛ ʙʀᴏᴀᴅᴄᴀsᴛ
+
+<b>📌 Example:</b>
+<code>/broadcast -user -pin Hello!</code>
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
 """
 
-HELP_5 = """<b><u>🎵 Play Commands :</u></b>
+HELP_4 = """
+╔══「 🚫 ʙʟᴀᴄᴋʟɪsᴛ & ʙʟᴏᴄᴋ 」══╗
 
-<b>v</b> — Video play. | <b>force</b> — Force play (skip queue).
+<b>[sᴜᴅᴏ ᴏɴʟʏ]</b>
 
-/play [song name or link] — Play audio in voice chat.
-/vplay [song name or link] — Play video in voice chat.
-/cplay [song name or link] — Play audio in connected channel.
-/cvplay [song name or link] — Play video in connected channel.
-/playforce — Force play audio (skip queue).
-/vplayforce — Force play video (skip queue).
+<b>🏴</b> /blacklistchat [id] — ʙʟᴀᴄᴋʟɪsᴛ ᴄʜᴀᴛ
+<b>🏳️</b> /whitelistchat [id] — ᴡʜɪᴛᴇʟɪsᴛ ᴄʜᴀᴛ
+<b>📋</b> /blacklistedchat — sʜᴏᴡ ʟɪsᴛ
 
-Supported : YouTube, Spotify, Apple Music, Resso, SoundCloud, Telegram files
+━━━━━━━━━━━━━━━━━
 
-<b>Powered by :</b> <a href="https://t.me/muskan_music_support">Muskan Music</a>
+<b>🔒</b> /block [user/reply] — ʙʟᴏᴄᴋ ᴜsᴇʀ
+<b>🔓</b> /unblock [user/reply] — ᴜɴʙʟᴏᴄᴋ
+<b>👥</b> /blockedusers — sʜᴏᴡ ʙʟᴏᴄᴋᴇᴅ
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
 """
 
-HELP_6 = """<b><u>🎛 Global Ban Feature :</u></b> [Sudoers only]
+HELP_5 = """
+╔══「 🎶 ᴘʟᴀʏ ᴄᴏᴍᴍᴀɴᴅs 」══╗
 
-/gban [username/user_id] — Global ban a user.
-/ungban [username/user_id] — Remove global ban.
-/gbannedusers — Show globally banned users list.
+<b>🎵</b> /play [name/link] — ᴀᴜᴅɪᴏ ᴘʟᴀʏ
+<b>🎬</b> /vplay [name/link] — ᴠɪᴅᴇᴏ ᴘʟᴀʏ
+<b>📺</b> /cplay [name/link] — ᴄʜᴀɴɴᴇʟ ᴀᴜᴅɪᴏ
+<b>🎞</b> /cvplay [name/link] — ᴄʜᴀɴɴᴇʟ ᴠɪᴅᴇᴏ
+<b>⚡</b> /playforce — ғᴏʀᴄᴇ ᴘʟᴀʏ ᴀᴜᴅɪᴏ
+<b>💥</b> /vplayforce — ғᴏʀᴄᴇ ᴘʟᴀʏ ᴠɪᴅᴇᴏ
 
-<b>Powered by :</b> <a href="https://t.me/muskan_music_support">Muskan Music</a>
+━━━━━━━━━━━━━━━━━
+<b>✅ Sᴜᴘᴘᴏʀᴛᴇᴅ :</b>
+YouTube • Spotify • Apple Music
+Resso • SoundCloud • Telegram Files
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
 """
 
-HELP_7 = """<b><u>📋 Song Download :</u></b>
+HELP_6 = """
+╔══「 🎛️ ɢʟᴏʙᴀʟ ʙᴀɴ 」══╗
 
-/song [song name or YouTube link] — Download song to private chat.
+<b>[sᴜᴅᴏ ᴏɴʟʏ]</b>
 
-<b>Powered by :</b> <a href="https://t.me/muskan_music_support">Muskan Music</a>
+<b>🔨</b> /gban [user/id] — ɢʟᴏʙᴀʟ ʙᴀɴ
+<b>✅</b> /ungban [user/id] — ʀᴇᴍᴏᴠᴇ ɢ-ʙᴀɴ
+<b>📋</b> /gbannedusers — sʜᴏᴡ ɢ-ʙᴀɴɴᴇᴅ ʟɪsᴛ
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
 """
 
-HELP_8 = """<b><u>⚙️ Group Setup :</u></b>
+HELP_7 = """
+╔══「 📥 sᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅ 」══╗
 
-/add — Add Muskan to your group.
-/leave — Ask Muskan to leave the group.
-/lang — Change bot language.
-/settings — Configure bot settings.
-/playmode — Set play mode.
+<b>🎵</b> /song [name/link]
 
-<b>Powered by :</b> <a href="https://t.me/muskan_music_support">Muskan Music</a>
+ᴅᴏᴡɴʟᴏᴀᴅs ᴛʜᴇ sᴏɴɢ ᴅɪʀᴇᴄᴛʟʏ
+ᴛᴏ ʏᴏᴜʀ ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ ᴀs ᴀ ғɪʟᴇ.
+
+✅ ᴡᴏʀᴋs ᴡɪᴛʜ YᴏᴜTᴜʙᴇ ʟɪɴᴋs ᴏʀ sᴏɴɢ ɴᴀᴍᴇs.
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
+"""
+
+HELP_8 = """
+╔══「 ⚙️ ɢʀᴏᴜᴘ sᴇᴛᴜᴘ 」══╗
+
+<b>➕</b> /add — ᴀᴅᴅ Mᴜsᴋᴀɴ ᴛᴏ ɢʀᴏᴜᴘ
+<b>🚪</b> /leave — ʟᴇᴀᴠᴇ ᴛʜᴇ ɢʀᴏᴜᴘ
+<b>🌐</b> /lang — ᴄʜᴀɴɢᴇ ʙᴏᴛ ʟᴀɴɢᴜᴀɢᴇ
+<b>⚙️</b> /settings — ᴄᴏɴғɪɢᴜʀᴇ sᴇᴛᴛɪɴɢs
+<b>🎚</b> /playmode — sᴇᴛ ᴘʟᴀʏ ᴍᴏᴅᴇ
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
+"""
+
+HELP_9 = """
+╔══「 📌 ᴠᴄ ʟᴏɢɢᴇʀ 」══╗
+
+<b>🟢</b> /vclogger on — ᴇɴᴀʙʟᴇ ᴠᴄ ʟᴏɢɢᴇʀ
+<b>🔴</b> /vclogger off — ᴅɪsᴀʙʟᴇ ᴠᴄ ʟᴏɢɢᴇʀ
+
+ʟᴏɢs ᴀʟʟ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴀᴄᴛɪᴠɪᴛʏ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
+"""
+
+HELP_10 = """
+╔══「 🛡️ ᴍᴏᴅᴇʀᴀᴛɪᴏɴ 」══╗
+
+<b>🔨</b> /ban — ʙᴀɴ ᴜsᴇʀ
+<b>✅</b> /unban — ᴜɴʙᴀɴ ᴜsᴇʀ
+<b>🔇</b> /mute — ᴍᴜᴛᴇ ᴜsᴇʀ
+<b>🔊</b> /unmute — ᴜɴᴍᴜᴛᴇ ᴜsᴇʀ
+<b>⏱</b> /tmute — ᴛɪᴍᴇᴅ ᴍᴜᴛᴇ
+<b>👟</b> /kickall — ᴋɪᴄᴋ ᴀʟʟ ᴍᴇᴍʙᴇʀs
+<b>🔇</b> /muteall — ᴍᴜᴛᴇ ᴀʟʟ
+<b>🔊</b> /unmuteall — ᴜɴᴍᴜᴛᴇ ᴀʟʟ
+<b>⛓</b> /unbanall — ᴜɴʙᴀɴ ᴀʟʟ
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
+"""
+
+HELP_11 = """
+╔══「 📣 ᴘʀᴏᴍᴏᴛᴇ 」══╗
+
+<b>⬆️</b> /promote — ᴘʀᴏᴍᴏᴛᴇ ᴜsᴇʀ ᴀs ᴀᴅᴍɪɴ
+<b>⬇️</b> /demote — ᴅᴇᴍᴏᴛᴇ ᴀᴅᴍɪɴ
+<b>🌟</b> /fullpromote — ғᴜʟʟ ᴀᴅᴍɪɴ ʀɪɢʜᴛs
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
+"""
+
+HELP_12 = """
+╔══「 🏠 ɢʀᴏᴜᴘ sᴇᴛᴜᴘ ᴛᴏᴏʟs 」══╗
+
+<b>📌</b> /pin — ᴘɪɴ ᴍᴇssᴀɢᴇ
+<b>📌</b> /unpin — ᴜɴᴘɪɴ ᴍᴇssᴀɢᴇ
+<b>📋</b> /pinned — sᴇᴇ ᴘɪɴɴᴇᴅ ᴍsɢs
+<b>✏️</b> /settitle — sᴇᴛ ɢʀᴏᴜᴘ ɴᴀᴍᴇ
+<b>📝</b> /setdis — sᴇᴛ ɢʀᴏᴜᴘ ʙɪᴏ
+<b>🖼</b> /setphoto — sᴇᴛ ɢʀᴏᴜᴘ ᴘʜᴏᴛᴏ
+<b>🗑</b> /rmphoto — ʀᴇᴍᴏᴠᴇ ᴘʜᴏᴛᴏ
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
+"""
+
+HELP_13 = """
+╔══「 👋 ᴡᴇʟᴄᴏᴍᴇ 」══╗
+
+<b>🟢</b> /welcome on — ᴇɴᴀʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍsɢ
+<b>🔴</b> /welcome off — ᴅɪsᴀʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍsɢ
+
+ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ɢʀᴇᴇᴛs ɴᴇᴡ ᴍᴇᴍʙᴇʀs
+ᴡʜᴇɴ ᴛʜᴇʏ ᴊᴏɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
+"""
+
+HELP_14 = """
+╔══「 ℹ️ ᴀʙᴏᴜᴛ Mᴜsᴋᴀɴ 」══╗
+
+🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ ɪs ᴀ ᴘʀᴇᴍɪᴜᴍ
+ᴛᴇʟᴇɢʀᴀᴍ ᴍᴜsɪᴄ ᴘʟᴀʏᴇʀ ʙᴏᴛ.
+
+━━━━━━━━━━━━━━━━━
+✦ ɴᴏ ʟᴀɢ • ɴᴏ ᴀᴅs • 24/7 ᴜᴘᴛɪᴍᴇ
+✦ Mᴜʟᴛɪ-ᴘʟᴀᴛғᴏʀᴍ sᴜᴘᴘᴏʀᴛ
+✦ ʜɪɢʜ ǫᴜᴀʟɪᴛʏ ᴀᴜᴅɪᴏ/ᴠɪᴅᴇᴏ
+━━━━━━━━━━━━━━━━━
+
+🐍 Python • 🗃 MongoDB
+🔗 Pyrogram • 📞 PyTgCalls
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
+"""
+
+HELP_15 = """
+╔══「 🔗 sᴜᴘᴘᴏʀᴛ & ʟɪɴᴋs 」══╗
+
+<b>💬</b> <a href="https://t.me/muskan_music_support">Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ</a>
+<b>📢</b> <a href="https://t.me/muskan_music_official">Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ</a>
+
+24/7 ᴀᴠᴀɪʟᴀʙʟᴇ — ᴀsᴋ ᴜs ᴀɴʏᴛʜɪɴɢ!
+ᴋᴇᴇᴘ ᴄʜᴀᴛ ᴄʟᴇᴀɴ & ʙᴜɢ-ғʀᴇᴇ ✨
+
+╚══「 <a href="https://t.me/muskan_music_support">🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ</a> 」══╝
 """

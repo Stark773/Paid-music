@@ -38,17 +38,30 @@ MUSKAN_PICS = [
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
 
-    typing_message = await message.reply("<b>🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ...</b>")
-    typing_text = "<b>🎶 Sᴛᴀʀᴛɪɴɢ Mᴜsᴋᴀɴ...</b>"
-
-    for i in range(1, len(typing_text) + 1):
+    # ── ᴀɴɪᴍᴀᴛᴇᴅ ᴛʏᴘɪɴɢ ──
+    frames = [
+        "🎵",
+        "🎵 M",
+        "🎵 Mu",
+        "🎵 Mus",
+        "🎵 Musk",
+        "🎵 Muska",
+        "🎵 Muskan",
+        "🎵 Muskan M",
+        "🎵 Muskan Mu",
+        "🎵 Muskan Mus",
+        "🎵 Muskan Musi",
+        "🎵 Muskan Music",
+        "🎵 Muskan Music ✨",
+    ]
+    typing_message = await message.reply("<b>🎵</b>")
+    for frame in frames:
         try:
-            await typing_message.edit_text(typing_text[:i])
-            await asyncio.sleep(0.001)
+            await typing_message.edit_text(f"<b>{frame}</b>")
+            await asyncio.sleep(0.07)
         except Exception:
             pass
-
-    await asyncio.sleep(1)
+    await asyncio.sleep(0.5)
     await typing_message.delete()
 
     if len(message.text.split()) > 1:
@@ -61,7 +74,12 @@ async def start_pm(client, message: Message, _):
             keyboard = help_pannel(_)
             return await message.reply_photo(
                 random.choice(MUSKAN_PICS),
-                caption=_["help_1"].format(config.SUPPORT_CHAT),
+                caption=(
+                    "**╔══「 📖 Mᴜsᴋᴀɴ ʜᴇʟᴘ ᴄᴇɴᴛᴇʀ 」══╗**\n\n"
+                    "🎯 **sᴇʟᴇᴄᴛ ʏᴏᴜʀ ʜᴇʟᴘ ᴄᴀᴛᴇɢᴏʀʏ** ʙᴇʟᴏᴡ\n\n"
+                    f"💬 ᴀsᴋ ᴅᴏᴜʙᴛs ᴀᴛ [sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ]({config.SUPPORT_CHAT})\n\n"
+                    "**╚══「 🎵 Mᴜsᴋᴀɴ Mᴜsɪᴄ 」══╝**"
+                ),
                 reply_markup=keyboard,
                 has_spoiler=False,
             )
@@ -103,11 +121,14 @@ async def start_pm(client, message: Message, _):
     out = start_panel(_)
     await message.reply_photo(
         photo=random.choice(MUSKAN_PICS),
-        caption=_["start_2"].format(
-            message.from_user.mention,
-            app.mention,
-            config.SUPPORT_CHAT,
-            config.SUPPORT_CHANNEL,
+        caption=(
+            f"**✦ ʜᴇʟʟᴏ {message.from_user.mention} 🥀**\n\n"
+            f"**╔══「 🎵 {app.mention} 」══╗**\n\n"
+            "➻ ᴀ ᴘʀᴇᴍɪᴜᴍ ᴍᴜsɪᴄ ᴘʟᴀʏᴇʀ ʙᴏᴛ\n"
+            "    ʙᴜɪʟᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs & ᴄʜᴀɴɴᴇʟs\n\n"
+            "✦ ʜɪɢʜ ǫᴜᴀʟɪᴛʏ  •  ɴᴏ ʟᴀɢ  •  24/7\n\n"
+            "📖 ᴛᴀᴘ **ʜᴇʟᴘ** ᴛᴏ sᴇᴇ ᴀʟʟ ᴄᴀᴛᴇɢᴏʀɪᴇs\n\n"
+            f"**╚══「 [˹Mᴜsᴋᴀɴ˼]({config.SUPPORT_CHAT}) 」══╝**"
         ),
         reply_markup=InlineKeyboardMarkup(out),
     )
@@ -119,11 +140,12 @@ async def start_group(client, message: Message, _):
     out = start_panel(_)
     await message.reply_photo(
         photo=random.choice(MUSKAN_PICS),
-        caption=_["start_3"].format(
-            message.from_user.mention,
-            app.mention,
-            message.chat.title,
-            app.mention,
+        caption=(
+            f"**✦ ʜᴇʏ {message.from_user.mention} 🎶**\n\n"
+            f"**{app.mention}** ɪs ɴᴏᴡ ʀᴇᴀᴅʏ ɪɴ\n"
+            f"**{message.chat.title}** ✨\n\n"
+            "▶️ ᴜsᴇ /play ᴛᴏ sᴛᴀʀᴛ ᴘʟᴀʏɪɴɢ ᴍᴜsɪᴄ!\n"
+            "📖 ᴛᴀᴘ **ʜᴇʟᴘ** ғᴏʀ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs."
         ),
         reply_markup=InlineKeyboardMarkup(out),
     )
@@ -158,11 +180,12 @@ async def welcome(client, message: Message):
                 out = start_panel(_)
                 await message.reply_photo(
                     random.choice(MUSKAN_PICS),
-                    caption=_["start_3"].format(
-                        message.from_user.mention,
-                        app.mention,
-                        message.chat.title,
-                        app.mention,
+                    caption=(
+                        f"**✦ ʜᴇʏ {message.from_user.mention} 🎶**\n\n"
+                        f"**{app.mention}** ʜᴀs ʙᴇᴇɴ ᴀᴅᴅᴇᴅ ᴛᴏ\n"
+                        f"**{message.chat.title}** ✨\n\n"
+                        "▶️ ᴜsᴇ /play ᴛᴏ sᴛᴀʀᴛ ᴘʟᴀʏɪɴɢ ᴍᴜsɪᴄ!\n"
+                        "📖 ᴛᴀᴘ **ʜᴇʟᴘ** ғᴏʀ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs."
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
