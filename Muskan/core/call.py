@@ -286,26 +286,34 @@ class Call:
         assistant = await group_assistant(self, chat_id)
         language = await get_lang(chat_id)
         _ = get_string(language)
-        if video:
-            stream = MediaStream(
-                link,
-                audio_parameters=AudioQuality.HIGH,
-                video_parameters=VideoQuality.FHD_1080p,
-            )
-        else:
-            stream = MediaStream(
-                link,
-                audio_parameters=AudioQuality.HIGH,
-                video_flags=MediaStream.Flags.IGNORE,
-            )
         try:
+            if isinstance(link, str) and os.path.isfile(link):
+                link = os.path.abspath(link)
+            if video:
+                stream = MediaStream(
+                    link,
+                    audio_parameters=AudioQuality.HIGH,
+                    video_parameters=VideoQuality.FHD_1080p,
+                )
+            else:
+                stream = MediaStream(
+                    link,
+                    audio_parameters=AudioQuality.HIGH,
+                    video_flags=MediaStream.Flags.IGNORE,
+                )
             await assistant.play(chat_id, stream)
         except NoActiveGroupCall:
             raise AssistantErr(_["call_8"])
         except TelegramServerError:
             raise AssistantErr(_["call_10"])
         except Exception as e:
-            raise AssistantErr(str(e))
+            error = str(e).strip() or type(e).__name__
+            LOGGER(__name__).exception(
+                "Voice-chat playback failed for chat %s with source %r",
+                chat_id,
+                link,
+            )
+            raise AssistantErr(f"❌ ᴘʟᴀʏʙᴀᴄᴋ ғᴀɪʟᴇᴅ: {error[:180]}")
         await add_active_chat(chat_id)
         await music_on(chat_id)
         if video:

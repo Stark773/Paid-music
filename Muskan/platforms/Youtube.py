@@ -52,10 +52,14 @@ async def _download_media(link: str, kind: str, exts: list, wait: int = 60):
     os.makedirs("downloads", exist_ok=True)
     try:
         if not STREAM_MODE:
+            if kind == "song":
+                voice_path = f"downloads/{vid}.voice.ogg"
+                if os.path.exists(voice_path) and os.path.getsize(voice_path) > 1000:
+                    return voice_path
             for e in exts:
                 p = f"downloads/{vid}.{e}"
                 if os.path.exists(p):
-                    return p
+                    return await _prepare_audio_for_call(p) if kind == "song" else p
         async with aiohttp.ClientSession() as s:
             url = (
                 f"{BASE_URL}/api/{kind}?query={vid}&api={API_KEY}"
@@ -84,11 +88,37 @@ async def _download_media(link: str, kind: str, exts: list, wait: int = 60):
             if STREAM_MODE:
                 return u
             p = f"downloads/{vid}.{'mp3' if kind == 'song' else 'mp4'}"
-            proc = await asyncio.create_subprocess_shell(
-                f'curl -L "{u}" -o "{p}" -s --max-time 120 -w "%{{http_code}}" -o "{p}"'
+            part_path = f"{p}.part"
+            proc = await asyncio.create_subprocess_exec(
+                "curl",
+                "-L",
+                "--fail",
+                "--silent",
+                "--show-error",
+                "--retry",
+                "3",
+                "--connect-timeout",
+                "20",
+                "--max-time",
+                "120",
+                "-o",
+                part_path,
+                "-w",
+                "%{http_code}",
+                u,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
             )
-            stdout, _ = await proc.communicate()
+            stdout, stderr = await proc.communicate()
             http_code = stdout.decode().strip() if stdout else "?"
+            if proc.returncode != 0:
+                try:
+                    os.remove(part_path)
+                except FileNotFoundError:
+                    pass
+                error = stderr.decode("utf-8", "replace").strip() or f"curl exit {proc.returncode}"
+                raise Exception(f"download failed ({http_code}): {error[:120]}")
+            os.replace(part_path, p)
             size = os.path.getsize(p) if os.path.exists(p) else 0
             # Read first 16 bytes to check if it's actually audio
             magic = b""
@@ -109,15 +139,81 @@ async def _download_media(link: str, kind: str, exts: list, wait: int = 60):
             )
             if not os.path.exists(p) or size < 50000:
                 raise Exception(f"dl fail size={size}")
-            if not is_audio:
+            if kind == "song" and not await _has_audio_stream(p):
                 raise Exception(f"not audio magic={magic[:8].hex()}")
-            return p
+            return await _prepare_audio_for_call(p) if kind == "song" else p
     except Exception as e:
         await app.send_message(
             LOGGER_ID,
             f"❌ {kind.upper()} ERR\n🔗 `{link}`\n⚠️ `{str(e)[:100]}`",
         )
         raise
+
+
+async def _has_audio_stream(path: str) -> bool:
+    """Use ffprobe instead of file extensions/magic bytes to validate audio."""
+    proc = await asyncio.create_subprocess_exec(
+        "ffprobe",
+        "-v",
+        "error",
+        "-select_streams",
+        "a:0",
+        "-show_entries",
+        "stream=codec_type",
+        "-of",
+        "default=noprint_wrappers=1:nokey=1",
+        path,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, _ = await proc.communicate()
+    return proc.returncode == 0 and "audio" in stdout.decode("utf-8", "replace").lower()
+
+
+async def _prepare_audio_for_call(path: str) -> str:
+    """Normalize downloaded audio to a seekable voice-chat friendly stream."""
+    path = os.path.abspath(path)
+    if not os.path.isfile(path) or not await _has_audio_stream(path):
+        raise Exception(f"audio source is not readable: {path}")
+
+    output = os.path.splitext(path)[0] + ".voice.ogg"
+    if os.path.isfile(output) and os.path.getsize(output) > 1000:
+        return output
+
+    part_path = f"{output}.part"
+    proc = await asyncio.create_subprocess_exec(
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-y",
+        "-i",
+        path,
+        "-map",
+        "0:a:0",
+        "-vn",
+        "-ac",
+        "2",
+        "-ar",
+        "48000",
+        "-c:a",
+        "libopus",
+        "-b:a",
+        "128k",
+        part_path,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    _, stderr = await proc.communicate()
+    if proc.returncode != 0 or not os.path.isfile(part_path) or os.path.getsize(part_path) <= 1000:
+        try:
+            os.remove(part_path)
+        except FileNotFoundError:
+            pass
+        error = stderr.decode("utf-8", "replace").strip() or f"ffmpeg exit {proc.returncode}"
+        raise Exception(f"audio normalization failed: {error[:160]}")
+    os.replace(part_path, output)
+    return output
 
 
 async def download_song(link: str):
