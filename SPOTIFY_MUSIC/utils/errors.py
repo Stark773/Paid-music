@@ -36,6 +36,7 @@ from functools import wraps
 
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from SPOTIFY_MUSIC import app
+import config
 from SPOTIFY_MUSIC import LOGGER
 
 
@@ -82,7 +83,7 @@ def capture_err(func):
                 ),
             )
             for x in error_feedback:
-                await app.send_message(LOGGER, x)
+                await app.send_message(config.LOGGER_ID, x)
             raise err
 
     return capture

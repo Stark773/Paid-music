@@ -45,7 +45,7 @@ from pytgcalls.exceptions import (
 TelegramServerError = Exception
 from pytgcalls.types import Update
 from pytgcalls.types import MediaStream, AudioQuality, VideoQuality
-from pytgcalls.types.stream import StreamEnded
+from pytgcalls.types import StreamEnded
 
 import config
 from SPOTIFY_MUSIC import LOGGER, YouTube, app

@@ -48,8 +48,6 @@ gitpython==3.1.50
 
 # ── External API ──────────────────────────────────────────────────────
 git+https://github.com/AsmSafone/SafoneAPI
-beautifulsoup4==4.15.0
-pykeyboard==0.1.5
 
 # ── Heroku Restart Support ────────────────────────────────────────────
 heroku3==5.2.1
