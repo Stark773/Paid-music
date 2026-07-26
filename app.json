@@ -1,0 +1,157 @@
+{
+  "name": "SPOTIFY_MUSIC",
+  "description": "BabiesIQ SPOTIFY_MUSIC — Telegram Music Bot with YouTube, Spotify, Apple Music, SoundCloud & Resso support.",
+  "logo": "https://raw.githubusercontent.com/BABY-MUSIC/SPOTIFY_MUSIC/main/SPOTIFY_MUSIC/assets/assets/public.jpg",
+  "keywords": ["telegram", "music", "bot", "python", "pyrogram", "pytgcalls"],
+  "website": "https://t.me/BabiesIQ",
+  "repository": "https://github.com/BABY-MUSIC/SPOTIFY_MUSIC",
+  "stack": "container",
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "env": {
+    "API_ID": {
+      "description": "Telegram API ID — get from https://my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Telegram API Hash — get from https://my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Telegram Bot Token — get from @BotFather",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Your Telegram User ID (integer)",
+      "required": true
+    },
+    "LOGGER_ID": {
+      "description": "Telegram Group/Channel ID where bot logs are sent (negative integer for group)",
+      "required": true
+    },
+    "MONGO_DB_URI": {
+      "description": "MongoDB connection URI — get free cluster from https://mongodb.com/atlas",
+      "required": true
+    },
+    "STRING_SESSION": {
+      "description": "Pyrogram string session for the assistant account (generate with @StringSessionBot)",
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Your Heroku app name (for auto-restart feature)",
+      "required": false
+    },
+    "HEROKU_API_KEY": {
+      "description": "Your Heroku API key — find in Heroku Account Settings",
+      "required": false
+    },
+    "OWNER_USERNAME": {
+      "description": "Your Telegram username without @",
+      "value": "UTTAM470",
+      "required": false
+    },
+    "BOT_USERNAME": {
+      "description": "Your bot's username without @",
+      "value": "BABY_MUSIC09_BOT",
+      "required": false
+    },
+    "BOT_NAME": {
+      "description": "Display name of your bot",
+      "value": "BABY MUSIC",
+      "required": false
+    },
+    "SUPPORT_CHANNEL": {
+      "description": "Telegram support channel link (must start with https://)",
+      "value": "https://t.me/+gF7M1_0PC803ZjU9",
+      "required": false
+    },
+    "SUPPORT_CHAT": {
+      "description": "Telegram support group link (must start with https://)",
+      "value": "https://t.me/YTM_Points",
+      "required": false
+    },
+    "UPSTREAM_REPO": {
+      "description": "GitHub repo URL for auto-update",
+      "value": "https://github.com/BABY-MUSIC/SPOTIFY_MUSIC",
+      "required": false
+    },
+    "UPSTREAM_BRANCH": {
+      "description": "Git branch for auto-update",
+      "value": "main",
+      "required": false
+    },
+    "GIT_TOKEN": {
+      "description": "GitHub Personal Access Token (for private repo auto-updates)",
+      "required": false
+    },
+    "DURATION_LIMIT": {
+      "description": "Max song duration in minutes",
+      "value": "17000",
+      "required": false
+    },
+    "SPOTIFY_CLIENT_ID": {
+      "description": "Spotify Developer App Client ID — https://developer.spotify.com",
+      "required": false
+    },
+    "SPOTIFY_CLIENT_SECRET": {
+      "description": "Spotify Developer App Client Secret",
+      "required": false
+    },
+    "PLAYLIST_FETCH_LIMIT": {
+      "description": "Max songs to fetch from a playlist",
+      "value": "25",
+      "required": false
+    },
+    "AUTO_LEAVING_ASSISTANT": {
+      "description": "Enable auto-leave for assistant after stream ends (True/False)",
+      "value": "False",
+      "required": false
+    },
+    "AUTO_LEAVE_ASSISTANT_TIME": {
+      "description": "Time in seconds before assistant auto-leaves",
+      "value": "9000",
+      "required": false
+    },
+    "SONG_DOWNLOAD_DURATION": {
+      "description": "Max duration (seconds) for song download",
+      "value": "9999999",
+      "required": false
+    },
+    "BASE_URL": {
+      "description": "BabyAPI base URL",
+      "value": "https://BabyAPI.Pro",
+      "required": false
+    },
+    "API_KEY": {
+      "description": "BabyAPI key — get from https://babyapi.pro",
+      "required": false
+    },
+    "TG_AUDIO_FILESIZE_LIMIT": {
+      "description": "Telegram audio file size limit in bytes",
+      "value": "5242880000",
+      "required": false
+    },
+    "TG_VIDEO_FILESIZE_LIMIT": {
+      "description": "Telegram video file size limit in bytes",
+      "value": "5242880000",
+      "required": false
+    },
+    "START_IMG_URL": {
+      "description": "Start message image URL",
+      "required": false
+    },
+    "PING_IMG_URL": {
+      "description": "Ping message image URL",
+      "required": false
+    }
+  },
+  "buildpacks": [],
+  "addons": [],
+  "scripts": {
+    "postdeploy": "echo 'SPOTIFY_MUSIC deployed successfully!'"
+  }
+}
