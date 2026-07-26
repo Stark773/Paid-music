@@ -44,7 +44,7 @@ psutil==7.2.2
 apscheduler==3.11.3
 
 # ── Git Auto-Update ───────────────────────────────────────────────────
-gitpython==3.1.50
+gitpython==3.1.56
 
 # ── External API ──────────────────────────────────────────────────────
 git+https://github.com/AsmSafone/SafoneAPI
