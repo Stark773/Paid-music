@@ -1,22 +1,24 @@
 # © @MuskanBot
 
+# © @MuskanBot
+
 import re
 from os import getenv
 from dotenv import load_dotenv
 from pyrogram import filters
 load_dotenv()
-API_ID = int(getenv("API_ID", "34766709"))
-API_HASH = getenv("API_HASH", "c70063901bc81555174389982a394f95")
+API_ID = int(getenv("API_ID", "38026274"))
+API_HASH = getenv("API_HASH", "025e6af819b1b299207bbab49b0313b1")
 BOT_TOKEN = getenv("BOT_TOKEN", "8564248095:AAEYoF6YaYvZ5zsXb4aVjYk18p4rRVbdXV4")
 OWNER_USERNAME = getenv("OWNER_USERNAME","sexydrifter")
 BOT_USERNAME = getenv("BOT_USERNAME" , "DolbyMusicRobot")
 BOT_NAME = getenv("BOT_NAME" , "DolbyAtoms")
 ASSUSERNAME = getenv("ASSUSERNAME" , "")
-BASE_URL = getenv("BASE_URL", "http://api.babiesiq.tech")
-API_KEY = getenv("API_KEY", "ADMINBABYX_BE1B36999F84D14C6DAF231FA4768710577EC9A1")
+BASE_URL = getenv("BASE_URL", "https://api.shrutibots.site")
+API_KEY = getenv("API_KEY", "ShrutiBotsmz4lGsT87UWrai3SBsPK")
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://deidaraasui12_db_user:lFMu0uvvRI5Kv86r@stark.yrjtl3r.mongodb.net/?appName=Stark")
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
-_logger_id_raw = getenv("LOGGER_ID", "0")
+_logger_id_raw = getenv("LOGGER_ID", "-1002494434894 ")
 LOGGER_ID = int(_logger_id_raw) if _logger_id_raw and _logger_id_raw.lstrip("-1002488365579").isdigit() else 0
 OWNER_ID = int(getenv("OWNER_ID", "7732395523"))
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
